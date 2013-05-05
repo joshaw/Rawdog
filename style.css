@@ -1,0 +1,115 @@
+/* Alternate stylesheet for rawdog. But you can still customise it as you like.
+ * The .xmlbutton was stolen from the default stylesheet.
+ * Samuel Hym <Samuel.Hym@gmail.com> */
+
+body {
+    font-family: Georgia,Serif;
+    margin: 1em;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:link {
+    color: #08b;
+}
+
+a:visited, a:hover {
+    color: #a03;
+}
+
+#header {
+    text-transform: uppercase;
+    text-align: center;
+    border: 1px solid #ddd;
+    color: #888;
+}
+
+h2, h3 {
+    font-size: 90%;
+    color: #888;
+}
+
+h2 {
+    margin-top: 1em;
+    font-size: 200%;
+}
+
+h3 {
+    margin-top: 1em;
+}
+
+#items {
+    margin: 0.6em;
+}
+
+.item {
+    padding: 0.6em;
+}
+
+.itemheader {
+    font-size: 120%;
+/*    text-align: center;*/
+    color: #a03;
+}
+
+.itemheader a, .itemheader a:visited {
+    text-decoration: none;
+    color: #a03;
+}
+
+.itemheader a:hover {
+    color: #08b;
+}
+
+.itemtitle{
+    margin: -6px 5px 5px 5px;
+    float: left;
+}
+
+.itembyline {
+    font-size: 70%;
+    text-align: right;
+    margin: 0;
+}
+
+.itemdescription {
+    display: none;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+#feedstats {
+    float: center;
+}
+
+#feeds {
+    margin: 10px 0;
+    border: 1px solid gray;
+    border-spacing: 0;
+}
+
+#feedsheader TH {
+    background-color: #eee;
+    border-bottom: 1px solid gray;
+    padding: 5px;
+    margin: 0;
+}
+
+.feedsrow TD {
+    padding: 5px 10px;
+    margin: 0;
+}
+
+.xmlbutton {
+    border: 1px solid;
+    border-color: #FC9 #630 #330 #F96;
+    padding: 0 3px;
+    font: bold 10px sans-serif;
+    color: #FFF;
+    background: #F60;
+    text-decoration: none;
+    margin: 0;
+}
+

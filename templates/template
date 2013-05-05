@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+        <link rel="stylesheet" href="style.css" type="text/css">
+        <title>rawdog</title>
+        <script type="text/javascript">
+            function toggle(showHideDiv, switchTextDiv) {
+                var ele = document.getElementById(showHideDiv);
+                var text = document.getElementById(switchTextDiv);
+                if(ele.style.display == "block") {
+                    ele.style.display = "none";
+                    text.innerHTML = "show";
+                }
+                else {
+                    ele.style.display = "block";
+                    text.innerHTML = "hide";
+                }
+            }  
+            function openall(){
+                var list = document.getElementsByClassName("itemdescription");
+                for (var i = 0; i < list.length; i++) {
+                    document.list[i].style.display = "block";
+                }
+            }
+        </script>
+    </head>
+    <body id="rawdog">
+        <div id="page">
+            <div id="header">
+                <h1>rawdog __version__: __num_items__ items from __num_feeds__ feeds</h1>
+                <p>Items __items__ </p>
+                <p onclick="openall()">Expand all</p>
+            </div>
+            <div class="pages">
+                __paged_output_pages__
+            </div>
+            <div id="items">
+                __items__
+            </div>
+            <div class="pages">
+                __paged_output_pages__
+            </div>
+        </div>
+    </body>
+</html>
