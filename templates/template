@@ -7,6 +7,54 @@
         <title>rawdog</title>
         <script type="text/javascript">
 
+            function getCookie(c_name) {
+                var c_value = document.cookie;
+                var c_start = c_value.indexOf(" " + c_name + "=");
+                if (c_start == -1) {
+                    c_start = c_value.indexOf(c_name + "=");
+                }
+                if (c_start == -1) {
+                    c_value = null;
+                }
+                else {
+                    c_start = c_value.indexOf("=", c_start) + 1;
+                    var c_end = c_value.indexOf(";", c_start);
+                    if (c_end == -1)
+                    {
+                        c_end = c_value.length;
+                    }
+                    c_value = unescape(c_value.substring(c_start,c_end));
+                }
+                return c_value;
+            }
+
+            /*function setCookie(c_name,value,exdays) {
+                var exdate=new Date();
+                exdate.setDate(exdate.getDate() + exdays);
+                var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
+                document.cookie=c_name + "=" + c_value;
+            }*/
+            function setCookie(cookieName,cookieValue,nDays) {
+                var today = new Date();
+                var expire = new Date();
+                if (nDays==null || nDays==0) nDays=1;
+                expire.setTime(today.getTime() + 3600000*24*nDays);
+                document.cookie = cookieName+"="+escape(cookieValue)
+                    + ";expires="+expire.toGMTString();
+            }
+
+            function checkCookie() {
+                var username=getCookie("username");
+                if (username!=null && username!="") {
+                    alert("Welcome again " + username);
+                }
+                else {
+                    username=prompt("Please enter your name:","");
+                    if (username!=null && username!="") {
+                        setCookie("username",username,365);
+                    }
+                }
+            }
             var currentlyOpen = "none";
 
             document.onkeyup = KeyCheck;       
@@ -32,6 +80,8 @@
                 else {
                     ele.style.display = "block";
                     currentlyOpen = showHideDiv;
+                    document.getElementById(currentlyOpen).previousElementSibling.getElementsByTagName("h4")[0].style.color = "#08b";
+                    setCookie("read",currentlyOpen,30);
                 }
             }  
             function toggleall(changeTo){
@@ -41,15 +91,7 @@
                     e.style.display = changeTo;
                 }
             }
-            function addIds(){
-                var items = document.getElementsByClassName("itemdescription");
-                for (var i = 0; i < items.length; i++) {
-                    var e = items[i];
-                    e.id="Navigation"+(i);
-                }
-            }
-            addIds();
-
+            
             function nextPrev(direction){
                 var divs = document.getElementsByClassName("itemdescription");
                 var selectionDiv = document.getElementById(currentlyOpen);
@@ -65,13 +107,16 @@
                 if(direction == "next"){
                     toggle(next.id);
                     window.location = "#" + next.parentNode.id;
+/*                    currentlyOpen.parentElement.previousElementSibling.firstElementChild.style.background = "green";*/
                 }else{
                     toggle(previous.id);
+                    window.location = "#" + previous.parentNode.id;
                 }
             }
+
         </script>
     </head>
-    <body id="rawdog">
+    <body id="rawdog" onload="checkCookie()">
         <div id="page">
             <div id="header">
                 <h1>rawdog __version__: __num_items__ items from __num_feeds__ feeds</h1>

@@ -7,6 +7,54 @@
         <title>rawdog</title>
         <script type="text/javascript">
 
+            function getCookie(c_name) {
+                var c_value = document.cookie;
+                var c_start = c_value.indexOf(" " + c_name + "=");
+                if (c_start == -1) {
+                    c_start = c_value.indexOf(c_name + "=");
+                }
+                if (c_start == -1) {
+                    c_value = null;
+                }
+                else {
+                    c_start = c_value.indexOf("=", c_start) + 1;
+                    var c_end = c_value.indexOf(";", c_start);
+                    if (c_end == -1)
+                    {
+                        c_end = c_value.length;
+                    }
+                    c_value = unescape(c_value.substring(c_start,c_end));
+                }
+                return c_value;
+            }
+
+            /*function setCookie(c_name,value,exdays) {
+                var exdate=new Date();
+                exdate.setDate(exdate.getDate() + exdays);
+                var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
+                document.cookie=c_name + "=" + c_value;
+            }*/
+            function setCookie(cookieName,cookieValue,nDays) {
+                var today = new Date();
+                var expire = new Date();
+                if (nDays==null || nDays==0) nDays=1;
+                expire.setTime(today.getTime() + 3600000*24*nDays);
+                document.cookie = cookieName+"="+escape(cookieValue)
+                    + ";expires="+expire.toGMTString();
+            }
+
+            function checkCookie() {
+                var username=getCookie("username");
+                if (username!=null && username!="") {
+                    alert("Welcome again " + username);
+                }
+                else {
+                    username=prompt("Please enter your name:","");
+                    if (username!=null && username!="") {
+                        setCookie("username",username,365);
+                    }
+                }
+            }
             var currentlyOpen = "none";
 
             document.onkeyup = KeyCheck;       
@@ -32,6 +80,8 @@
                 else {
                     ele.style.display = "block";
                     currentlyOpen = showHideDiv;
+                    document.getElementById(currentlyOpen).previousElementSibling.getElementsByTagName("h4")[0].style.color = "#08b";
+                    setCookie("read",currentlyOpen,30);
                 }
             }  
             function toggleall(changeTo){
@@ -41,15 +91,7 @@
                     e.style.display = changeTo;
                 }
             }
-            function addIds(){
-                var items = document.getElementsByClassName("itemdescription");
-                for (var i = 0; i < items.length; i++) {
-                    var e = items[i];
-                    e.id="Navigation"+(i);
-                }
-            }
-            addIds();
-
+            
             function nextPrev(direction){
                 var divs = document.getElementsByClassName("itemdescription");
                 var selectionDiv = document.getElementById(currentlyOpen);
@@ -65,13 +107,16 @@
                 if(direction == "next"){
                     toggle(next.id);
                     window.location = "#" + next.parentNode.id;
+/*                    currentlyOpen.parentElement.previousElementSibling.firstElementChild.style.background = "green";*/
                 }else{
                     toggle(previous.id);
+                    window.location = "#" + previous.parentNode.id;
                 }
             }
+
         </script>
     </head>
-    <body id="rawdog">
+    <body id="rawdog" onload="checkCookie()">
         <div id="page">
             <div id="header">
                 <h1>rawdog 2.13: 30 items from 58 feeds</h1>
@@ -83,6 +128,307 @@
             <div id="items">
                 <div class="day">
 <h2>Monday, 06 May</h2>
+<div class="time">
+<h3>10:00 PM</h3>
+<!-- PAGE-BEGIN-ITEM -->
+<div class="item" id="parentee2ec398" >
+    <div class="itemheader feed-ff49a3d4 feed-crunchbanglinux" id="headeree2ec398" onclick="toggleall('none');toggle('itemee2ec398')">
+        <h4 class="itemtitle"><a href="http://crunchbang.org/forums/viewtopic.php?pid=306356#p306356">>> </a>CrunchBang 11 "Waldorf" Released</h4>
+        <p class="itembyline">
+        by corenominal
+        in <a href="http://crunchbang.org/news/feed/">CrunchBang Linux</a>
+        
+    </div>
+    <div class="itemdescription" id="itemee2ec398">
+        <p>Debian 7 &quot;Wheezy&quot; was <a href="http://www.debian.org/News/2013/20130504">released on May 4th</a>. Congratulations and thank you to all involved; the Debian developers, hackers, testers, document writers, designers, bug reporters and users -- you are all awesome.</p><p>Now that Wheezy has migrated to the stable branch of Debian, this means that Waldorf is the new stable #! release. To acknowledge this occasion, I have rebuilt the Waldorf images. The new images are available now from the <a href="http://crunchbang.org/download/">download page</a>.</p><p>For anyone unaware, #! Waldorf has been in development for well over a year and has seen numerous development releases (<a href="http://crunchbang.org/forums/viewtopic.php?pid=213329#p213329">20120430</a>, <a href="http://crunchbang.org/forums/viewtopic.php?pid=249348#p249348">20120806</a>, <a href="http://crunchbang.org/forums/viewtopic.php?pid=260069#p260069">20120924</a>, <a href="http://crunchbang.org/forums/viewtopic.php?pid=260816#p260816">20120927</a>, <a href="http://crunchbang.org/forums/viewtopic.php?pid=264474#p264474">20121015</a>, <a href="http://crunchbang.org/forums/viewtopic.php?pid=284488#p284488">20130119</a>). This probably makes Waldorf the most thoroughly tested #! release to date and as a result, I believe it is also the best #! release, ever, truly.</p><p>A massive thank you goes out to everybody who has helped with Waldorf, it really would not have been possible without your continued feedback, bug reports, contributions and support.</p><p>Note; for anyone who is already running Waldorf, there is no need to download and install these images.</p>
+    </div>
+</div>
+<!-- PAGE-END-ITEM -->
+
+<!-- PAGE-BEGIN-ITEM -->
+<div class="item" id="parent7322f29a" >
+    <div class="itemheader feed-70b91055 feed-googleoperatingsystem" id="header7322f29a" onclick="toggleall('none');toggle('item7322f29a')">
+        <h4 class="itemtitle"><a href="http://googlesystem.blogspot.com/2013/05/new-question-types-in-google-forms.html">>> </a>New Question Types in Google Forms</h4>
+        <p class="itembyline">
+        by <a href="mailto:noreply@blogger.com">Alex Chitu</a>
+        in <a href="http://googlesystem.blogspot.com/">Google Operating System</a>
+        
+    </div>
+    <div class="itemdescription" id="item7322f29a">
+        <p><a href="https://drive.google.com/forms">Google Forms</a> added two new question types for dates and time. There's a pretty useful date picker, but you can also enter dates manually. You can customize the time questions and enable "duration" to ask questions like "how much time a day do you spend on Facebook every day?".<br /><br />To add a question to your form, click the arrow next to the "Add item" button and select "date" or "time" from the list of question types.<br /><br /><div style="text-align: center;"><img border="0" src="http://2.bp.blogspot.com/-ejZLExnjX4g/UYgK8L0wthI/AAAAAAABJMU/buHdx2jewso/s640/google-forms-question-types.png" /></div><br /><div style="text-align: center;"><img border="0" src="http://2.bp.blogspot.com/-dK-6PHzuTdk/UYgMT_usVqI/AAAAAAABJMg/h8tWgQwXg1o/s640/google-forms-question-types-2.png" /></div><br />If you're wondering what's next for Google Forms, the source code reveals that Google will add support for rich-text editing, embedding images and that Google Forms will integrate with Fusion Tables and Google Scripts (codename "maestro").<br /><br /><div style="text-align: center;"><img border="0" src="http://2.bp.blogspot.com/-kOfZeMk0dbQ/UYgSPpgfccI/AAAAAAABJM4/KHVnVFtR7_4/s640/google-forms-code.png" /></div><br />{ Thanks, Herin and Daniel. }<div class="feedflare">
+<a href="http://feeds.feedburner.com/~ff/GoogleOperatingSystem?a=GZYxZa7ADJc:_xUKQMi4_Tk:4cEx4HpKnUU"><img border="0" src="http://feeds.feedburner.com/~ff/GoogleOperatingSystem?i=GZYxZa7ADJc:_xUKQMi4_Tk:4cEx4HpKnUU" /></a> <a href="http://feeds.feedburner.com/~ff/GoogleOperatingSystem?a=GZYxZa7ADJc:_xUKQMi4_Tk:yIl2AUoC8zA"><img border="0" src="http://feeds.feedburner.com/~ff/GoogleOperatingSystem?d=yIl2AUoC8zA" /></a> <a href="http://feeds.feedburner.com/~ff/GoogleOperatingSystem?a=GZYxZa7ADJc:_xUKQMi4_Tk:qj6IDK7rITs"><img border="0" src="http://feeds.feedburner.com/~ff/GoogleOperatingSystem?d=qj6IDK7rITs" /></a>
+</div><img height="1" src="http://feeds.feedburner.com/~r/GoogleOperatingSystem/~4/GZYxZa7ADJc" width="1" />
+    </div>
+</div>
+<!-- PAGE-END-ITEM -->
+
+<!-- PAGE-BEGIN-ITEM -->
+<div class="item" id="parent1f92e376" >
+    <div class="itemheader feed-4e56dad2 feed-thevergeallposts" id="header1f92e376" onclick="toggleall('none');toggle('item1f92e376')">
+        <h4 class="itemtitle"><a href="http://www.theverge.com/2013/5/6/4306074/former-palm-ceo-jon-rubinstein-joins-qualcomm-board-of-directors">>> </a>Former Palm CEO Jon Rubinstein joins Qualcomm board of directors</h4>
+        <p class="itembyline">
+        by Dieter Bohn
+        in <a href="http://www.theverge.com/">The Verge -  All Posts</a>
+        
+    </div>
+    <div class="itemdescription" id="item1f92e376">
+        <div>
+<p>After HP purchased Palm, <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2F2012%2F6%2F5%2F3062611%2Fpalm-webos-hp-inside-story-pre-postmortem">gutted it</a>, and <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2F2013%2F2%2F25%2F4027018%2Flg-buys-webos-smart-tv">sold its remains to LG</a>, Palm's former CEO Jon Rubinstein has kept a relatively low profile. Rubinstein may not yet be ready to make a big splash, but he is set to join Qualcomm's board of directors, reports <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fallthingsd.com%2F20130506%2Fexclusive-jon-rubinstein-joins-board-of-qualcomm-as-mobile-chipmaker-ups-its-silicon-valley-cred%2F%3Fmod%3Datdtweet" target="_blank"><em>All Things D</em></a>. Rubinstein already <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fphx.corporate-ir.net%2Fphoenix.zhtml%3Fc%3D97664%26amp%3Bp%3Dirol-govmanage" target="_blank">serves on Amazon's board</a>, and on Qualcomm he would be adding his years of experience building products to Qualcomm's expertise in creating the chips that power them. Qualcomm quickly <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.marketwatch.com%2Fstory%2Fqualcomm-elects-jonathan-rubinstein-to-board-of-directors-2013-05-06" target="_blank">confirmed the report in a press release</a>, wherein Qualcomm CEO Paul Jacobs said that "His experience in creating revolutionary consumer electronics and mobile products will provide added insight to Qualcomm's board."</p>
+<p>Beyond helping create the original iPod, Rubinstein is best known for helming Palm as it tried to reinvent itself with webOS and the Pre series of phones. The company essentially ran out of runway and was purchased by HP, who failed utterly to put sufficient resources behind webOS and then killed its chances as then-CEO Leo Apotheker tried to reinvent HP as a services company. Rubinstein <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2F2011%2F07%2F11%2Fhp-shakeup-webos-led-stephen-dewitt-jon-rubinstein-charge-product-innovation%2F">stepped back to a generic "product innovation" role at HP in July of 2011</a> only to <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2F2012%2F1%2F27%2F2752496%2Fjon-rubinstein-former-palm-ceo-leaves-hp">leave enitrely in January 2012</a>.</p>
+<p>Joining Qualcomm makes sense for both Rubinstein and the company. When <em>The Verge</em> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2F2012%2F1%2F27%2F2752581%2Fjon-rubinstein-going-to-take-some-well-deserved-time-off">spoke to Rubinstein in January of 2012</a>, he said that after a "break" he would continue in that space: "I think the future is mobile."</p>
+<div class="article-meta clearfix">
+<ul class="simplelist sourcelist clearfix"><li class="source clearfix"><strong>Source</strong> <span><a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fallthingsd.com%2F20130506%2Fexclusive-jon-rubinstein-joins-board-of-qualcomm-as-mobile-chipmaker-ups-its-silicon-valley-cred%2F%3Fmod%3Datdtweet">All Things D</a><a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.marketwatch.com%2Fstory%2Fqualcomm-elects-jonathan-rubinstein-to-board-of-directors-2013-05-06">Qualcomm (PR)</a></span></li>
+<li class="tags clearfix"><strong>Related Items</strong> <span><a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Fboard-of-directors">board of directors</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Fjon-rubinstein">jon rubinstein</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Frubinstein">rubinstein</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Fpaul-jacobs">paul jacobs</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Fproducts%2Fbrands%2Fqualcomm%2F346">Qualcomm</a></span></li>
+</ul></div>
+</div><img border="0" height="1" src="http://pixel.quantserve.com/pixel/p-89EKCgBk8MZdE.gif" width="1" />
+    </div>
+</div>
+<!-- PAGE-END-ITEM -->
+
+<!-- PAGE-BEGIN-ITEM -->
+<div class="item" id="parentdf8a25c0" >
+    <div class="itemheader feed-4e56dad2 feed-thevergeallposts" id="headerdf8a25c0" onclick="toggleall('none');toggle('itemdf8a25c0')">
+        <h4 class="itemtitle"><a href="http://www.theverge.com/2013/5/6/4305990/the-onion-twitter-hack-twists-satire-into-reality-and-back-again">>> </a>The Onion Twitter hack twists satire into reality and back again</h4>
+        <p class="itembyline">
+        by Adi Robertson
+        in <a href="http://www.theverge.com/">The Verge -  All Posts</a>
+        
+    </div>
+    <div class="itemdescription" id="itemdf8a25c0">
+        <div>
+<p>Posting a fake story on a reputable news source's Twitter feed can lead to <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2F2013%2F5%2F1%2F4290108%2Fhacked-ap-twitter-account-shows-need-for-new-high-speed-trading-rules">momentary public panic</a>, but what happens when you post real grievances to a fake news feed? Earlier today, readers of satirical news source <em>The Onion</em> began <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.huffingtonpost.com%2F2013%2F05%2F06%2Fonion-syrian-electronic-army_n_3223367.html%3Futm_hp_ref%3Dtw" target="_blank">seeing strange tweets and Facebook messages</a> on various social media accounts. "UN's Ban Ki Moon condemns Syria for being struck by israel: 'It was in the way of Jewish missiles,'" read one. "BREAKING: #TheOnion readership mass confusion as Syrian Electronic Army takes over. All demand a permanent column," said another. Most included links with the shortened <em>Onion</em> format, but none led to real articles.</p>
+<p>Hacks are usually easy to identify, but as the tweets unfolded over the course of an hour, it was hard to tell whether this was an actual Syrian Electronic Army attack or a meta-joke by <em>The Onion</em> itself. High-profile Twitter hacks have become commonplace enough that they've entered the site's cultural landscape, as have endless guessing games about whether a given tweet is real or the work of hackers. Back in February, the managers of MTV and BET's Twitter feeds <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2F2013%2F2%2F19%2F4006718%2Fafter-mtv-and-bets-fake-hacking-the-jokes-on-twitter">pretended to hack each other's accounts</a>, briefly changing them to "Hacked MTV" and "BET Hacked" before coming clean. In this light, it's easy to read <em>The Onion's</em> tweets as a strange meta-exercise: a site known for satirical news pretends to be a group of fairly serious hacktivists by posting less-funny versions of its usual fake tweets.</p>
+<p>In the end, that doesn't seem to have been the case. While neither <em>The Onion</em> nor Twitter responded to requests for comment, the offending tweets were soon removed, suggesting a real hack. Not long after, <em>The Onion</em> posted its own take on the situation:</p>
+<hr class="widget_boundry_marker hidden page_break" />
+<p>Soon after, another article went up, this one titled "<a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theonion.com%2Farticles%2Fsyrian-electronic-army-has-a-little-fun-before-ine%2C32324%2F%3Futm_source%3DTwitter%26amp%3Butm_medium%3DSocialMarketing%26amp%3Butm_campaign%3Dstandard-post%3Aheadline%3Adefault" target="_blank">Syrian Electronic Army Has A Little Fun Before Inevitable Upcoming Deaths At Hands Of Rebels</a>." Both pieces credit the Syrian Electronic Army with hacking <em>The Onion's</em> Twitter feed, then proceed to detail password changes or the hackers' impending deaths. "We figured that before they bust in here and execute every single one of us, we might as well have a good time and post some silly tweets about Israel from a major media outlet's feed," <em>The Onion</em> quotes a "spokesperson" from the SEA as saying. A <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fstorify.com%2FLadySnarksalot%2Fwhat-happens-when-theonion-gets-hacked" target="_blank">full Storify of the tweets can be found here</a> &#8212; assuming, of course, that neither <em>The Onion</em> nor the SEA have some final act in the works.</p>
+<div class="article-meta clearfix">
+<ul class="simplelist sourcelist clearfix"><li class="source clearfix"><strong>Source</strong> <span><a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.huffingtonpost.com%2F2013%2F05%2F06%2Fonion-syrian-electronic-army_n_3223367.html%3Futm_hp_ref%3Dtw">Huffington Post</a><a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fstorify.com%2FLadySnarksalot%2Fwhat-happens-when-theonion-gets-hacked">Lady Snarksalot (Storify)</a></span></li>
+<li class="tags clearfix"><strong>Related Items</strong> <span><a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Ftwitter">twitter</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Ftwitter-hack">twitter hack</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Fthe-onion">the onion</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Fhack">hack</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Fsyrian-electronic-army">syrian electronic army</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Fsyria">syria</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Fisrael">israel</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Fsocial-media">social media</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Fsocial">social</a></span></li>
+</ul></div>
+</div><img border="0" height="1" src="http://pixel.quantserve.com/pixel/p-89EKCgBk8MZdE.gif" width="1" />
+    </div>
+</div>
+<!-- PAGE-END-ITEM -->
+
+<!-- PAGE-BEGIN-ITEM -->
+<div class="item" id="parentf8bc646c" >
+    <div class="itemheader feed-4e56dad2 feed-thevergeallposts" id="headerf8bc646c" onclick="toggleall('none');toggle('itemf8bc646c')">
+        <h4 class="itemtitle"><a href="http://www.theverge.com/2013/5/6/4305880/using-google-glass-stuck-in-traffic">>> </a>Using Google Glass: stuck in traffic</h4>
+        <p class="itembyline">
+        by Sean Hollister
+        in <a href="http://www.theverge.com/">The Verge -  All Posts</a>
+        
+    </div>
+    <div class="itemdescription" id="itemf8bc646c">
+        <div>
+<p><a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2F2013%2F5%2F6%2F4305880%2Fusing-google-glass-stuck-in-traffic" id="verge-glass">Google Glass story stream</a></p>
+
+<p><em>Google's Glass Explorer Edition is finally shipping, and Verge staffers worldwide have been waiting to try out the new headset. So we're sending our editors out to live life with Glass, to explore the brave new world we're lurching into whether we like it or not.</em></p>
+<p>I was late.</p>
+<p>Ten minutes after I was supposed to be at Google HQ, learning how to wear the company's <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2F2013%2F2%2F22%2F4013406%2Fi-used-google-glass-its-the-future-with-monthly-updates">hotly anticipated Glass headset</a>, I found myself stuck in stop-and-go traffic not a mile from the Mountain View campus. Worried that I might miss my only chance to try the tech, I frantically looked through my phone for a number I could call to push back my 9AM appointment, or a way to get around the cars blocking my path. I don't use my phone while actually driving, and even this use, stopped in traffic, set me on edge. "If only I already had Google Glass," I thought, "I could have done this much easier."</p>
+<p>More on that in a bit.</p>
+<p>When I got to my new 9:30AM appointment, a friendly bearded gentleman named Nathaniel (or was it Andrew? or Alexander?) greeted me inside the newly-designated Glass building on Google's campus. He began grooming me for an extensive one-hour fitting session where, I understood, he'd introduce me to every tiny facet of the hardware and generally make me feel like a citizen of a new era. I didn't have the time to spare, though &#8212; I had a 10:25 interview with aerospace magnate Sir Richard Branson at the San Jose Airport. I was in a rush. So instead of a long introduction, I decided to test just how easy it is to become a Google cyborg.</p>
+<p><img alt="20130506-12135657--20130501_095032_623_verge_super_wide-875" class="photo" src="http://assets.sbnation.com/assets/2587509/20130506-12135657--20130501_095032_623_verge_super_wide-875.jpg" /><br id="1367869179270" /></p>
+<p>Physically, it's not very hard. You press the power button on the back of the earpiece. You put the glasses on your head. If it's your first time, you then take them off again to adjust the two nosepieces. Then, you rest it on your nose such that the eyepiece is up above your right eye &#8212; you won't actually be looking at it unless you glance upwards or tilt your neck down, but that seems to be intentional. Finally, you swivel the eyepiece until you can clearly see a glowing box inside that little glass cube. It only took me about three minutes to adjust the first time, and it fit fairly well from then on. You can also optionally add a special pair of sunglasses to Glass, which snaps into the nosebridge.</p>
+<p><q class="left">Getting fitted is quick &#8212; setting up takes a bit longer</q></p>
+<p>Then, you tap your right temple, say "OK Glass," and issue a voice command. Easy, no? Only the present version of Glass doesn't actually do anything of value unless you connect it to Wi-Fi. If I wanted to use it in the car on the way to meet Sir Richard Branson &#8212; and, I hoped, to impress him with the hottest new gadget in town &#8212; I'd have to turn my smartphone into a battery-draining portable Wi-Fi hotspot, and pair it over Bluetooth as well. That took quite a few more presses, and a good bit of setup on the phone. You can't connect Glass to Wi-Fi, for instance, without using the MyGlass app or a tethered computer, and if you want to call or text anyone you'll have to specifically add a contact from Gmail to Glass on a separate computer before you make a call.</p>
+<p><img alt="2013-04-30_21-38-27verge_verge_super_wide" class="photo" src="http://assets.sbnation.com/assets/2587605/2013-04-30_21-38-27verge_verge_super_wide.jpg" /></p>
+<p>Eventually I was connected, and I spent a few minutes swiping and tapping my way through the touchpad interface. Everything you see in Glass appears as a "card" in a virtual carousel. Starting from the "OK Glass" screen, swiping backwards will only lead you to the settings page, but swiping forwards takes you to every previous interaction you&#8217;ve had with Glass, including searches you&#8217;ve made, photographs you&#8217;ve taken, messages you&#8217;ve sent and received, and trips you&#8217;ve plotted. Tapping selects one for limited interaction (tapping a photo only allows you to delete or share), and you can cancel actions or turn off the display by swiping down. There&#8217;s also a fairly sizable physical button on the corner of the frames that will instantly snap a photo.</p>
+<p>After taking a few photos and trying a few quick searches I realized that 20 minutes had passed. Feeling like Captain Picard of the Starship Enterprise, I told Glass to lay in a course for San Jose Airport, cursed myself for forgetting to turn on GPS on my phone, rectified that quickly (again, having to reach for my phone), and took the helm of my aging automobile. Then it was time for a true test of Glass's capabilities on the freeway.</p>
+
+<p>Verizon LTE is plentiful in San Jose, particularly on highways, and I didn't lose connection on the way. I did, however, come to the realization that Glass isn't yet remotely close to the driver-safe, hands-free computing panacea I'd been dreaming of for years. Taking pictures and 10-second video clips of exactly what I saw on the road is pretty awesome, but feels surprisingly dangerous... you have to look directly at what you&#8217;re photographing, so you won&#8217;t be getting any safe photographs unless they&#8217;re <em>of</em> the road. More importantly, Glass's ability to look up important information on the go is extremely thin right now. Googling "Sir Richard Branson" brought up only the barest "oh, that guy" blurb, and other web searches were similarly limited to identifying websites rather than actually reading their content. And that's just the first of many limitations I discovered.</p>
+<p><q class="right">I couldn't see or hear enough for Glass to work in the car</q></p>
+<p>While I loved having turn-by-turn directions from Google Maps navigation floating in my peripheral vision, the display wasn't bright enough for me to see those directions while looking out the windshield of my car. I had to glance up towards the car's ceiling, or place a hand behind the cube to see where I was going. When I realized that I should call Sir Richard's PR agent, it was too late to link her number to Glass, and I wasn't about to whip out my phone at 65 miles per hour. When another person called, I was able to pick up easily enough by tapping Glass at my temple, but the bone-conducting speaker wasn't loud enough to hear over the noise of the car. I had to enunciate extremely clearly and loudly for Glass to interpret my voice searches correctly. And by the time I reached San Jose Airport, less than an hour after I arrived at Google that morning, I'd already used up a full third of the headset's battery life.</p>
+<p>The other thing I missed on the way to the airport was an email from Sir Richard Branson's agent about a change of plan. He decided to fly out early... roughly about a minute before I got there. "If only I'd hooked up Glass to my personal email account before I left," I thought, "at least I wouldn't have needed to rush."</p>
+<p><img alt="20130506-12135657--20130501_100523_514_verge_super_wide-875" class="photo" src="http://assets.sbnation.com/assets/2587533/20130506-12135657--20130501_100523_514_verge_super_wide-875.jpg" /><br id="1367869234504" /></p>
+<p>Don&#8217;t get me wrong: when I&#8217;m in the driver&#8217;s seat, Google Glass is exactly the kind of tool I want. I&#8217;m looking for a hands-free device that can show and tell me things that I need to know and guide me on my way, before I reach my destination.</p>
+<p>What the $1,500 Explorer Edition currently provides, though, is far too little information that relies far too heavily on my phone for even the little it does have to offer. With an integrated cell modem and more thought into how to make things I need accessible on that tiny screen, there&#8217;s loads of potential.</p>
+<div class="article-meta clearfix">
+<ul class="simplelist sourcelist clearfix"><li class="tags clearfix"><strong>Related Items</strong> <span><a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Fglass">glass</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Fgoogle-maps">google maps</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Ftrial">trial</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Fgps">gps</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Fprototype">prototype</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Fwearable">wearable</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Faugmented-reality">augmented reality</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Fwearable-computing">wearable computing</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Fgoogle-glass">google glass</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Fexplorer-edition">explorer edition</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Flife-with-glass">life with glass</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Fproducts%2Fglass%2F6977">Glass</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Fproducts%2Fbrands%2Fgoogle%2F436">Google</a></span></li>
+</ul></div>
+</div><img border="0" height="1" src="http://pixel.quantserve.com/pixel/p-89EKCgBk8MZdE.gif" width="1" />
+    </div>
+</div>
+<!-- PAGE-END-ITEM -->
+
+<!-- PAGE-BEGIN-ITEM -->
+<div class="item" id="parent77864a26" >
+    <div class="itemheader feed-4e56dad2 feed-thevergeallposts" id="header77864a26" onclick="toggleall('none');toggle('item77864a26')">
+        <h4 class="itemtitle"><a href="http://www.theverge.com/2013/5/6/4306040/electronic-arts-gets-exclusive-deal-to-develop-star-wars-video-games">>> </a>EA takes helm from LucasArts, will exclusively develop future 'Star Wars' games</h4>
+        <p class="itembyline">
+        by Dante D'Orazio
+        in <a href="http://www.theverge.com/">The Verge -  All Posts</a>
+        
+    </div>
+    <div class="itemdescription" id="item77864a26">
+        <div>
+<p>The future of <em>Star Wars</em> video games was uncertain following Disney's decision to shutter LucasArts, but now the company has announced that it has signed an exclusive, multi-year deal with Electronic Arts to develop games based off the franchise. Game developers DICE, Visceral, and Bioware will work on titles that are based in the <em>Star Wars</em> universe (the latter has already published games like <em>Star Wars: The Old Republic</em>). EA's Frank Gibeaua said in a press release that the games will be "entirely original with all new stories and gameplay," though they "may borrow from films." The deal doesn't give EA complete control over all Star Wars video game titles, however: Disney will hold onto the right to develop and publish titles in the "mobile, social, tablet and online game categories." It's not clear if EA will pick up on any of the work that LucasArts was doing before it was shut down last month, including <em>Star Wars 1313</em>.</p>
+
+</div><img border="0" height="1" src="http://pixel.quantserve.com/pixel/p-89EKCgBk8MZdE.gif" width="1" />
+    </div>
+</div>
+<!-- PAGE-END-ITEM -->
+
+</div>
+<div class="time">
+<h3>09:00 PM</h3>
+<!-- PAGE-BEGIN-ITEM -->
+<div class="item" id="parent584e8fbb" >
+    <div class="itemheader feed-fb0268fc feed-omgubuntu" id="header584e8fbb" onclick="toggleall('none');toggle('item584e8fbb')">
+        <h4 class="itemtitle"><a href="http://feedproxy.google.com/~r/d0od/~3/jg03bz7eNrE/spotify-for-linux-updates">>> </a>Spotify Pushes Out Bug Fix Update on Linux</h4>
+        <p class="itembyline">
+        by Joey-Elijah Sneddon
+        in <a href="http://www.omgubuntu.co.uk">OMG! Ubuntu!</a>
+        
+    </div>
+    <div class="itemdescription" id="item584e8fbb">
+        <p style="text-align: center;"><a href="http://www.omgubuntu.co.uk/wp-content/uploads/2013/05/spot.jpg"><img alt="spot" class="aligncenter  wp-image-77885" src="http://www.omgubuntu.co.uk/wp-content/uploads/2013/05/spot.jpg" /></a></p>
+<p><strong>Spotify has released an updated version of their desktop app for Linux.&#160;</strong></p>
+<p>Unlike the<a href="http://www.omgubuntu.co.uk/2013/01/spotify-update-brings-linux-users-new-features-first" target="_blank" title="Spotify Update Brings Linux Users New Features First"> last release-proper back in January</a>, you won&#8217;t find anything dramatically different in this release, but you will find a new icon, faster start up times, and a handful of other minor fixes.</p>
+<ul>
+<li><strong>New logo</strong></li>
+<li><strong>Faster start-up time</strong></li>
+<li><strong>Chinese language fixes</strong></li>
+<li><strong>Ads won&#8217;t bring Spotify to the front any more</strong></li>
+</ul>
+<p>Spotify 0.9.133 isn&#8217;t going to persuade anyone who is not using it already using it to start doing so, but the more ardent Spotifites amongst&#160;you&#160;will likely appreciate it.</p>
+<p>For more details on installing Spotify in Ubuntu check out our guide, which covers Ubuntu 12.04, 12.10 and 13.04.</p>
+<p style="text-align: center;"><a class="informational-link" href="http://www.omgubuntu.co.uk/2013/01/how-to-install-spotify-in-ubuntu-12-04-12-10" target="_self" title="Install Spotify in Ubuntu"> How to Install Spotify in Ubuntu </a></p>
+<p><a href="http://www.omgubuntu.co.uk/2013/05/spotify-for-linux-updates">Spotify Pushes Out Bug Fix Update on Linux</a> <a href="http://www.omgubuntu.co.uk">OMG! Ubuntu! - Everything Ubuntu. Daily.</a></p><div class="feedflare">
+<a href="http://feeds.feedburner.com/~ff/d0od?a=jg03bz7eNrE:D2CIlcQPcAU:wBxX2hOkimM"><img border="0" src="http://feeds.feedburner.com/~ff/d0od?i=jg03bz7eNrE:D2CIlcQPcAU:wBxX2hOkimM" /></a> <a href="http://feeds.feedburner.com/~ff/d0od?a=jg03bz7eNrE:D2CIlcQPcAU:I9og5sOYxJI"><img border="0" src="http://feeds.feedburner.com/~ff/d0od?d=I9og5sOYxJI" /></a> <a href="http://feeds.feedburner.com/~ff/d0od?a=jg03bz7eNrE:D2CIlcQPcAU:qj6IDK7rITs"><img border="0" src="http://feeds.feedburner.com/~ff/d0od?d=qj6IDK7rITs" /></a> <a href="http://feeds.feedburner.com/~ff/d0od?a=jg03bz7eNrE:D2CIlcQPcAU:V_sGLiPBpWU"><img border="0" src="http://feeds.feedburner.com/~ff/d0od?i=jg03bz7eNrE:D2CIlcQPcAU:V_sGLiPBpWU" /></a> <a href="http://feeds.feedburner.com/~ff/d0od?a=jg03bz7eNrE:D2CIlcQPcAU:gIN9vFwOqvQ"><img border="0" src="http://feeds.feedburner.com/~ff/d0od?i=jg03bz7eNrE:D2CIlcQPcAU:gIN9vFwOqvQ" /></a> <a href="http://feeds.feedburner.com/~ff/d0od?a=jg03bz7eNrE:D2CIlcQPcAU:yIl2AUoC8zA"><img border="0" src="http://feeds.feedburner.com/~ff/d0od?d=yIl2AUoC8zA" /></a>
+</div><img height="1" src="http://feeds.feedburner.com/~r/d0od/~4/jg03bz7eNrE" width="1" />
+    </div>
+</div>
+<!-- PAGE-END-ITEM -->
+
+<!-- PAGE-BEGIN-ITEM -->
+<div class="item" id="parent6c3d5492" >
+    <div class="itemheader feed-4e56dad2 feed-thevergeallposts" id="header6c3d5492" onclick="toggleall('none');toggle('item6c3d5492')">
+        <h4 class="itemtitle"><a href="http://www.theverge.com/2013/5/6/4305712/adobe-announces-first-hardware-the-project-mighty-smart-stylus">>> </a>Adobe announces first hardware, the Project Mighty smart stylus and Napoleon ruler</h4>
+        <p class="itembyline">
+        by Jacob Kastrenakes
+        in <a href="http://www.theverge.com/">The Verge -  All Posts</a>
+        
+    </div>
+    <div class="itemdescription" id="item6c3d5492">
+        <div>
+<p>Adobe has just announced its first hardware initiative, a pressure sensitive stylus that will tightly integrate with its software applications. The company's Project Mighty stylus was shown off connecting to an iPad via Bluetooth. As demonstrated, the tool was able to carefully create curved and angled shapes in a way that would be difficult to do with existing third-party styluses.</p>
+<p><em>Developing...</em></p>
+
+</div><img border="0" height="1" src="http://pixel.quantserve.com/pixel/p-89EKCgBk8MZdE.gif" width="1" />
+    </div>
+</div>
+<!-- PAGE-END-ITEM -->
+
+<!-- PAGE-BEGIN-ITEM -->
+<div class="item" id="parenta21d88b7" >
+    <div class="itemheader feed-4e56dad2 feed-thevergeallposts" id="headera21d88b7" onclick="toggleall('none');toggle('itema21d88b7')">
+        <h4 class="itemtitle"><a href="http://www.theverge.com/2013/5/6/4305588/eric-schmidt-says-there-should-be-a-delete-button-for-internet">>> </a>Eric Schmidt on an internet 'delete' button: 'There is a time when erasure is a right thing'</h4>
+        <p class="itembyline">
+        by Chris Welch
+        in <a href="http://www.theverge.com/">The Verge -  All Posts</a>
+        
+    </div>
+    <div class="itemdescription" id="itema21d88b7">
+        <div>
+<p>Eric Schmidt is known for singing the internet's praises, but it turns out Google's Chairman also thinks there should be a "delete" button for the web &#8212; some effective way of permanently erasing data once and for all. "The lack of a delete button on the Internet is a significant issue," Schmidt said during an NYU appearance with Jared Cohen, the co-author of his recent book. "There is a time when erasure is a right thing," he said, <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fnews.cnet.com%2F8301-1023_3-57583022-93%2Fgoogles-schmidt-the-internet-needs-a-delete-button%2F%3Fpart%3Drss" target="_blank">according to <em>CNET</em>.</a></p>
+<p>Without context, it sounds like Schmidt is calling for the creation of some sort of secretive censorship tool. But the executive's reasoning is a bit simpler than that. Schmidt uses the example of a young person &#8212; convicted of a crime later cleared from his or her record &#8212; that could face difficulties finding a job thanks to records of that wrongdoing on the internet. In the eyes of Schmidt, the web can make it nearly impossible to turn over a new leaf. "In America, there's a sense of fairness that's culturally true for all of us," he said.</p>
+<div class="article-meta clearfix">
+<ul class="simplelist sourcelist clearfix"><li class="source clearfix"><strong>Source</strong> <span><a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fnews.cnet.com%2F8301-1023_3-57583022-93%2Fgoogles-schmidt-the-internet-needs-a-delete-button%2F%3Fpart%3Drss">CNET</a></span></li>
+<li class="tags clearfix"><strong>Related Items</strong> <span><a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Feric-schmidt">eric schmidt</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Fcensorship">censorship</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Ferasure">erasure</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Fdelete">delete</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Finternet">internet</a></span></li>
+</ul></div>
+</div><img border="0" height="1" src="http://pixel.quantserve.com/pixel/p-89EKCgBk8MZdE.gif" width="1" />
+    </div>
+</div>
+<!-- PAGE-END-ITEM -->
+
+<!-- PAGE-BEGIN-ITEM -->
+<div class="item" id="parent1cc80ce9" >
+    <div class="itemheader feed-4e56dad2 feed-thevergeallposts" id="header1cc80ce9" onclick="toggleall('none');toggle('item1cc80ce9')">
+        <h4 class="itemtitle"><a href="http://www.theverge.com/2013/5/6/4305438/underground-nine-inch-nails-snuff-film-finally-officially-released">>> </a>Nine Inch Nails' 20-year old 'Broken' film is too violent for Vimeo (update)</h4>
+        <p class="itembyline">
+        by Nathan Ingraham
+        in <a href="http://www.theverge.com/">The Verge -  All Posts</a>
+        
+    </div>
+    <div class="itemdescription" id="item1cc80ce9">
+        <div>
+<p><strong>Warning:</strong> The video below contains extremely graphic depictions of sexual and violent content, including realistic depictions of mutilation and torture. <strong>DO NOT view if you're uncomfortable with this material.</strong></p>
+<p>Way back in 1993, Nine Inch Nails released the <em>Broken</em> EP, perhaps Trent Reznor's most purely aggressive album to date. To go along with the album, Reznor partnered with Peter Christopherson (founding member of industrial music pioneers Throbbing Gristle) to create an incredibly realistic, disturbing, <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2F2012%2F6%2F13%2F3076557%2Fsnuff-murder-torture-internet-people-who-watch-it">snuff-style film</a> featuring the music of <em>Broken</em> as its soundtrack. Due to the highly graphic footage in the film, it was never officially released &#8212; though one video for "Happiness in Slavery" included on the 1997 VHS overview <em>Closure</em> gave fans a taste of the horror show contained within the full <em>Broken</em> film. In fact, Reznor was reportedly quoted as saying that the <em>Broken</em> film "makes "Happiness in Slavery" look like a Disney movie."</p>
+<p><em>Broken</em> has since seen a number of unofficial releases &#8212; it was widely bootlegged from the original VHS copies, and Trent Reznor himself is believed to have leaked a high-quality DVD disc image on The Pirate Bay in December of 2006. Now, the entire 20-minute <em>Broken</em> film was posted to the NIN Tumblr today, marking the first official release of the controversial and rare footage. If you're interested in seeing what all the fuss was about over the last 20 years, check out the video below &#8212; but be warned: this footage is <em>extremely graphic</em>.</p>
+
+<hr class="widget_boundry_marker hidden page_break" />
+<div class="article-meta clearfix">
+<ul class="simplelist sourcelist clearfix"><li class="source clearfix"><strong>Source</strong> <span><a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fnineinchnails.tumblr.com%2Fpost%2F49783076246%2Fwarning-contains-extreme-violent-and-sexual">Nine Inch Nails</a></span></li>
+<li class="tags clearfix"><strong>Related Items</strong> <span><a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Fsnuff">snuff</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Fmusic-video">music video</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Fbroken">broken</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Funderground">underground</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Ftrent-reznor">trent reznor</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Fnine-inch-nails">nine inch nails</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Fbroken-film">broken film</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Fpeter-christopherson">peter christopherson</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Fsnuff-film">snuff film</a></span></li>
+</ul></div>
+</div><img border="0" height="1" src="http://pixel.quantserve.com/pixel/p-89EKCgBk8MZdE.gif" width="1" />
+    </div>
+</div>
+<!-- PAGE-END-ITEM -->
+
+<!-- PAGE-BEGIN-ITEM -->
+<div class="item" id="parent1da6d1f6" >
+    <div class="itemheader feed-4e56dad2 feed-thevergeallposts" id="header1da6d1f6" onclick="toggleall('none');toggle('item1da6d1f6')">
+        <h4 class="itemtitle"><a href="http://www.theverge.com/2013/5/6/4305640/youtube-to-advertisers-were-the-new-tv-because-were-nothing-like-tv">>> </a>YouTube to advertisers: we're the new TV, because we're nothing like TV</h4>
+        <p class="itembyline">
+        by Adi Robertson
+        in <a href="http://www.theverge.com/">The Verge -  All Posts</a>
+        
+    </div>
+    <div class="itemdescription" id="item1da6d1f6">
+        <div>
+<p>By any reasonable measure, YouTube is one of the web&#8217;s giants. Google announced in March that the site was drawing <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2F2013%2F3%2F20%2F4129808%2Fyoutube-hits-a-billion-monthly-viewers">one billion unique viewers</a> a month, and a good video can help lift a performer like Justin Bieber or Psy to offline stardom. Now, YouTube is turning those view counts into a full assault on traditional television. In 2012, it launched partner channels with the likes of Vice and Machinima, and <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2F2013%2F5%2F6%2F4304276%2Fgoogle-launching-paid-youtube-channels-rumor">new paid channels may be on the horizon.</a> Since last year, Google has even hosted a "Brandcast," own version of television network "upfront" events meant to lure advertisers in for a new season with glitzy performances.</p>
+<p>During this year&#8217;s Brandcast, Google brought on big names &#8212; including Macklemore and Snoop Dogg / Lion &#8212; and played up the theme of overtaking TV, frequently quoting a Nielsen finding that YouTube reaches more 18- to 34-year-old viewers in the US than any single cable network. But it also told another story, painting a picture of YouTube as a community of underdog nerds just looking for a voice.</p>
+<p><q class="right">Eric Schmidt sells advertisers on 'Generation C'</q></p>
+<p>At the Brandcast, Eric Schmidt opens by coining the awkward term "Generation C," a description that works just as poorly as <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2F2013%2F1%2F8%2F3850056%2Fqualcomms-insane-ces-2013-keynote-pictures-tweets">Qualcomm&#8217;s "Generation M"</a> to describe connected youth. From there, he quickly cedes the floor to actress and professional geek Felicia Day, whose "Geek &amp; Sundry" channel has just entered its second year. Day frames her move to YouTube in terms of self-expression, showing the audience a younger version of herself dressed as a mime.</p>
+<p>"I didn&#8217;t realize the things I were into weren&#8217;t cool," she says, describing how she moved from mainstream Hollywood to the weirder world of YouTube. "Dubstep violinist" Lindsey Stirling echoes Day&#8217;s sentiment, recalling her feelings after being rejected from <em>America&#8217;s Got Talent</em>: it was just "one more person telling people I wasn't good enough." She would go on to make one of the most-watched YouTube videos of 2012.</p>
+<p><img alt="Qtyndf9plgrjbcihle96anuk2jqeijxqramwakkcing_vhjqh4wa53byp4fm77gqrmbqsk6uotldb32fxjbssn4" class="photo" src="http://assets.sbnation.com/assets/2587093/qTynDf9PlGrJBCihLe96aNUk2JQeIjXQRAmWakkcINg_vhjqh4Wa53BYP4fM77GQrMBqSK6uoTLDb32FXJBSsn4.jpg" width="560" /></p>
+<p>The story YouTube tells is one of outsiders coming home, where they can find a group of like-minded people. After all, far more than traditional television or even video competitors like Hulu, communication is what YouTube has to offer. Videos can be shared endlessly, and YouTube has worked to integrate Google+ social tools. You can "Like" or "Dislike" videos. But most noticeably, readers can talk back in comments or reactions.</p>
+<p>Hearing YouTube talk about its comments is almost surreal, like you&#8217;ve stumbled into an alternate universe. In my everyday life, "YouTube comment" is a shorthand for illiterate bigotry or paranoid anger &#8212; the best you can hope when diving into them is that they won&#8217;t actively make your day worse. But at the Brandcast, they&#8217;re everywhere. The image of a cursor blinking over some variation of "I love this!!!" permeates presentations, underscoring what YouTube calls the benefits of working with Generation C.</p>
+<p><q class="center">The image of a cursor blinking over some variation of 'I love this!!!' permeates presentations</q></p>
+<p>"What I got wrong is that I thought YouTube is like TV," says global head of content Robert Kyncl of his early days with the site. "TV is one-way. YouTube talks back ... TV means reach, YouTube means engagement." Day&#8217;s take is more colorful &#8212; she says that comments (from praise for her show The Guild to comments on her nose) are part of what drew her into YouTube: "&#8216;Show me your boobs!&#8217;" she laughs, paraphrasing one. "I was hooked."</p>
+<p><img alt="Xdqwqtz8_imrzlnnguhvwynkvozcmzgg8dfjl61xqik" class="photo" src="http://assets.sbnation.com/assets/2587181/XdQwQtz8_IMRzlnNGUHvWYnKvOzCmZgG8dfJl61xQIk.jpg" width="560" /></p>
+<p>Many of Day&#8217;s comments are actually positive: there&#8217;s definitely noise, but there&#8217;s also a sense of dedicated fandom. That&#8217;s hardly true across the board on YouTube, though, and even supportive comments rarely add up to a conversation. But their presence gives creators what Kyncl calls "immediate real-time metrics," letting them see which jokes get quoted and what grabs commenters&#8217; attention.</p>
+<p><q class="left">"You have to participate in cultural moments."</q></p>
+<p>The roughness of comments also points at another of YouTube&#8217;s selling points: "authenticity," a word several speakers use to describe what they brought to the table. "Our fans value authenticity and passion more than anything," says Day. In addition to partnering with YouTube&#8217;s existing artists, advertisers are urged to create their own channels &#8212; but they&#8217;re cautioned to make videos seem organic and responsive, not just standard-issue commercials. "It is about leaning in," Kyncl says, pointing to a <em>Simpsons</em> clip in which characters do the Harlem Shake or a McDonalds video that shows why its burgers always look better in ads. "You have to participate in cultural moments."</p>
+<p>YouTube has spent the last few years moving from a home for amateur video clips to a polished destination for professional content, and it&#8217;s trying to get advertising to match, allaying the worries of producers who say they <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2F2013%2F3%2F4%2F4062810%2Fyoutube-partners-complain-revenue-sharing-google-ads">aren&#8217;t making enough to cover costs</a>. Now, it&#8217;s doing so by playing on its unfiltered, slightly rough-edged image. The switch in power from TV to streaming has "already happened," says Schmidt. But while fellow streaming site Netflix may be trying to overtake HBO, YouTube wants advertisers to know it&#8217;s never going to be like television.</p>
+<div class="article-meta clearfix">
+<ul class="simplelist sourcelist clearfix"><li class="via clearfix"><strong>Via</strong> <span><a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fyoutube-global.blogspot.com%2F2013%2F05%2Fyt-brandcast-2013.html">YouTube Blog</a></span></li>
+<li class="tags clearfix"><strong>Related Items</strong> <span><a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Fstreaming-video">streaming video</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Fvideo">video</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Fyoutube">youtube</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Fbrandcast">brandcast</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Fupfront">upfront</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Fadvertising">advertising</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Ftelevision">television</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Fad-sales">ad sales</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Fmacklemore">macklemore</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Fsnoop-dogg">snoop dogg</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Fsnoop-lion">snoop lion</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Feric-schmidt">eric schmidt</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Ffelicia-day">felicia day</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Fproducts%2Fbrands%2Fgoogle%2F436">Google</a></span></li>
+</ul></div>
+</div><img border="0" height="1" src="http://pixel.quantserve.com/pixel/p-89EKCgBk8MZdE.gif" width="1" />
+    </div>
+</div>
+<!-- PAGE-END-ITEM -->
+
+<!-- PAGE-BEGIN-ITEM -->
+<div class="item" id="parent9221b4bf" >
+    <div class="itemheader feed-4e56dad2 feed-thevergeallposts" id="header9221b4bf" onclick="toggleall('none');toggle('item9221b4bf')">
+        <h4 class="itemtitle"><a href="http://www.theverge.com/2013/5/6/4305566/dropbox-launches-developer-conference-to-stay-ahead-in-the-storage">>> </a>Dropbox launches developer conference to stay ahead in the storage wars</h4>
+        <p class="itembyline">
+        by Casey Newton
+        in <a href="http://www.theverge.com/">The Verge -  All Posts</a>
+        
+    </div>
+    <div class="itemdescription" id="item9221b4bf">
+        <div>
+<p>For Dropbox, adding another 100 million users means integrating with an ever-increasing number of devices and services. For that, it needs an army of willing developers. And while Dropbox already connects with <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=https%3A%2F%2Fwww.dropbox.com%2Fabout" target="_blank">thousands</a> of apps, the company will try to extend its reach by holding its first-ever <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=https%3A%2F%2Fwww.dropbox.com%2Fdbx" target="_blank">DBX developer conference</a> this summer.</p>
+<p>The July 9 event, to take place at Fort Mason in San Francisco, will give developers a chance to meet with Dropbox engineers and one another to share ideas about building on the platform. Developers will also "be the first to learn about new products that will make developing on Dropbox even easier," the company <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=https%3A%2F%2Fwww.dropbox.com%2Fdevelopers%2Fblog%2F32" target="_blank">said in a blog post</a>. That could mean a first look at what Dropbox is doing with some of its recent acquisitions, which include <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2F2012%2F12%2F19%2F3785296%2Fdropbox-acquires-snapjoy-photo-aggregation-and-sharing-service">Snapjoy</a> for photo sharing, <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2F2013%2F3%2F15%2F4108640%2Fdropbox-acquires-email-app-mailbox">Mailbox</a> for email, and <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2F2012%2F12%2F13%2F3762456%2Fdropbox-acquires-audiogalaxy-future-cloud-music-service">Audiogalaxy</a> for music.</p>
+<hr class="widget_boundry_marker hidden page_break" /><p><q class="center">A first look at where Dropbox goes next</q></p>
+<p><a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fdl.dropboxusercontent.com%2Fu%2F27532820%2Fapp.html">Since it was founded</a>, Dropbox has faced questions over how it will avoid being overtaken by online storage offerings from bigger competitors. But the emergence of SkyDrive, Google Drive, and iCloud have done seemingly little to blunt the company's momentum. (Dropbox still has a long way to go, though, as Steve Ballmer was <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2F2013%2F1%2F30%2F3931846%2Fsteve-ballmer-on-small-dropbox-users-interview">happy to note</a>.)</p>
+<p>The announcement of DBX comes a few months after Dropbox <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2F2013%2F2%2F6%2F3958230%2Fdropbox-raises-stakes-icloud-google-drive-simpler-api">simplified its developer tools</a>, making it easier for developers to implement Dropbox tools like sync, offline caching, and background uploads without building custom software. And it comes as the company is slowly redefining itself, evolving beyond files and folders to create <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2F2013%2F1%2F30%2F3933144%2Fdropbox-unveils-social-photo-sharing-easier-photo-management-and">easier ways to store and view the content</a> users store on the service.</p>
+<p>DBX is likely to give the world its first look at where the company goes from here. Developers can request an invitation to the event at <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=https%3A%2F%2Fwww.dropbox.com%2Fdbx" target="_blank">the DBX website</a>.</p>
+<div class="article-meta clearfix">
+<ul class="simplelist sourcelist clearfix"><li class="source clearfix"><strong>Source</strong> <span><a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=https%3A%2F%2Fwww.dropbox.com%2Fdevelopers%2Fblog%2F32">Dropbox</a></span></li>
+<li class="tags clearfix"><strong>Related Items</strong> <span><a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Fdropbox">dropbox</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Fstorage">storage</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Fcloud-storage">cloud storage</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Fdevelopers">developers</a></span></li>
+</ul></div>
+</div><img border="0" height="1" src="http://pixel.quantserve.com/pixel/p-89EKCgBk8MZdE.gif" width="1" />
+    </div>
+</div>
+<!-- PAGE-END-ITEM -->
+
+</div>
 <div class="time">
 <h3>07:00 PM</h3>
 <!-- PAGE-BEGIN-ITEM -->
@@ -112,7 +458,7 @@
         
     </div>
     <div class="itemdescription" id="item043c3460">
-        <p>Google now shows a red "sign in" button on the homepage, at the top of the search results pages, in Google Maps, Google News, Google Translate and many other services. The button is a lot more visible than the old gray "sign in" button.<br /><br /><div style="text-align: center;"><img border="0" src="http://1.bp.blogspot.com/-xpECx0Aq7VI/UYfewRfYo-I/AAAAAAABJLk/csoCv6WHIWM/s640/google-home-red-sign-in-button.png" /></div><br />Here's the Google Image Search homepage in Internet Explorer. The red button clearly stands out from all the other promotional messages.<br /><br /><div style="text-align: center;"><img border="0" src="http://1.bp.blogspot.com/-b9JY-Mszs1Q/UYfewYNizvI/AAAAAAABJLg/Fb_8jKbX7xU/s640/google-home-red-sign-in-button-2.png" /></div><br />After <a href="http://googlesystem.blogspot.com/2013/05/gmail-tests-new-login-page.html">the Gmail sign in page</a>, Google's standard sign in page also has a new interface: "<i>One password. All of Google. Want to enjoy the best of Google? Just stay signed in. One username and password is all you need to unlock more features from services you use every day, like Gmail, Maps, Google+, and YouTube.</i>"<br /><br /><div style="text-align: center;"><img border="0" src="http://3.bp.blogspot.com/-ddM2vpgJFcc/UYfj342DrgI/AAAAAAABJL4/r5fMnrRdndE/s640/google-new-sign-in-page.png" /></div><br />{ Thanks, J&#233;r&#244;me. }<div class="feedflare">
+        <p>Google now shows a red "sign in" button on the homepage, at the top of the search results pages, in Google Maps, Google News, Google Translate and many other services.<br /><br /><div style="text-align: center;"><img border="0" src="http://1.bp.blogspot.com/-xpECx0Aq7VI/UYfewRfYo-I/AAAAAAABJLk/csoCv6WHIWM/s640/google-home-red-sign-in-button.png" /></div><br />The button is a lot more visible than the old gray "sign in" button.<br /><br /><div style="text-align: center;"><img border="0" src="http://2.bp.blogspot.com/-nx7SOg3okyQ/UYgRJ1BVHVI/AAAAAAABJMs/lTSXmRP3wdY/s640/google-black-bar.png" /></div><br />Here's the Google Image Search homepage in Internet Explorer. The red button clearly stands out from all the other promotional messages.<br /><br /><div style="text-align: center;"><img border="0" src="http://1.bp.blogspot.com/-b9JY-Mszs1Q/UYfewYNizvI/AAAAAAABJLg/Fb_8jKbX7xU/s640/google-home-red-sign-in-button-2.png" /></div><br />After <a href="http://googlesystem.blogspot.com/2013/05/gmail-tests-new-login-page.html">the Gmail sign in page</a>, Google's standard sign in page also has a new interface: "<i>One password. All of Google. Want to enjoy the best of Google? Just stay signed in. One username and password is all you need to unlock more features from services you use every day, like Gmail, Maps, Google+, and YouTube.</i>"<br /><br /><div style="text-align: center;"><img border="0" src="http://3.bp.blogspot.com/-ddM2vpgJFcc/UYfj342DrgI/AAAAAAABJL4/r5fMnrRdndE/s640/google-new-sign-in-page.png" /></div><br />{ Thanks, J&#233;r&#244;me. }<div class="feedflare">
 <a href="http://feeds.feedburner.com/~ff/GoogleOperatingSystem?a=30ggPHYFYhI:8oMn1kl9JPo:4cEx4HpKnUU"><img border="0" src="http://feeds.feedburner.com/~ff/GoogleOperatingSystem?i=30ggPHYFYhI:8oMn1kl9JPo:4cEx4HpKnUU" /></a> <a href="http://feeds.feedburner.com/~ff/GoogleOperatingSystem?a=30ggPHYFYhI:8oMn1kl9JPo:yIl2AUoC8zA"><img border="0" src="http://feeds.feedburner.com/~ff/GoogleOperatingSystem?d=yIl2AUoC8zA" /></a> <a href="http://feeds.feedburner.com/~ff/GoogleOperatingSystem?a=30ggPHYFYhI:8oMn1kl9JPo:qj6IDK7rITs"><img border="0" src="http://feeds.feedburner.com/~ff/GoogleOperatingSystem?d=qj6IDK7rITs" /></a>
 </div><img height="1" src="http://feeds.feedburner.com/~r/GoogleOperatingSystem/~4/30ggPHYFYhI" width="1" />
     </div>
@@ -210,27 +556,6 @@
 <!-- PAGE-END-ITEM -->
 
 <!-- PAGE-BEGIN-ITEM -->
-<div class="item" id="parent03a08437" >
-    <div class="itemheader feed-4e56dad2 feed-thevergeallposts" id="header03a08437" onclick="toggleall('none');toggle('item03a08437')">
-        <h4 class="itemtitle"><a href="http://www.theverge.com/2013/5/6/4305486/google-drive-app-adds-desktop-file-sharing-pc-mac">>> </a>Google Drive desktop app now lets you share files from PC and Mac</h4>
-        <p class="itembyline">
-        by Chris Welch
-        in <a href="http://www.theverge.com/">The Verge -  All Posts</a>
-        
-    </div>
-    <div class="itemdescription" id="item03a08437">
-        <div>
-<p>Sharing is getting a bit easier on Google Drive today. Google has just announced that users on a PC or Mac can now share files simply by right clicking and choosing "share" from a Google Drive submenu. The file(s) in question will need to be in your Google Drive folder, of course. It's a small addition (we're sure power users appreciate the move), but it brings Drive's desktop app even closer in functionality to Dropbox. Google says the new quick sharing functionality will roll out to its Google Drive app for PC and Mac over the next few days, so if you're not seeing anything upon a right click of your mouse or trackpad, don't despair.</p>
-<div class="article-meta clearfix">
-<ul class="simplelist sourcelist clearfix"><li class="source clearfix"><strong>Source</strong> <span><a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=https%3A%2F%2Fplus.google.com%2Fu%2F0%2F%2BGoogleDrive%2Fposts%2F72FDua3Tr31">Google</a></span></li>
-<li class="tags clearfix"><strong>Related Items</strong> <span><a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Fgoogle-drive">google drive</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Fdrive">drive</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Fdropbox">dropbox</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Fsharing">sharing</a></span></li>
-</ul></div>
-</div><img border="0" height="1" src="http://pixel.quantserve.com/pixel/p-89EKCgBk8MZdE.gif" width="1" />
-    </div>
-</div>
-<!-- PAGE-END-ITEM -->
-
-<!-- PAGE-BEGIN-ITEM -->
 <div class="item" id="parent7ee10d1c" >
     <div class="itemheader feed-4e56dad2 feed-thevergeallposts" id="header7ee10d1c" onclick="toggleall('none');toggle('item7ee10d1c')">
         <h4 class="itemtitle"><a href="http://www.theverge.com/2013/5/6/4305300/adobe-announces-creative-suite-update-and-rebranding-focus-on-cloud">>> </a>Adobe Photoshop and Creative Suite to become subscription-only products</h4>
@@ -269,6 +594,27 @@
 <div class="article-meta clearfix">
 <ul class="simplelist sourcelist clearfix"><li class="source clearfix"><strong>Source</strong> <span><a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Farstechnica.com%2Fgaming%2F2013%2F05%2Fmicrosoft-next-xbox-will-work-even-when-your-internet-doesnt%2F">Ars Technica</a></span></li>
 <li class="tags clearfix"><strong>Related Items</strong> <span><a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Fxbox">xbox</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Finternet">internet</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Fdurango">durango</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Fconsole">console</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Fnext--gen">next-gen</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Falways--on">always-on</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Fnext--gen-xbox">next-gen xbox</a></span></li>
+</ul></div>
+</div><img border="0" height="1" src="http://pixel.quantserve.com/pixel/p-89EKCgBk8MZdE.gif" width="1" />
+    </div>
+</div>
+<!-- PAGE-END-ITEM -->
+
+<!-- PAGE-BEGIN-ITEM -->
+<div class="item" id="parent03a08437" >
+    <div class="itemheader feed-4e56dad2 feed-thevergeallposts" id="header03a08437" onclick="toggleall('none');toggle('item03a08437')">
+        <h4 class="itemtitle"><a href="http://www.theverge.com/2013/5/6/4305486/google-drive-app-adds-desktop-file-sharing-pc-mac">>> </a>Google Drive desktop app now lets you share files from PC and Mac</h4>
+        <p class="itembyline">
+        by Chris Welch
+        in <a href="http://www.theverge.com/">The Verge -  All Posts</a>
+        
+    </div>
+    <div class="itemdescription" id="item03a08437">
+        <div>
+<p>Sharing is getting a bit easier on Google Drive today. Google has just announced that users on a PC or Mac can now share files simply by right clicking and choosing "share" from a Google Drive submenu. The file(s) in question will need to be in your Google Drive folder, of course. It's a small addition (we're sure power users appreciate the move), but it brings Drive's desktop app even closer in functionality to Dropbox. Google says the new quick sharing functionality will roll out to its Google Drive app for PC and Mac over the next few days, so if you're not seeing anything upon a right click of your mouse or trackpad, don't despair.</p>
+<div class="article-meta clearfix">
+<ul class="simplelist sourcelist clearfix"><li class="source clearfix"><strong>Source</strong> <span><a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=https%3A%2F%2Fplus.google.com%2Fu%2F0%2F%2BGoogleDrive%2Fposts%2F72FDua3Tr31">Google</a></span></li>
+<li class="tags clearfix"><strong>Related Items</strong> <span><a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Fgoogle-drive">google drive</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Fdrive">drive</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Fdropbox">dropbox</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Fsharing">sharing</a></span></li>
 </ul></div>
 </div><img border="0" height="1" src="http://pixel.quantserve.com/pixel/p-89EKCgBk8MZdE.gif" width="1" />
     </div>
@@ -582,337 +928,6 @@
 <p><a href="https://itunes.apple.com/us/app/classic-note/id628565312?partnerId=30&amp;siteID=/MHqF1RKqu8">App Store</a></p>
 
 <p><small>Via <a href="https://alpha.app.net/zero/post/5260734">@zero</a>.</small></p>
-    </div>
-</div>
-<!-- PAGE-END-ITEM -->
-
-<!-- PAGE-BEGIN-ITEM -->
-<div class="item" id="parent5a44f913" >
-    <div class="itemheader feed-7879131b feed-changedetectionfeed" id="header5a44f913" onclick="toggleall('none');toggle('item5a44f913')">
-        <h4 class="itemtitle"><a href="http://www.sublimetext.com/3dev">>> </a>Sublime Text - Download</h4>
-        <p class="itembyline">
-        
-        in <a href="http://www.changedetection.com/accountfeed.xml?feedid=308218917990486">ChangeDetection feed</a>
-        
-    </div>
-    <div class="itemdescription" id="item5a44f913">
-        <p><a href="http://www.changedetection.com/log/sublimetext/3dev_log.html">view&nbsp;change&nbsp;log</a>&nbsp;<font color="green">58 new words, 1 deleted words, 4% change</font><br /><font>... </font><font>3 dev build is </font><font color="#CFCFCF" style="text-decoration: line-through;">3031</font><font color="#CDAD00">3032</font><font>. Details on new </font><font>... </font><font>on twitter. Build </font><font color="#CDAD00">3032 Release Date&#58; 6 May 2013 Added setting always&#95;prompt&#95;for&#95;file&#95;reload Pressing right in the Goto Anything overlay will open the selected file without closing the overlay Improved handling of deleted files when restoring sessions Linux&#58; Fixed popup menu positioning Windows&#58; Fixed erroneous entries in system menu Build </font><font>3031 Release Date&#58; </font><font></font>
-    </div>
-</div>
-<!-- PAGE-END-ITEM -->
-
-</div>
-<div class="time">
-<h3>03:53 PM</h3>
-<!-- PAGE-BEGIN-ITEM -->
-<div class="item" id="parent13b72ff5" >
-    <div class="itemheader feed-485e324d feed-littlebigdetails" id="header13b72ff5" onclick="toggleall('none');toggle('item13b72ff5')">
-        <h4 class="itemtitle"><a href="http://feedproxy.google.com/~r/littlebigdetails/~3/uH_SiZSm234/49774051509">>> </a>Conditions for iOS -&#160;When pulling to refresh in Conditions, the...</h4>
-        <p class="itembyline">
-        
-        in <a href="http://littlebigdetails.com/">Little Big Details</a>
-        
-    </div>
-    <div class="itemdescription" id="item13b72ff5">
-        <p><img src="http://25.media.tumblr.com/9aa85b132badcc3e5ff1e4dcb10b2b8f/tumblr_milnahNAfS1qea4hso1_500.jpg" /><br /><br /><p><a href="https://itunes.apple.com/us/app/conditions-beautiful-weather/id543298335?mt=8" target="_blank" title="Conditions for iOS">Conditions for iOS</a><span> -&#160;</span><span>When pulling to refresh in Conditions, the progress indicator is a thermometer that fills up as you pull down.</span></p>
-<p>/via <a href="http://deallocatedobjects.com" target="_blank" title="Jake Marsh">Jake Marsh<br /></a></p><div class="feedflare">
-<a href="http://feeds.feedburner.com/~ff/littlebigdetails?a=uH_SiZSm234:JP9njXweU9I:yIl2AUoC8zA"><img border="0" src="http://feeds.feedburner.com/~ff/littlebigdetails?d=yIl2AUoC8zA" /></a> <a href="http://feeds.feedburner.com/~ff/littlebigdetails?a=uH_SiZSm234:JP9njXweU9I:ex77xTEw1Sg"><img border="0" src="http://feeds.feedburner.com/~ff/littlebigdetails?i=uH_SiZSm234:JP9njXweU9I:ex77xTEw1Sg" /></a>
-</div><img height="1" src="http://feeds.feedburner.com/~r/littlebigdetails/~4/uH_SiZSm234" width="1" />
-    </div>
-</div>
-<!-- PAGE-END-ITEM -->
-
-<!-- PAGE-BEGIN-ITEM -->
-<div class="item" id="parent58c44dfe" >
-    <div class="itemheader feed-4e56dad2 feed-thevergeallposts" id="header58c44dfe" onclick="toggleall('none');toggle('item58c44dfe')">
-        <h4 class="itemtitle"><a href="http://www.theverge.com/2013/5/6/4304752/nintendo-reportedly-hoping-to-port-smartphone-apps-to-the-wii-u">>> </a>Nintendo reportedly hoping to port smartphone apps to the Wii U in effort to boost sales</h4>
-        <p class="itembyline">
-        by Nathan Ingraham
-        in <a href="http://www.theverge.com/">The Verge -  All Posts</a>
-        
-    </div>
-    <div class="itemdescription" id="item58c44dfe">
-        <div>
-<p>It's no secret that the Wii U isn't selling with, with <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2F2013%2F4%2F24%2F4260062%2Fnintendo-2012-earnings">Nintendo's bottom line</a> suffering as a result. Unsurprisingly, the company is looking for new ways to invigorate sales, and a new <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.japantimes.co.jp%2Fnews%2F2013%2F05%2F06%2Fbusiness%2Fnintendo-taps-smartphone-apps-for-console-boost%2F%3F%23.UYe1dCtARPT" target="_blank">report from <em>The Japan Times</em></a> indicates that Nintendo may be looking to smartphones for inspiration. Apparently, Nintendo is producing and offering software to game developers that would let them build smartphone games that can also be played on the Wii U. The company feels that the console has a lack of compelling software and it is hoping that it can quickly grow the Wii U's library though this new initiative, which would presumably result in a new fleet of less expensive games. While details around this plan are minimal, it's pretty clear that Nintendo needs to try something new to turn the Wii U around. 2012 was the second consecutive year the company lost money, and its newest console has only sold 3.45 million units around the world so far &#8212; quite a bit fewer than the 5.5 million Nintendo originally predicted.</p>
-<div class="article-meta clearfix">
-<ul class="simplelist sourcelist clearfix"><li class="via clearfix"><strong>Via</strong> <span><a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.polygon.com%2F2013%2F5%2F6%2F4304442%2Fnintendo-looking-into-console-compatibility-with-smartphone-apps">Polygon</a></span></li>
-<li class="source clearfix"><strong>Source</strong> <span><a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.japantimes.co.jp%2Fnews%2F2013%2F05%2F06%2Fbusiness%2Fnintendo-taps-smartphone-apps-for-console-boost%2F%3F%23.UYeSGivP1W3">The Japan Times</a></span></li>
-<li class="tags clearfix"><strong>Related Items</strong> <span><a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Fapps">apps</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Fsmartphone-apps">smartphone apps</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Fmobile-apps">mobile apps</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Fsoftware">software</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Fsales">sales</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Fproducts%2Fwii-u%2F3513">Wii U</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Fproducts%2Fbrands%2Fnintendo%2F100">Nintendo</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Fproducts%2Fcategories%2Fhome-consoles%2F14">Home consoles</a></span></li>
-</ul></div>
-</div><img border="0" height="1" src="http://pixel.quantserve.com/pixel/p-89EKCgBk8MZdE.gif" width="1" />
-    </div>
-</div>
-<!-- PAGE-END-ITEM -->
-
-<!-- PAGE-BEGIN-ITEM -->
-<div class="item" id="parent73459bf4" >
-    <div class="itemheader feed-4e56dad2 feed-thevergeallposts" id="header73459bf4" onclick="toggleall('none');toggle('item73459bf4')">
-        <h4 class="itemtitle"><a href="http://www.theverge.com/2013/5/6/4303072/fitbit-flex-review">>> </a>Fitbit Flex review</h4>
-        <p class="itembyline">
-        by David Pierce
-        in <a href="http://www.theverge.com/">The Verge -  All Posts</a>
-        
-    </div>
-    <div class="itemdescription" id="item73459bf4">
-        <div>
-
-<p>For a little over a month, I've been getting off my subway one stop early and walking the rest of the way home. I've been playing soccer twice a week, and trying to drink eight glasses of water every day. I've been running more, eating better, and still not sleeping nearly enough.</p>
-<p>I've been testing the Fitbit Flex, the first fitness wristband from the company that deserves a lot of credit for popularizing wearable fitness devices in the first place. From its namesake Fitbit Tracker to the newer One and <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2F2011%2F10%2F11%2F2483968%2Ffitbit-uitra-review">Ultra</a>, the California-based company has typically been known for devices that clip to your shirt or your pants and track your every movement. But every Fitbit user seems to have a tale of a lost or accidentally machine-washed tracker, so the company came out with the Flex. It's a $99 bracelet that purports to help you be more active, eat better, sleep better, and become far more attractive to the opposite sex. (One of those isn't <em>strictly</em> true, but it kind of is.)</p>
-<p>But you could fill both your arms with all the available gadgets that claim to do those things. From Jawbone to Nike to Samsung to even a slew of apps for your phone, there are a million and counting ways to track your activity. So what does Fitbit offer that makes it special? Why should you spend $99 on the Flex over <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2F2012%2F11%2F27%2F3694856%2Fjawbone-up-review-fitness-band-2012">an Up</a> or <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2F2012%2F3%2F8%2F2853088%2Fnike-fuelband-review">a FuelBand</a>, or <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fmoves%2Fid509204969%3Fmt%3D8">a free iPhone app</a>? After lots of exertion in the name of journalism, I think I have an answer.</p>
-</div><img border="0" height="1" src="http://pixel.quantserve.com/pixel/p-89EKCgBk8MZdE.gif" width="1" />
-    </div>
-</div>
-<!-- PAGE-END-ITEM -->
-
-<!-- PAGE-BEGIN-ITEM -->
-<div class="item" id="parent21cbc0b3" >
-    <div class="itemheader feed-b6b43fef feed-onethingwell" id="header21cbc0b3" onclick="toggleall('none');toggle('item21cbc0b3')">
-        <h4 class="itemtitle"><a href="http://onethingwell.org/post/49775411980">>> </a>ampere</h4>
-        <p class="itembyline">
-        
-        in <a href="http://onethingwell.org/">One Thing Well</a>
-        
-    </div>
-    <div class="itemdescription" id="item21cbc0b3">
-        <p><a href="https://github.com/hcliff/ampere">ampere</a>: <blockquote>
-  <p>A bittorrent client that runs in the browser without plugins. Currently only works in Chrome.</p>
-</blockquote>
-    </div>
-</div>
-<!-- PAGE-END-ITEM -->
-
-</div>
-<div class="time">
-<h3>03:00 PM</h3>
-<!-- PAGE-BEGIN-ITEM -->
-<div class="item" id="parentcffe3fcb" >
-    <div class="itemheader feed-4e56dad2 feed-thevergeallposts" id="headercffe3fcb" onclick="toggleall('none');toggle('itemcffe3fcb')">
-        <h4 class="itemtitle"><a href="http://www.theverge.com/2013/5/6/4304704/instagram-rise-and-the-billion-dollar-deal-that-made-it">>> </a>Instagram's rise and the billion dollar deal that made it</h4>
-        <p class="itembyline">
-        by Dan Seifert
-        in <a href="http://www.theverge.com/">The Verge -  All Posts</a>
-        
-    </div>
-    <div class="itemdescription" id="itemcffe3fcb">
-        <div>
-<p>Instagram is the ubiquitous service that everyone thinks of when they talk of mobile photography, but its rise to fame wasn't without intrigue. Kara Swisher has written a <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.vanityfair.com%2Fbusiness%2F2013%2F06%2Fkara-swisher-instagram" target="_blank">lengthy piece for <em>Vanity Fair</em></a> that details the inauspicious beginnings of the company, to its various investment deals and finally, its famous billion dollar acquisition by Facebook. It's a good read for anyone interested in following the lore of Silicon Valley, or for other aspiring entrepreneurs that are still looking to nab their own big pay days.</p>
-<div class="article-meta clearfix">
-<ul class="simplelist sourcelist clearfix"><li class="source clearfix"><strong>Source</strong> <span><a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.vanityfair.com%2Fbusiness%2F2013%2F06%2Fkara-swisher-instagram">Vanity Fair</a></span></li>
-<li class="tags clearfix"><strong>Related Items</strong> <span><a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Finstagram">instagram</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Fkevin-systrom">kevin systrom</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Ffacebook">facebook</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Facquisition">acquisition</a> <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.theverge.com%2Ftag%2Fdeal">deal</a></span></li>
-</ul></div>
-</div><img border="0" height="1" src="http://pixel.quantserve.com/pixel/p-89EKCgBk8MZdE.gif" width="1" />
-    </div>
-</div>
-<!-- PAGE-END-ITEM -->
-
-</div>
-<div class="time">
-<h3>02:28 PM</h3>
-<!-- PAGE-BEGIN-ITEM -->
-<div class="item" id="parentade9cf69" >
-    <div class="itemheader feed-d6a0a84b feed-buildingfeedly" id="headerade9cf69" onclick="toggleall('none');toggle('itemade9cf69')">
-        <h4 class="itemtitle"><a href="http://blog.feedly.com/2013/05/06/core-77-android-widget/">>> </a>Core 77 Android Widget</h4>
-        <p class="itembyline">
-        by @feedly
-        in <a href="http://blog.feedly.com">Building Feedly</a>
-        
-    </div>
-    <div class="itemdescription" id="itemade9cf69">
-        <p><a href="https://play.google.com/store/apps/details?id=com.devhd.feedly.widgetapp.sitecore77"><img alt="core77 android widget" class="aligncenter size-full wp-image-3812" src="http://devhd.files.wordpress.com/2013/05/unnamed.png?w=628" /></a></p>
-<p>&nbsp;</p>
-<p>We have been working with the<strong> Core 77</strong> team on a standalone Android Widget. If you are a Core77 fan, <a href="https://play.google.com/store/apps/details?id=com.devhd.feedly.widgetapp.sitecore77" title="Core77 Widget">you can download this widget from the Google Play Store</a>.</p>
-<p>If you are a blogger or publisher and would like to create your own Android widget, join <a href="http://www.feedly.com/publishers.html">the feedly publisher program</a>.</p>
-<br />  <a href="http://feeds.wordpress.com/1.0/gocomments/devhd.wordpress.com/3811/" rel="nofollow"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/comments/devhd.wordpress.com/3811/" /></a> <img alt="" border="0" height="1" src="http://stats.wordpress.com/b.gif?host=blog.feedly.com&#038;blog=692077&#038;post=3811&#038;subd=devhd&#038;ref=&#038;feed=1" width="1" />
-    </div>
-</div>
-<!-- PAGE-END-ITEM -->
-
-<!-- PAGE-BEGIN-ITEM -->
-<div class="item" id="parent1756926c" >
-    <div class="itemheader feed-cb04402c feed-dailyinfographic" id="header1756926c" onclick="toggleall('none');toggle('item1756926c')">
-        <h4 class="itemtitle"><a href="http://feedproxy.google.com/~r/DailyInfographic/~3/VprplErhzhU/the-history-of-superman-infographic">>> </a>The History of Superman [Infographic]</h4>
-        <p class="itembyline">
-        by Grayson
-        in <a href="http://dailyinfographic.com">Daily Infographic</a>
-        
-    </div>
-    <div class="itemdescription" id="item1756926c">
-        <p>Look up in the sky! It&#8217;s a bird! It&#8217;s a plane! It&#8217;s&#8230;. a Superman infographic! Today&#8217;s graphic from <a href="http://mashable.com/" target="_blank" title="Mashable">Mashable</a> gives us a look at the history of one of America&#8217;s oldest and most iconic superheroes: the Man of Steel himself, Superman. Anyone who is familiar with his character likely knows some of Superman&#8217;s backstory already; his origins on plant Krypton, his weakness to Kryptonite and his long-standing struggle with arch nemesis Lex Luthor are all well-known bits of knowledge in Superman lore. Possibly a lesser-known fact about the Clark Kent / Lex Luthor struggle is that it originally began when the two of them were teenagers in the same town. </p>
-<p>Superman is very thoroughly established in our fiction and popular culture, so it should be no surprise that he&#8217;s set to show up on the big screen again next month in &#8220;Man of Steel.&#8221; After Superman&#8217;s initial comic book success, the character really took off and began to branch out into mediums like TV shows (both animated and non-animated) and an entire series of films. </p>
-<p>For more info on Superman&#8217;s history and future take a look at the graphic below. [<a href="http://mashable.com/2013/04/21/superman-history-infographic/" target="_blank" title="Via">Via</a>]</p>
-<p><a href="http://dailyinfographic.com/wp-content/uploads/2013/05/superman1000-2.jpg"><img alt="" class="aligncenter size-large wp-image-7682" height="5648" src="http://dailyinfographic.com/wp-content/uploads/2013/05/superman1000-2-640x5648.jpg" width="640" /></a></p>
-<hr />
-<p><small>&#169; Grayson for <a href="http://dailyinfographic.com">Daily Infographic</a>, 2013. |
-<a href="http://dailyinfographic.com/the-history-of-superman-infographic">Permalink</a> |
-<a href="http://dailyinfographic.com/the-history-of-superman-infographic#comments">No comment</a> |
-Add to
-<a href="http://del.icio.us/post?url=http://dailyinfographic.com/the-history-of-superman-infographic&amp;title=The History of Superman [Infographic]">del.icio.us</a>
-<br />
-Post tags: <a href="http://dailyinfographic.com/tag/amy-adams" rel="nofollow tag">amy adams</a>, <a href="http://dailyinfographic.com/tag/amy-adams-infographic" rel="nofollow tag">amy adams infographic</a>, <a href="http://dailyinfographic.com/tag/clark-kent" rel="nofollow tag">clark kent</a>, <a href="http://dailyinfographic.com/tag/clark-kent-infographic" rel="nofollow tag">clark kent infographic</a>, <a href="http://dailyinfographic.com/tag/henry-cavill" rel="nofollow tag">henry cavill</a>, <a href="http://dailyinfographic.com/tag/henry-cavill-infographic" rel="nofollow tag">henry cavill infographic</a>, <a href="http://dailyinfographic.com/tag/man-of-steel" rel="nofollow tag">man of steel</a>, <a href="http://dailyinfographic.com/tag/man-of-steel-infograhpic" rel="nofollow tag">man of steel infograhpic</a>, <a href="http://dailyinfographic.com/tag/russell-crowe" rel="nofollow tag">russell crowe</a>, <a href="http://dailyinfographic.com/tag/russell-crowe-infographic" rel="nofollow tag">russell crowe infographic</a>, <a href="http://dailyinfographic.com/tag/superman" rel="nofollow tag">superman</a>, <a href="http://dailyinfographic.com/tag/superman-comics" rel="nofollow tag">superman comics</a>, <a href="http://dailyinfographic.com/tag/superman-comics-infographic" rel="nofollow tag">superman comics infographic</a>, <a href="http://dailyinfographic.com/tag/superman-history" rel="nofollow tag">superman history</a>, <a href="http://dailyinfographic.com/tag/superman-history-infographic" rel="nofollow tag">superman history infographic</a>, <a href="http://dailyinfographic.com/tag/superman-infographic" rel="nofollow tag">superman infographic</a>, <a href="http://dailyinfographic.com/tag/superman-movie" rel="nofollow tag">superman movie</a>, <a href="http://dailyinfographic.com/tag/superman-movie-infographic" rel="nofollow tag">superman movie infographic</a>, <a href="http://dailyinfographic.com/tag/superman-movies" rel="nofollow tag">superman movies</a>, <a href="http://dailyinfographic.com/tag/superman-movies-infographic" rel="nofollow tag">superman movies infographic</a>, <a href="http://dailyinfographic.com/tag/superman-origins" rel="nofollow tag">superman origins</a>, <a href="http://dailyinfographic.com/tag/superman-origins-infographic" rel="nofollow tag">superman origins infographic</a>, <a href="http://dailyinfographic.com/tag/zack-snyder" rel="nofollow tag">zack snyder</a>, <a href="http://dailyinfographic.com/tag/zack-snyder-infographic" rel="nofollow tag">zack snyder infographic</a><br />
-</small></p><div class="feedflare">
-<a href="http://feeds.feedburner.com/~ff/DailyInfographic?a=VprplErhzhU:BEUV70nK0hs:yIl2AUoC8zA"><img border="0" src="http://feeds.feedburner.com/~ff/DailyInfographic?d=yIl2AUoC8zA" /></a> <a href="http://feeds.feedburner.com/~ff/DailyInfographic?a=VprplErhzhU:BEUV70nK0hs:V_sGLiPBpWU"><img border="0" src="http://feeds.feedburner.com/~ff/DailyInfographic?i=VprplErhzhU:BEUV70nK0hs:V_sGLiPBpWU" /></a> <a href="http://feeds.feedburner.com/~ff/DailyInfographic?a=VprplErhzhU:BEUV70nK0hs:qj6IDK7rITs"><img border="0" src="http://feeds.feedburner.com/~ff/DailyInfographic?d=qj6IDK7rITs" /></a> <a href="http://feeds.feedburner.com/~ff/DailyInfographic?a=VprplErhzhU:BEUV70nK0hs:gIN9vFwOqvQ"><img border="0" src="http://feeds.feedburner.com/~ff/DailyInfographic?i=VprplErhzhU:BEUV70nK0hs:gIN9vFwOqvQ" /></a> <a href="http://feeds.feedburner.com/~ff/DailyInfographic?a=VprplErhzhU:BEUV70nK0hs:7Q72WNTAKBA"><img border="0" src="http://feeds.feedburner.com/~ff/DailyInfographic?d=7Q72WNTAKBA" /></a>
-</div><img height="1" src="http://feeds.feedburner.com/~r/DailyInfographic/~4/VprplErhzhU" width="1" />
-    </div>
-</div>
-<!-- PAGE-END-ITEM -->
-
-<!-- PAGE-BEGIN-ITEM -->
-<div class="item" id="parent74fd3cff" >
-    <div class="itemheader feed-9e28dfe3 feed-brainlesstales" id="header74fd3cff" onclick="toggleall('none');toggle('item74fd3cff')">
-        <h4 class="itemtitle"><a href="http://feedproxy.google.com/~r/brainlesstales/~3/wUhGkMpcaoQ/make-pizza-not-war">>> </a>Make Pizza Not War</h4>
-        <p class="itembyline">
-        
-        in <a href="http://www.brainlesstales.com">Brainless Tales</a>
-        
-    </div>
-    <div class="itemdescription" id="item74fd3cff">
-        <p><img alt="Make Pizza Not War" src="http://www.brainlesstales.com/images/2013/May/make-pizza-not-war.jpg" title="Make Pizza Not War" /><img height="1" src="http://feeds.feedburner.com/~r/brainlesstales/~4/wUhGkMpcaoQ" width="1" />
-    </div>
-</div>
-<!-- PAGE-END-ITEM -->
-
-<!-- PAGE-BEGIN-ITEM -->
-<div class="item" id="parentde2de776" >
-    <div class="itemheader feed-fb0268fc feed-omgubuntu" id="headerde2de776" onclick="toggleall('none');toggle('itemde2de776')">
-        <h4 class="itemtitle"><a href="http://feedproxy.google.com/~r/d0od/~3/tV-woLAIexE/top-10-ubuntu-apps-for-april">>> </a>Ubuntu&#8217;s Best Selling Apps for April</h4>
-        <p class="itembyline">
-        by Joey-Elijah Sneddon
-        in <a href="http://www.omgubuntu.co.uk">OMG! Ubuntu!</a>
-        
-    </div>
-    <div class="itemdescription" id="itemde2de776">
-        <div class="wp-caption aligncenter" id="attachment_72327" style="width: 750px;"><a href="http://www.omgubuntu.co.uk/wp-content/uploads/2013/02/3.jpg"><img alt="Paper Tanks Close Up" class="size-full wp-image-72327 " height="422" src="http://www.omgubuntu.co.uk/wp-content/uploads/2013/02/3.jpg" title="Paper Tanks Close Up" width="750" /></a><p class="wp-caption-text">&#8216;War in a Box: Paper Tanks&#8217; Sits at #3D</p></div>
-<p><strong>What follows is not deja vu, it&#8217;s the top 10 best selling apps on Ubuntu for the month of April (2013, for readers from the future).</strong></p>
-<p>Yes, for the fourth month in a row there is no change at the top of the chart. The $2.99 desktop weather application Stormcloud,&#160;<a href="http://www.omgchrome.com/stormcloud-for-chrome-weather-made-beautiful/" target="_blank">which recently launched on the Chrome Web Store</a>, remains Ubuntu&#8217;s best selling app.&#160;<b style="font-family: Raleway, Ubuntu, 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 24px;"><br />
-</b></p>
-<div class="wp-caption alignright" id="attachment_75108" style="width: 300px;"><a href="http://www.omgubuntu.co.uk/wp-content/uploads/2013/03/new-sotrmcloud.jpg"><img alt="new-stormcloud" class="size-medium wp-image-75108" height="138" src="http://www.omgubuntu.co.uk/wp-content/uploads/2013/03/new-sotrmcloud-300x138.jpg" width="300" /></a><p class="wp-caption-text">Stormcloud</p></div>
-<p>Stormcloud sold&#160;<em style="font-family: Raleway, Ubuntu, 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 24px;">182</em>&#160;copies during April &#8211; 40 sales up on that shifted in March, taking its 2013 total to 695 copies.</p>
-<h3>Elsewhere in the chart</h3>
-<p>But it&#8217;s not just the top of the chart that seems in stasis there&#8217;s also little change&#160;lower down the ladder.</p>
-<p><strong><em>Filebot</em></strong>, <em><strong>Fluendo,</strong> <strong>Braid</strong></em> and <strong>&#8216;War in a Box: Paper Tanks&#8217;</strong>&#160;continuing to sell, with the latter three just changing by a single place on last months rankings.</p>
-<p>There are two new entries: indie game <strong>Splice</strong> &#8211; best described as &#8216;Sudoku in a Petri Dish&#8217; &#8211; charts at #4, and&#160;<strong style="font-family: Raleway, Ubuntu, 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 24px;">Uberwriter</strong> &#8211; a lightweight markdown text editor &#8211; clinches #6.</p>
-<h4>April 2013&#8242;s Top 10&#160;Paid Apps</h4>
-<p><strong>[App name/March&#160;</strong><strong>P</strong><strong>osition]</strong></p>
-<ol>
-<li><em><strong><a href="http://www.omgubuntu.co.uk/2013/03/weather-app-stormcloud-adds-more-customisation-options" target="_blank" title="Weather App Stormcloud Adds New Customisation Options">Stormcloud</a></strong>&#160;(1)</em></li>
-<li><em><a href="http://www.omgubuntu.co.uk/2012/10/how-to-enable-dvd-playback-in-ubuntu" target="_blank" title="[How To] Enable DVD Playback in Ubuntu 12.10">Fluendo DVD Player</a>&#160;(3)</em></li>
-<li><em><a href="http://www.omgubuntu.co.uk/2013/03/war-in-a-box-paper-tanks-ubuntu-review" target="_blank" title="&#8216;War In a Box: Paper Tanks&#8217; &#8211; Tank-Destroying, Pellet-Blasting Fun for Ubuntu">War in a Box &#8211; Paper Tanks (4)</a></em></li>
-<li><em><a href="http://www.omgubuntu.co.uk/2012/11/splice-sudoku-in-a-petri-dish" target="_blank" title="Splice: Sudoku in a Petri Dish">Splice </a>(new)</em></li>
-<li><em>Filebot (5)</em></li>
-<li><em><a href="http://www.omgubuntu.co.uk/2012/12/top-10-ubuntu-apps-of-2012" target="_blank" title="Top 10 Ubuntu Apps of 2012">UberWriter</a> (new)</em></li>
-<li><em>Quick &#8216;n Easy Web Builder (6)</em></li>
-<li><em>Braid (7)</em></li>
-<li><em>Drawers (re)</em></li>
-<li><em><a href="http://www.omgubuntu.co.uk/2012/10/bastion-redefining-the-classic-action-rpg" target="_blank" title="Bastion: Redefining the Classic Action-RPG">Bastion </a>(re)</em></li>
-</ol>
-<p>Want to glance at what was selling in previous months? Check out our&#160;<a href="http://www.omgubuntu.co.uk/tag/top-apps" target="_blank" title="Ubuntu's best selling apps"><em>Top Apps</em>&#160;tag.</a></p>
-<p><a href="http://www.omgubuntu.co.uk/2013/05/top-10-ubuntu-apps-for-april">Ubuntu&#8217;s Best Selling Apps for April</a> <a href="http://www.omgubuntu.co.uk">OMG! Ubuntu! - Everything Ubuntu. Daily.</a></p><div class="feedflare">
-<a href="http://feeds.feedburner.com/~ff/d0od?a=tV-woLAIexE:aRQQBaduCvI:wBxX2hOkimM"><img border="0" src="http://feeds.feedburner.com/~ff/d0od?i=tV-woLAIexE:aRQQBaduCvI:wBxX2hOkimM" /></a> <a href="http://feeds.feedburner.com/~ff/d0od?a=tV-woLAIexE:aRQQBaduCvI:I9og5sOYxJI"><img border="0" src="http://feeds.feedburner.com/~ff/d0od?d=I9og5sOYxJI" /></a> <a href="http://feeds.feedburner.com/~ff/d0od?a=tV-woLAIexE:aRQQBaduCvI:qj6IDK7rITs"><img border="0" src="http://feeds.feedburner.com/~ff/d0od?d=qj6IDK7rITs" /></a> <a href="http://feeds.feedburner.com/~ff/d0od?a=tV-woLAIexE:aRQQBaduCvI:V_sGLiPBpWU"><img border="0" src="http://feeds.feedburner.com/~ff/d0od?i=tV-woLAIexE:aRQQBaduCvI:V_sGLiPBpWU" /></a> <a href="http://feeds.feedburner.com/~ff/d0od?a=tV-woLAIexE:aRQQBaduCvI:gIN9vFwOqvQ"><img border="0" src="http://feeds.feedburner.com/~ff/d0od?i=tV-woLAIexE:aRQQBaduCvI:gIN9vFwOqvQ" /></a> <a href="http://feeds.feedburner.com/~ff/d0od?a=tV-woLAIexE:aRQQBaduCvI:yIl2AUoC8zA"><img border="0" src="http://feeds.feedburner.com/~ff/d0od?d=yIl2AUoC8zA" /></a>
-</div><img height="1" src="http://feeds.feedburner.com/~r/d0od/~4/tV-woLAIexE" width="1" />
-    </div>
-</div>
-<!-- PAGE-END-ITEM -->
-
-<!-- PAGE-BEGIN-ITEM -->
-<div class="item" id="parentaa358b15" >
-    <div class="itemheader feed-93914623 feed-elementaryupdate" id="headeraa358b15" onclick="toggleall('none');toggle('itemaa358b15')">
-        <h4 class="itemtitle"><a href="http://www.elementaryupdate.com/2013/05/app-review-vnstat.html">>> </a>App Review: vnstat</h4>
-        <p class="itembyline">
-        by <a href="mailto:noreply@blogger.com">Daniel K</a>
-        in <a href="http://www.elementaryupdate.com/">Elementary Update</a>
-        
-    </div>
-    <div class="itemdescription" id="itemaa358b15">
-        <p>vnstat is a <i>very</i> tiny command line tool, showing you stats of your used data via the internet.<br /><br />
-
-It shows you the stats for every month as well as for yesterday and today. It also estimates how much data you could spend in the rest of the day/month.<br />
-<br />
-rx stands for your downloaded data (receive), tx for your uploaded data (transmit), the rest is self-explanatory.<br />
-<br />
-It seperates between your WLAN-Connections (wlanX) and Ethernet-Connections (ethX), where X = number.<br />
-<div class="separator" style="clear: both; text-align: center;">
-<a href="http://1.bp.blogspot.com/-UoTDWSJwJxg/UYUSewzPHzI/AAAAAAAABB0/HBSFeRag5ZA/s1600/vnstat.png" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="402" src="http://1.bp.blogspot.com/-UoTDWSJwJxg/UYUSewzPHzI/AAAAAAAABB0/HBSFeRag5ZA/s640/vnstat.png" width="640" /></a></div>
-But this is just the basic function. To get the list showing all the stuff you can do with vnstat, type 
-vnstat -? 
-into the terminal.<br />
-<br />
-To install it, type into the terminal:
-<code>
-sudo apt-get install vnstat</code>
-To start vnstat, type the terminal command 
-vnstat.
-
-<div class="separator" style="clear: both; text-align: center;">
-<a href="http://1.bp.blogspot.com/-KoKlAZ4Brqg/UYUV21ttpRI/AAAAAAAABCE/JxHPOukz8oI/s1600/frontvnstat.png" style="margin-left: 1em; margin-right: 1em;"><img border="0" class="summary" src="http://1.bp.blogspot.com/-KoKlAZ4Brqg/UYUV21ttpRI/AAAAAAAABCE/JxHPOukz8oI/s1600/frontvnstat.png" style="display: none;" /></a></div>
-    </div>
-</div>
-<!-- PAGE-END-ITEM -->
-
-<!-- PAGE-BEGIN-ITEM -->
-<div class="item" id="parent15eed50e" >
-    <div class="itemheader feed-c179889f feed-journal" id="header15eed50e" onclick="toggleall('none');toggle('item15eed50e')">
-        <h4 class="itemtitle"><a href="http://elementaryos.org/journal/luna-beta-2-released">>> </a>Luna Beta 2 Released</h4>
-        <p class="itembyline">
-        by cassidyjames
-        in <a href="http://elementaryos.org/journal/rss.xml">Journal</a>
-        
-    </div>
-    <div class="itemdescription" id="item15eed50e">
-        <div>
-<p>It&#8217;s been a full 5 months since the release of Luna Beta 1 and we&#8217;ve been hard at work to bring you the next beta. elementary has received tons of positive feedback from happy users all over the world. We&#8217;ve also received a flood of testers and bug reports. We&#8217;re happy to announce that we&#8217;re ready to release our second beta with over 300 fixes! Here are a few of the big ones:</p>
-<h2>Internationalization</h2>
-<p class="rtecenter"><img alt="" class="borderless c2" src="http://journal.elementaryos.org/sites/default/files/user/6/preferences-desktop-locale.png" /></p>
-<p>Since elementary is used and developed by people from all over the world, it only makes sense for us to focus on making it available in as many languages as possible. After Beta1 was released, we were pleasantly surprised to see a HUGE translation team spring up out of nowhere! We&#8217;ve been working with them to bring better translation support to all of our apps, including our app development framework Granite. We&#8217;ve also added better support for Sinhalese fonts as well as Khmer fonts.</p>
-<h2>Multiple Display Support</h2>
-<p class="rtecenter"><img alt="" class="borderless c2" src="http://journal.elementaryos.org/sites/default/files/user/6/display.png" /></p>
-<p>While most default setups are single-display, we do have a lot of power users who use multiple displays. As such, we&#8217;ve worked at making multiple-display support even better in Luna. Specifically, we&#8217;ve solved a number of bugs with Plank and Wingpanel in regards to appearing on the correct display and setting this in System Settings.</p>
-<h2>Visual Enhancements</h2>
-<p>Our user experience designers have been especially hard at work putting the finishing touches on Luna. Since our recent rebranding by the very talented Ian Hex, we&#8217;ve had a strong focus on providing great typography. Because of this, we&#8217;ve made sure to include an updated version of our title font &#8220;Raleway&#8221; that brings more font weights. We&#8217;ve also focused in on fixing the appearance of monospace fonts in the OS and as a bonus we&#8217;ve made some very cool new creative fonts available as an extras package.</p>
-<p class="rtecenter"><img alt="" class="borderless c3" src="http://journal.elementaryos.org/sites/default/files/user/6/switch_0.png" /></p>
-<p>The <strong>elementary theme</strong> has seen even more enhancements since Beta 1. We've added more focus states for accessibility (a subtle blue glow when your keyboard is focused on a widget), cleaned up the inline toolbars, improved tab styling, reworked spin-buttons, switches, and more. We've really been working on refining the smallest details of the theme this cycle and tracking down visual bugs. <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Felementaryos.org%2Fjournal%2Felementary-gtk-theme-33-released">Read More</a></p>
-<p class="rtecenter"><img alt="" class="borderless c4" src="http://journal.elementaryos.org/sites/default/files/user/6/lightdark.png" /></p>
-<p>Our <strong>icon set</strong> has also seen a number of updates this cycle, from the panes in System Settings to a brand new set of emoticons and completely redrawn Folders, you&#8217;ll see a big difference in quality from beta1 to beta2.&#160; <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Felementaryos.org%2Fjournal%2Fnew-folder-icons-luna">Read More About Folders</a></p>
-<h2>Updated Apps</h2>
-<p class="rteleft"><img alt="" class="borderless c5" src="http://journal.elementaryos.org/sites/default/files/user/6/shotwell.png" /></p>
-<p>Photo enthusiasts will be pleased to find the latest <strong>Shotwell</strong> 0.14.1 present in Beta 2. This release brings a number of stability fixes, better facebook integration, improved support for RAW, and many more small fixes. <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fblog.yorba.org%2Flucas%2F2013%2F04%2F1139.html">Read More</a></p>
-<p class="rteright"><img alt="" class="borderless c5" src="http://journal.elementaryos.org/sites/default/files/user/6/midori.png" /></p>
-<p><strong>Midori</strong>, our web browser, has been updated to version 0.5. It features better Granite support, improved responsiveness and functionality in autocomplete, improved extension loading, a reworked (and now extend-able) downloads backend, a new Cookie Security Manager, and a slew of bug fixes. <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Ftwotoasts.de%2Findex.php%2F2013%2F04%2Fhigh-five%2F">Read More</a></p>
-<p><img alt="" class="borderless c5" src="http://journal.elementaryos.org/sites/default/files/user/6/multimedia-audio-player.png" /></p>
-<p>When testing Beta 1, many potential switchers complained about the code name of our flagship music player. So in addition to the update to version 0.2, Noise is now called&#160;<strong>Music</strong>. We've improved album art handling, added duplicate-detection, and added the number of remaining tracks in the queue to the source list. We also pushed out some UX/design updates, improved external device support, and greatly improved performance. Lastly, we fixed a huge amount of crashers that were affecting users since Beta 1; thank you for everyone who reported these and helped us make Noise rock. <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fwww.elementaryos.org%2Fjournal%2Fnoise-02-released">Read More</a></p>
-<p class="rteright"><img alt="" class="borderless c5" src="http://journal.elementaryos.org/sites/default/files/user/6/internet-mail.png" /></p>
-<p>The ever popular <strong>Geary</strong> has been updated to version 0.3.1, which includes support for multiple accounts, marking mail as spam, &#8220;collapsed&#8221; messages in conversations, and tons of fixes. <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fblog.yorba.org%2Fchaz%2F2013%2F03%2Fgeary-0-3-released.html">Read More</a></p>
-<p><img alt="" class="borderless c5" src="http://journal.elementaryos.org/sites/default/files/user/6/utilities-terminal.png" /></p>
-<p>The <strong>Terminal</strong> was updated to version 0.2. We implemented bug fixes, improved customizability, and added a few new features like color schemes and zoomable text.</p>
-<h2>Keyboard Workflow</h2>
-<p>While we often focus on the improvements we&#8217;ve made for less-experienced users, we also want to highlight the things we do to make life a little easier for our pro users. So for Beta 2 we&#8217;ve made keyboard-based workflows much better. You can now move windows with &#8984; + click-n-drag. Tab switching is a bit more keyboard friendly. Quit and Close shortcuts should work as expected in Noise and for our fancy light windows. Searching should be more immediately available across our apps (no need to click the box first, just type!).</p>
-<h2>More</h2>
-<p>In addition to the numerous changes above, we&#8217;ve fixed up a lot of odds and ends. With Switchboard&#8212;our system settings app&#8212;we&#8217;ve added the ability to switch dock themes, included brand new Keyboard and Power sections, and fixed up the way indicators and other places can launch Switchboard. Contractor&#8212;our system-wide extension service&#8212;was actually completely reworked to fix provide more accurate matching and greater functionality for contract developers. We fixed an annoyance in WingPanel that made indicators change their order. By popular request, we&#8217;ve added lights that show when windows are open to the dock. Like Music, we've changed Maya to Calendar. Lastly, we now support UEFI installs.</p>
-<p>Overall, what we see in Beta2 is a faster, more stable, more beautiful, more accessible, more international, and even easier to use and feature rich elementary OS.</p>
-<h2>How to Help</h2>
-
-<p>elementary OS is crafted <strong>entirely by volunteers</strong>. We happily accept any help offered to us from the community. There are a number of ways you can help out and make the final release even better.</p>
-<p>First of all, go ahead and make sure you're&#160;<a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=https%3A%2F%2Flogin.launchpad.net%2F%2Blogin" target="_blank">registered with Launchpad</a>. We use Launchpad for blueprint planning, code hosting, and bug tracking; it&#8217;s a tool that is very useful for us and is essential for testers to use.</p>
-<h3>Report Bugs</h3>
-<p class="rtecenter"><img alt="" class="borderless c5" src="http://journal.elementaryos.org/sites/default/files/user/6/apport.png" /></p>
-
-<p>What happens if you come across a bug? Report it! We&#8217;re pushing out this beta to allow wider testing before we release a final version, and it&#8217;ll only get better if we know about any bugs that might exist. There are a number of ways to report bugs.</p>
-<p>First, if something crashes, look for the "Report a Problem" dialog which should pop up. If you encounter a bug without that happening, go ahead and click the <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Felementaryos.org%2Fsites%2Fdefault%2Ffiles%2Fuser%2F5%2Fapport-128.png%22%3E"></a>. This will log some system information (crash reports and app logs), let you check over the contents, and then upload it to Launchpad to a private bug. You can also report bugs about a specific app from it's "About" dialog (found in the gear menu). Launchpad will open in your browser where you can double-check the bug and <strong>give us more details so we can fix it</strong>.</p>
-<p>If you&#8217;re not in elementary OS but still need to report a bug, you can simply visit Launchpad in your browser and report the bug on our project page. No matter how you report a bug, be sure you&#8217;re including any information about what you were doing before the bug occurred so we can successfully track it down.</p>
-<h3>Join Development</h3>
-
-<p>We&#8217;re always happy to meet new developers. If you&#8217;re a developer or tester interested in helping elementary more closely, <strong>join #elementary on irc.freenode.net</strong>. We can talk with you and help direct you toward a project you could play a big role in.</p>
-<p>There is also the elementary Developer Community <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=https%3A%2F%2Flaunchpad.net%2F%7Eelementary-dev-community" target="_blank">mailing list</a>, where developers can ask questions, propose or brainstorm ideas, and discuss development in a non-real-time fashion. It&#8217;s a great place to introduce yourself as a developer and find a project to help with.</p>
-<p>After Beta2 comes RC1, we&#8217;ll be targeting any new bugs toward <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=https%3A%2F%2Fbugs.launchpad.net%2Felementaryos%2F%2Bmilestone%2Frc1" target="_blank">this</a> milestone on Launchpad. It might be a good idea to familiarize yourself with that milestone and even try tackling some bugs as they pop up.</p>
-<h3>Translate</h3>
-<p>elementary OS is targeted to and used by people from all over the world. If you speak more than one language, you could be invaluable to ensuring that someone who doesn't speak English gets to enjoy elementary. Check out <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=https%3A%2F%2Ftranslations.launchpad.net%2Felementary">our translations page</a> on Launchpad and look for apps that need translations in your language.&#160;</p>
-<h3>Donate</h3>
-
-<p>Last but not least, you can <a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Felementaryos.org%2Fdonate" target="_blank">donate to elementary</a>. We&#8217;re 100% volunteer and rely on donations to fund things like the website, travel expenses to developer conferences (where we meet incredible people, learn valuable new things, and make friends with other projects), and anything else that furthers our mission. Every little bit counts and we offer multiple ways to donate like credit card, flattr, and PayPal.</p>
-<h2>How to Download/Install</h2>
-<p>Now that you&#8217;ve read about all of the work that&#8217;s gone into this beta and how to help us out, you probably want to know how to download and install it. Downloading is simple; just click the button below for your processor type (32- or 64-bit). Then just burn it to a CD or USB disk as you would any other OS. If you need help, you can follow along with our&#160;<a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Felementaryos.org%2Fdocs%2Fpreparation" target="_blank">user guide</a> from Jupiter.</p>
-<p class="rtecenter c6"><a class="custom-journal-button" href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fsourceforge.net%2Fprojects%2Felementaryos%2Ffiles%2Funstable%2Felementaryos-beta2-i386.20130506.iso%2Fdownload" target="_blank">32-bit Beta</a><a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fsourceforge.net%2Fprojects%2Felementaryos%2Ffiles%2Funstable%2Felementaryos-beta2-i386.20130506.iso.torrent%2Fdownload" target="_blank">Download via Torrent</a><br /><span>md5:&#160;</span>272040bcaf6af7ed93c3f4d9bbf5be32&#160;<a class="custom-journal-button" href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fsourceforge.net%2Fprojects%2Felementaryos%2Ffiles%2Funstable%2Felementaryos-beta2-amd64.20130506.iso%2Fdownload" target="_blank">64-bit Beta</a><a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fsourceforge.net%2Fprojects%2Felementaryos%2Ffiles%2Funstable%2Felementaryos-beta2-amd64.20130506.iso.torrent%2Fdownload" target="_blank">Download via Torrent</a><br /><span>md5:&#160;</span>e2ed2d5bf24edededc2d459d5acc743d</p>
-<p>Remember that <strong>this is a beta and is not indicative of the final version</strong>. We respectfully ask any press to make this clear if they decide to write about this beta. We&#8217;re pushing this beta out to get wider testing and feedback before our final release&#160;and as such, it is not intended for typical end users.</p>
-</div><img border="0" height="1" src="http://pixel.quantserve.com/pixel/p-89EKCgBk8MZdE.gif" width="1" />
     </div>
 </div>
 <!-- PAGE-END-ITEM -->
