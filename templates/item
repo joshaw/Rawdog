@@ -1,15 +1,15 @@
 <!-- PAGE-BEGIN-ITEM -->
-<div class="item">
-<div class="itemheader feed-__feed_hash__ feed-__feed_id__" onclick="toggle('item__hash__', '')">
-<h4 class="itemtitle"><a href="__url__">>> </a>__title_no_link__</h4>
-<p class="itembyline">
-__if_author__by __author____endif__
-in __feed_title__
-__if_date__at __date____endif__
-</div>
-__if_description__<div class="itemdescription" id="item__hash__">
-__description__
-</div>__endif__
+<div class="item" id="parent__hash__" >
+    <div class="itemheader feed-__feed_hash__ feed-__feed_id__" id="header__hash__" onclick="toggleall('none');toggle('item__hash__')">
+        <h4 class="itemtitle"><a href="__url__">>> </a>__title_no_link__</h4>
+        <p class="itembyline">
+        __if_author__by __author____endif__
+        in __feed_title__
+        __if_date__at __date____endif__
+    </div>
+    __if_description__<div class="itemdescription" id="item__hash__">
+        __description__
+    </div>__endif__
 </div>
 <!-- PAGE-END-ITEM -->
 

@@ -6,22 +6,67 @@
         <link rel="stylesheet" href="style.css" type="text/css">
         <title>rawdog</title>
         <script type="text/javascript">
-            function toggle(showHideDiv, switchTextDiv) {
+
+            var currentlyOpen = "none";
+
+            document.onkeyup = KeyCheck;       
+
+            function KeyCheck(e) {
+                var KeyID = (window.event) ? event.keyCode : e.keyCode;
+
+                switch(KeyID) {
+                    case 74:
+                        nextPrev("next"); 
+                        break;
+                    case 75:
+                        nextPrev("previous"); 
+                        break;
+                }
+            }
+
+            function toggle(showHideDiv) {
                 var ele = document.getElementById(showHideDiv);
-                var text = document.getElementById(switchTextDiv);
                 if(ele.style.display == "block") {
                     ele.style.display = "none";
-                    text.innerHTML = "show";
                 }
                 else {
                     ele.style.display = "block";
-                    text.innerHTML = "hide";
+                    currentlyOpen = showHideDiv;
                 }
             }  
-            function openall(){
+            function toggleall(changeTo){
                 var list = document.getElementsByClassName("itemdescription");
                 for (var i = 0; i < list.length; i++) {
-                    document.list[i].style.display = "block";
+                    var e = list[i];
+                    e.style.display = changeTo;
+                }
+            }
+            function addIds(){
+                var items = document.getElementsByClassName("itemdescription");
+                for (var i = 0; i < items.length; i++) {
+                    var e = items[i];
+                    e.id="Navigation"+(i);
+                }
+            }
+            addIds();
+
+            function nextPrev(direction){
+                var divs = document.getElementsByClassName("itemdescription");
+                var selectionDiv = document.getElementById(currentlyOpen);
+                for(var i=0; i<divs.length; i++) {
+                    if(divs[i] == selectionDiv) {
+                        var previous = divs[i+1];
+                        var next = divs[i-1];
+                        break;
+                    }
+                }
+                
+                toggleall('none');
+                if(direction == "next"){
+                    toggle(next.id);
+                    window.location = "#" + next.parentNode.id;
+                }else{
+                    toggle(previous.id);
                 }
             }
         </script>
@@ -30,7 +75,7 @@
         <div id="page">
             <div id="header">
                 <h1>rawdog __version__: __num_items__ items from __num_feeds__ feeds</h1>
-                <p onclick="openall()">Expand all</p>
+                <p><a onclick="toggleall('block')">Open all</a> <a onclick="toggleall('none')">Close all</a> </p>
             </div>
             <div class="pages">
                 __paged_output_pages__
@@ -41,6 +86,11 @@
             <div class="pages">
                 __paged_output_pages__
             </div>
+        </div>
+        <a id="toTopButton" href="#">Top^</a>
+        <div id="floatingNav">
+            <p href="" id="navNext" onclick="nextPrev('next')">&uarr;</p>
+            <p href="" id="navPrev" onclick="nextPrev('previous')">&darr;</p>
         </div>
     </body>
 </html>

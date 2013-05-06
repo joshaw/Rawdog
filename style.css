@@ -113,3 +113,43 @@ h3 {
     margin: 0;
 }
 
+#toTopButton {
+    color:#ccc;
+    position: fixed;
+    bottom: 5px;
+    left: 5px;
+}
+#toTopButton:hover {
+    color: #a03;
+}
+
+#floatingNav {
+    position: fixed;
+    float: right;
+    bottom: 50%;
+    right: 10px;
+}
+
+#floatingNav:hover {
+    background-color: #eee;
+}
+
+#floatingNav, #navNext, #navPrev {
+    color:#aaa;
+    font-size:200%;
+    margin: 0px;
+    -webkit-transition: background-color 100ms linear;
+    -moz-transition: background-color 100ms linear;
+    -o-transition: background-color 100ms linear;
+    -ms-transition: background-color 100ms linear;
+    transition: background-color 100ms linear;
+}
+
+#floatingNav:hover, #navNext:hover, #navPrev:hover {
+    color:#555;
+    -webkit-transition: background-color 100ms linear;
+    -moz-transition: background-color 100ms linear;
+    -o-transition: background-color 100ms linear;
+    -ms-transition: background-color 100ms linear;
+    transition: background-color 100ms linear;
+}
