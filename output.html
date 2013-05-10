@@ -8,10 +8,13 @@
             /*localStorage.clear();*/
             function readReadColor(){
                 for (var i = 0; i < localStorage.length; i++){
-                    var current = document.getElementById(localStorage.getItem(localStorage.key(i))
-).previousElementSibling.getElementsByTagName("h4")[0];
-                    current.classList.remove('unread')
-                    current.className += " read";
+                    if (document.getElementById(localStorage.getItem(localStorage.key(i)))){
+                        var current = document.getElementById(localStorage.getItem(localStorage.key(i))).previousElementSibling.getElementsByTagName("h4")[0];
+                        current.classList.remove('unread');
+                        current.className += " read";
+                    } else {
+                        localStorage.removeItem(i);
+                    }
                 }
             }
 
@@ -42,8 +45,7 @@
                 var ele = document.getElementById(showHideDiv);
                 if(ele.style.display == "block") {
                     ele.style.display = "none";
-                }
-                else {
+                } else {
                     ele.style.display = "block";
                     currentlyOpen = showHideDiv;
                     current = document.getElementById(currentlyOpen).previousElementSibling.getElementsByTagName("h4")[0];
@@ -97,7 +99,7 @@
     <body id="rawdog" onload="readReadColor()">
         <div id="page">
             <div id="header">
-                <h1>rawdog 2.13: 30 items from 58 feeds</h1>
+                <h1>rawdog 2.13: 79 items from 58 feeds</h1>
                 <p><a onclick="toggleall('block')">Open all</a> <a onclick="toggleall('none')">Close all</a> </p>
             </div>
             <div class="pages">
@@ -106,6 +108,193 @@
             <div id="items">
                 <div class="day">
 <h2>Friday, 10 May</h2>
+<div class="time">
+<h3>04:44 PM</h3>
+<!-- PAGE-BEGIN-ITEM -->
+<div class="item" id="parent4510d58d" >
+    <div class="itemheader feed-831a0633 feed-alistapartthefullfeed" id="header4510d58d" onclick="toggleall('none');toggle('itemhttp://feedproxy.google.com/~r/alistapart/main/~3/Qq8IuA20lkY/better-stakeholder-interviews')">
+        <h4 class="itemtitle unread"><a href="http://feedproxy.google.com/~r/alistapart/main/~3/Qq8IuA20lkY/better-stakeholder-interviews">>> </a>Research Tips For Designers and Developers</h4>
+        <p class="itembyline">
+        by The fine folks at A List Apart
+        in <a href="http://alistapart.com">A List Apart: The Full Feed</a>
+        
+    </div>
+    <div class="itemdescription" id="itemhttp://feedproxy.google.com/~r/alistapart/main/~3/Qq8IuA20lkY/better-stakeholder-interviews">
+        <div id="main">
+<p>Unfortunately, the waterfall web design process and &#8220;Telephone&#8221; are similar, and too much valuable, primary research (in this case stakeholder interviews) ends up being reinterpreted to the point that the original sentiment and answers are lost. The process of conducting and then documenting stakeholder interviews can keep a team at an arm&#8217;s length from a project. Instead, place designers and developers closer to the project discovery and research phase. Maintaining the fidelity of the research helps our team craft the best user experience possible. While not everyone has a background in research, anyone can conduct a stakeholder interview.</p>
+<p>The barrier to entry might be lower than you think. In the last 12 months, I&#8217;ve had to go from interviewer novice to Charlie Rose as the Happy Cog research process was revamped. Being thrown into the deep end of the pool has forced me to recognize quickly some of the more important aspects that make an interview successful. The following tips guide how I plan for and conduct any stakeholder interviews.</p>
+<p><em>(Note: At Happy Cog, we work with our clients to determine what defines a &#8220;stakeholder&#8221; of the project. Stakeholders may just include the core members of a client team or can extend to content owners, key opinion leaders, potential audience types, users, etc. These interviews tend to take 30 to 60 minutes and are typically conducted by phone. To ensure our interviewee can focus on conducting the interview, a project manager captures notes from the call, and from time to time, we also record interviews.)</em></p>
+<h3>The script matters.</h3>
+<blockquote>
+<p>&#8220;Do you know how to have a conversation? Then you can conduct an interview.&#8221;<br />&#8212; Michael Johnson, Design Director at Happy Cog</p>
+</blockquote>
+<p>Having the &#8220;gift of gab&#8221; doesn&#8217;t mean you can skimp on drafting a well-structured script for the interview. A strong interview script works from the general (big-picture project goals) to the specific (role-based concerns regarding features and functionality.) Start with the basics to get the interviewee comfortable. Ask about their role on the project and how they see themselves providing value. Allow interviewees to talk about themselves in their own words. Build confidence in the interviewee that their vision matters, because it does.</p>
+<p>Once you outline the easy questions, work backwards. Consider the goals of the project and the goals set forth by the client. What questions will help you learn more about how this interviewee can help articulate the path to success? Always consider the uniqueness of the interviewee&#8217;s position and role on the project when deciding appropriate questions.</p>
+<h3>But, sometimes the script doesn&#8217;t matter.</h3>
+<p>Yes, the script is important, but it shouldn&#8217;t be carved out of stone. Just because questions are in a specific order shouldn&#8217;t dictate how the interview is conducted. Let the natural flow of the conversation govern the order in which you ask questions. Be cognizant of the topical threads in the answers the interviewee provides; look for the right moments to shift to a question in the script that might keep that narrative thread intact. Mentally check off the questions as you go, ensuring you still cover everything the session demands.</p>
+<p>Prepare appropriately. Know who you are interviewing.</p>
+<p>Knowing the <em>right</em> way to version the script means the interviewer must do some homework. Set yourself up for success by spending a brief amount of time familiarizing yourself with who you are interviewing and their role. This shouldn&#8217;t be a research project unto itself; a quick Google search should suffice. Don&#8217;t make the mistake of asking a question that exposes a lack of preparation. The same questions won&#8217;t apply to the Dean of the College and a prospective student. Respect the time that the interviewee is providing by making sure you aren&#8217;t asking questions that aren&#8217;t relevant.</p>
+<p>Consider the difference between these two questions:</p>
+<blockquote>
+<p>&#8220;What are the most important types of information on yourwebsite.com?&#8221;</p>
+</blockquote>
+<p>Versus:</p>
+<blockquote>
+<p>&#8220;As the VP of Marketing, how do you use yourwebsite.com to accomplish your team&#8217;s goals?&#8221;</p>
+</blockquote>
+<p>While the purpose is the same, the second question is much more personable for our fictional VP of Marketing to highlight what types of content are valuable specifically to her and her team. Awkward bulleted-list responses can halt momentum in a productive interview. Avoid the inevitable &#8220;umms&#8221; found in responses from question #1, and, instead, focus on prompts that will promote free-flowing feedback. Let the interviewee be the storyteller.</p>
+<h3>Don&#8217;t be a robot.</h3>
+<p>Interviews should be a conversation, not an interrogation. Levity is not a bad thing. The conveyed expression in the interviewer&#8217;s voice, the manner in how questions are delivered, how introductions occur and the ice is broken&#8212;these all create an &#8220;air&#8221; enveloping the interview situation. Address this head-on. It starts with the tone in your voice. Keep it happy, upbeat, and generally interested. Let the interviewee know you are a blank slate, ready to learn. Not only does this help establish a more relaxing environment, but it also empowers the interviewee, letting them feel that their input is valuable and that their answers aren&#8217;t just checking off a compulsory check box in the project process.</p>
+<h3>Actually listen.</h3>
+<p>The best interviews often go completely off-script. Why does this happen? A topic or comment by the interviewee often leads to follow-up questions that can never be predicted. That can only happen if the interviewer is actually listening to the answers and not mentally multitasking. Listen for cues for follow-up questions. Never be afraid to ask &#8220;why?&#8221; Get comfortable asking for the interviewee to clarify an answer. You should be trying to get the <strong>best</strong> answers, not just the answers you expect.</p>
+<h3>Don&#8217;t have the last word.</h3>
+<p>End the interview with some humility. An hour-long conversation can never capture everything that the interviewee can contribute or exhaust their thoughts regarding a project. Quite often, they have more to say. To open a window for this last bit of insight, let the final question be phrased like this:</p>
+<blockquote>
+<p>&#8220;What haven&#8217;t we asked you today that you think would be valuable for us to know?&#8221;</p>
+</blockquote>
+<p>This allows them to shift the conversation to anything they find valuable that hasn&#8217;t been addressed yet.</p>
+<h3>Opt in to being better informed.</h3>
+<blockquote>
+<p>&#8220;Being able to tailor questions to different stakeholders based on their unique roles and goals gave me firsthand insights that I couldn&#8217;t (and didn&#8217;t) get from just reading requirements documents.&#8221;<br />&#8211;Yesenia Perez-Cruz, Designer at Happy Cog</p>
+</blockquote>
+<p>Being closer to a project&#8217;s research phase can be beneficial to the design process. Working in a small(er) agency, UX often falls on the shoulders of more than one person or team. Use this as an advantage. I&#8217;ve never heard a designer or developer state &#8220;I want to know less about this project.&#8221;</p>
+<p>Having firsthand exposure to what stakeholders are saying creates less chances for those findings to be watered down. Put an end to whisper-down-the-lane requirements and tactics. Keep what is learned in the interview intact by removing extraneous voices and filters from the process. Consequently, designers and developers can have more of a say in the overall project strategy and design process. Intimacy in the research phase instills project ownership. Ownership is an investment that will manifest itself in the project quality.</p>
+<p>Everyone wins.</p>
+<p class="back"><a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fcognition.happycog.com%2Farticle%2Fbetter-stakeholder-interviews%23content">Back to Top</a></p>
+<div id="responses">
+<p class="response-count"><strong>10</strong> <span>Responses</span></p>
+
+
+<p class="response-meta"> and <span class="blog-count">0 Blog Posts</span> <span class="rt-wrap">(<span class="rt-count">also 16 retweets, not shown</span>)</span></p>
+</div>
+<div class="p-wrap prev"><a href="http://redirect.viglink.com?key=11fe087258b6fc0532a5ccfc924805c0&amp;u=http%3A%2F%2Fcognition.happycog.com%2Farticle%2Fready-launch-update"><strong class="zeta">Previous</strong> Ready. Launch. Update!</a></div>
+</div><img border="0" height="1" src="http://pixel.quantserve.com/pixel/p-89EKCgBk8MZdE.gif" width="1" />
+    </div>
+</div>
+<!-- PAGE-END-ITEM -->
+
+<!-- PAGE-BEGIN-ITEM -->
+<div class="item" id="parentd97f6aad" >
+    <div class="itemheader feed-e3f4334f feed-thevergeallposts" id="headerd97f6aad" onclick="toggleall('none');toggle('itemhttp://www.theverge.com/2013/5/10/4318632/eternal-darkness-sequel-using-art-from-cancelled-silicon-knights-project')">
+        <h4 class="itemtitle unread"><a href="http://www.theverge.com/2013/5/10/4318632/eternal-darkness-sequel-using-art-from-cancelled-silicon-knights-project">>> </a>'Shadow of the Eternals,' spiritual sequel to a horror classic, resurrects art from a dying studio</h4>
+        <p class="itembyline">
+        by Adi Robertson
+        in <a href="http://www.theverge.com/">The Verge -  All Posts</a>
+        
+    </div>
+    <div class="itemdescription" id="itemhttp://www.theverge.com/2013/5/10/4318632/eternal-darkness-sequel-using-art-from-cancelled-silicon-knights-project">
+        <p><img alt="Vxhtv_large" src="http://cdn2.sbnation.com/entry_photo_images/8177211/VXhtv_large.jpg" />
+
+
+
+
+
+  <p>Precursor Games, the new company <a href="http://www.theverge.com/2013/5/3/4298414/shadow-of-the-eternals-eternal-darkness-spiritual-successor-trailer-wii-u-pc">developing a spiritual sequel to classic horror game <i>Eternal Darkness: Sanity's Requiem</i></a>, isn't just headed by the founder of <i>Eternal Darkness</i> studio Silicon Knights. It's using the same chairs and computers, and even buying some unused art to put in its new game, after an apparent Silicon Knights meltdown. <a href="http://www.polygon.com/2013/5/9/4316936/silicon-knights-epic-games-precursor-games" target="_blank">According to <i>Polygon</i></a>, Silicon Knights has closed down its office and cut its team to the quick, while still fighting<a href="http://www.polygon.com/gaming/2012/5/30/3052869/court-finds-for-epic-games-on-all-counts-in-silicon-knights-suit" target="_blank"> a $4.45 million lawsuit</a> with Epic Games and an order to <a href="http://www.penny-arcade.com/report/article/silicon-knights-to-destroy-games-code-and-give-up-millions-in-epic-lawsuit-" target="_blank">destroy any unsold copies of games</a> or samples of code using Unreal Engine 3.</p>
+<p>In the process, it sold equipment to Precursor, headed by former Silicon Knights president Denis Dyack. More interestingly, it also sold art assets...</p>
+  <p>
+    <a href="http://www.theverge.com/2013/5/10/4318632/eternal-darkness-sequel-using-art-from-cancelled-silicon-knights-project">Continue reading&hellip;</a>
+  </p>
+    </div>
+</div>
+<!-- PAGE-END-ITEM -->
+
+</div>
+<div class="time">
+<h3>04:32 PM</h3>
+<!-- PAGE-BEGIN-ITEM -->
+<div class="item" id="parent0fc39375" >
+    <div class="itemheader feed-e126b8c0 feed-chromestory" id="header0fc39375" onclick="toggleall('none');toggle('itemhttp://www.chromestory.com/?p=8583')">
+        <h4 class="itemtitle unread"><a href="http://feedproxy.google.com/~r/ChromeStory/~3/-_9enlWnQKQ/">>> </a>Google Cloud Messaging Comes to Chrome and Chrome OS, Brings Push Notifications</h4>
+        <p class="itembyline">
+        by Dinsan Francis
+        in <a href="http://www.chromestory.com">Chrome Story</a>
+        
+    </div>
+    <div class="itemdescription" id="itemhttp://www.chromestory.com/?p=8583">
+        <p>This post is from <a href="http://www.chromestory.com">Chrome Story - Chrome Is What You Make Of It</a></p><p>Here is another Chrome and Chrome OS news that has Google IO written all over it. Google is bringing the&#160;<strong>Google Cloud Messaging.&#160;</strong>This was an Android only feature so far. With its introduction, Chrome apps will be able to use push notifications.</p>
+<p>Excerpts from the blog <a href="http://blog.chromium.org/2013/05/building-efficient-apps-and-extensions.html" target="_blank">post</a>.</p>
+<p><em>Event pages keep apps and extensions efficient by allowing them to respond to a variety of events such as timers or navigation to a particular site, without having to remain running persistently. But what if you need to respond to something that occurs outside of Chrome, such as a news alert, a message sent to a user or a stock hitting a price threshold? Until now, you had to do this by repeatedly polling a server. This process consumed bandwidth and reduced the battery life of your users&#8217; machines. For a more efficient solution, starting today you can use&#160;<a href="http://developer.chrome.com/apps/cloudMessaging.html">Google Cloud Messaging for Chrome</a>&#160;(GCM) &#8211; across all channels of Chrome.</em></p>
+<p>Here is the official introduction to the Google Cloud Messaging, which will give you an idea about what it does.</p>
+<p><img alt="chrome news  Google Cloud Messaging Comes to Chrome and Chrome OS, Brings Push Notifications" class="alignnone  wp-image-8584" height="402" src="http://www.chromestory.com/wp-content/uploads/2013/05/chrome-push-messaging.jpg" title="Google Cloud Messaging Comes to Chrome and Chrome OS, Brings Push Notifications" width="410" /></p>
+<p><em>Google Cloud Messaging for Chrome (GCM) is a service for signed-in Chrome users that helps developers send message data from servers to their Chrome apps and extensions. The service is intended to wake up an app or extension, and/or alert a user. For example, calendar updates could be pushed to users even when their calendaring app isn&#8217;t open.</em></p>
+<p>For more details, check out the official documentation <a href="http://developer.chrome.com/apps/cloudMessaging.html" target="_blank">here</a>.</p>
+
+<div class="wp_rp_wrap  wp_rp_modern" id="wp_rp_first"><div class="wp_rp_content"><h3 class="related_post_title">Read More Like This</h3><ul class="related_post wp_rp"><li><a class="wp_rp_thumbnail" href="http://www.chromestory.com/2012/08/i-have-added-a-new-forum-here-can-you-help-me-test-it/"><img alt="chrome news  Google Cloud Messaging Comes to Chrome and Chrome OS, Brings Push Notifications" class="attachment-thumbnail" height="20" src="http://www.chromestory.com/wp-content/uploads/2012/08/chromestoryforum-20x20.png" title="Google Cloud Messaging Comes to Chrome and Chrome OS, Brings Push Notifications" width="20" /></a><a class="wp_rp_title" href="http://www.chromestory.com/2012/08/i-have-added-a-new-forum-here-can-you-help-me-test-it/">I Have Added A New Forum Here, Can You Help Me Test It?</a></li><li><a class="wp_rp_thumbnail" href="http://www.chromestory.com/2013/01/google-chrome-beta-channel-arrives-for-android-phones-and-tablets/"><img alt="chrome news  Google Cloud Messaging Comes to Chrome and Chrome OS, Brings Push Notifications" class="attachment-thumbnail wp-post-image" height="20" src="http://www.chromestory.com/wp-content/uploads/2013/01/chromebeta-20x20.png" title="Google Cloud Messaging Comes to Chrome and Chrome OS, Brings Push Notifications" width="20" /></a><a class="wp_rp_title" href="http://www.chromestory.com/2013/01/google-chrome-beta-channel-arrives-for-android-phones-and-tablets/">Google Chrome Beta Channel Arrives for Android Phones and Tablets</a></li><li><a class="wp_rp_thumbnail" href="http://www.chromestory.com/2013/02/chrome-os-getting-support-for-office-suite-with-native-client/"><img alt="chrome news  Google Cloud Messaging Comes to Chrome and Chrome OS, Brings Push Notifications" class="attachment-thumbnail" height="20" src="http://www.chromestory.com/wp-content/uploads/2013/02/quickoffice_logo-20x20.jpg" title="Google Cloud Messaging Comes to Chrome and Chrome OS, Brings Push Notifications" width="20" /></a><a class="wp_rp_title" href="http://www.chromestory.com/2013/02/chrome-os-getting-support-for-office-suite-with-native-client/">Chrome OS Getting Support for Office Suite With Native Client</a></li></ul></div></div>
+<div class="feedflare">
+<a href="http://feeds.feedburner.com/~ff/ChromeStory?a=-_9enlWnQKQ:bTXwWtzHzmE:yIl2AUoC8zA"><img border="0" src="http://feeds.feedburner.com/~ff/ChromeStory?d=yIl2AUoC8zA" /></a> <a href="http://feeds.feedburner.com/~ff/ChromeStory?a=-_9enlWnQKQ:bTXwWtzHzmE:V_sGLiPBpWU"><img border="0" src="http://feeds.feedburner.com/~ff/ChromeStory?i=-_9enlWnQKQ:bTXwWtzHzmE:V_sGLiPBpWU" /></a> <a href="http://feeds.feedburner.com/~ff/ChromeStory?a=-_9enlWnQKQ:bTXwWtzHzmE:qj6IDK7rITs"><img border="0" src="http://feeds.feedburner.com/~ff/ChromeStory?d=qj6IDK7rITs" /></a> <a href="http://feeds.feedburner.com/~ff/ChromeStory?a=-_9enlWnQKQ:bTXwWtzHzmE:gIN9vFwOqvQ"><img border="0" src="http://feeds.feedburner.com/~ff/ChromeStory?i=-_9enlWnQKQ:bTXwWtzHzmE:gIN9vFwOqvQ" /></a>
+</div>
+    </div>
+</div>
+<!-- PAGE-END-ITEM -->
+
+</div>
+<div class="time">
+<h3>04:16 PM</h3>
+<!-- PAGE-BEGIN-ITEM -->
+<div class="item" id="parent52fe3310" >
+    <div class="itemheader feed-d17cd332 feed-fuckyeahfluiddynamics" id="header52fe3310" onclick="toggleall('none');toggle('itemhttp://fuckyeahfluiddynamics.tumblr.com/post/50091441266')">
+        <h4 class="itemtitle unread"><a href="http://fuckyeahfluiddynamics.tumblr.com/post/50091441266">>> </a>Owls are nearly silent hunters, able to swoop down on their prey...</h4>
+        <p class="itembyline">
+        
+        in <a href="http://fuckyeahfluiddynamics.tumblr.com/">Fuck Yeah Fluid Dynamics</a>
+        
+    </div>
+    <div class="itemdescription" id="itemhttp://fuckyeahfluiddynamics.tumblr.com/post/50091441266">
+        <p><img src="http://25.media.tumblr.com/eb8879fea13a9181b6976f55a9a5ef4d/tumblr_mmijr4RpOk1qckzoqo1_500.jpg" /><br /><br /><p>Owls are nearly silent hunters, able to swoop down on their prey without the rush of air over their wings giving away their approach, thanks to several <a href="http://fuckyeahfluiddynamics.tumblr.com/post/1301558027/owls-are-among-the-most-silent-hunters-in-nature">key features of their feathers</a>. The trailing edge of their feathers&#8212;or any lifting body, like an <a href="http://fuckyeahfluiddynamics.tumblr.com/tagged/airfoil">airplane wing</a>&#8212;are a particular source of <a href="http://fuckyeahfluiddynamics.tumblr.com/tagged/acoustics">acoustic noise</a> due to the interaction of <a href="http://fuckyeahfluiddynamics.tumblr.com/tagged/turbulent+boundary+layer">turbulence</a> near the surface with the edge. Since owls are especially good at eliminating self-produced noise in a frequency range that overlaps human hearing, investigators want to learn what works for owls and apply to it aircraft. A recent <a href="http://dx.doi.org/10.1017/jfm.2013.139">theoretical analysis</a>&#160;uses a simplified model of the feather as a porous, elastic plate. The researchers found that the combination of porosity with the elasticity of the trailing edge significantly reduced noise relative to a rigid edge. (Photo credit: <a href="http://www.flickr.com/photos/macjewell/4946086428/in/photostream/">N. Jewell</a>; research credit: <a href="http://journals.cambridge.org/action/displayAbstract?fromPage=online&amp;aid=8886008&amp;fulltextType=RA&amp;fileId=S0022112013001390">J. Jaworski and N. Peake</a>)</p>
+    </div>
+</div>
+<!-- PAGE-END-ITEM -->
+
+<!-- PAGE-BEGIN-ITEM -->
+<div class="item" id="parent82ff3b08" >
+    <div class="itemheader feed-e3f4334f feed-thevergeallposts" id="header82ff3b08" onclick="toggleall('none');toggle('itemhttp://www.theverge.com/2013/5/10/4318404/beamcaster-laser-internet-network-rit-technologies')">
+        <h4 class="itemtitle unread"><a href="http://www.theverge.com/2013/5/10/4318404/beamcaster-laser-internet-network-rit-technologies">>> </a>Beamcaster blasts the internet along lasers through the open air</h4>
+        <p class="itembyline">
+        by Jacob Kastrenakes
+        in <a href="http://www.theverge.com/">The Verge -  All Posts</a>
+        
+    </div>
+    <div class="itemdescription" id="itemhttp://www.theverge.com/2013/5/10/4318404/beamcaster-laser-internet-network-rit-technologies">
+        <p><img alt="Beamcaster_large" src="http://cdn0.sbnation.com/entry_photo_images/8176709/beamcaster_large.jpg" />
+
+
+
+
+
+  <p>Using only beams of light, a new networking hub is able to distribute gigabit internet to a receiver as far as 18 feet away, <a href="http://arstechnica.com/information-technology/2013/05/a-wireless-network-with-frickin-laser-beams-on-the-ceiling/" target="_blank">reports <i>Ars Technica</i></a>. Earlier this week, RiT Technologies unveiled its Beamcaster networking unit, which operates using a similar principal to fiber optics &mdash; that information can be sent using light &mdash; but instead of sending it along cabling, directs a focused laser beam through the open air to deliver the data. The primary hub must be mounted on a ceiling and have direct line of sight with each of its eight possible receivers, which communicate using light that's invisible to humans. Once aligned, the receivers can hook directly into a computer's ethernet to provide internet, or they can connect to a router to...</p>
+  <p>
+    <a href="http://www.theverge.com/2013/5/10/4318404/beamcaster-laser-internet-network-rit-technologies">Continue reading&hellip;</a>
+  </p>
+    </div>
+</div>
+<!-- PAGE-END-ITEM -->
+
+<!-- PAGE-BEGIN-ITEM -->
+<div class="item" id="parent1fbc6434" >
+    <div class="itemheader feed-e3f4334f feed-thevergeallposts" id="header1fbc6434" onclick="toggleall('none');toggle('itemhttp://www.theverge.com/2013/5/10/4316658/internet-of-cows-technology-offers-ways-to-track-livestock-but')">
+        <h4 class="itemtitle unread"><a href="http://www.theverge.com/2013/5/10/4316658/internet-of-cows-technology-offers-ways-to-track-livestock-but">>> </a>Internet of cows: technology could help track disease, but ranchers are resistant</h4>
+        <p class="itembyline">
+        by Adrianne Jeffries
+        in <a href="http://www.theverge.com/">The Verge -  All Posts</a>
+        
+    </div>
+    <div class="itemdescription" id="itemhttp://www.theverge.com/2013/5/10/4316658/internet-of-cows-technology-offers-ways-to-track-livestock-but">
+        <p><img alt="Rfid_cows_large" src="http://cdn0.sbnation.com/entry_photo_images/8173809/rfid_cows_large.jpg" />
+
+
+
+
+
+  <p>On December 23rd, 2003, the US Department of Agriculture (USDA) <a href="http://www.cnn.com/2003/US/12/23/mad.cow/" target="_blank">made a diagnosis</a> of bovine spongiform encephalopathy, commonly known as mad cow disease, after testing the brain of a dairy cow that had slumped on to the slaughterhouse floor in Washington state. It was 13 days until the cow was traced back to the farm where it was born &mdash; in Alberta, Canada.</p>
+
+  <p>
+    <a href="http://www.theverge.com/2013/5/10/4316658/internet-of-cows-technology-offers-ways-to-track-livestock-but">Continue reading&hellip;</a>
+  </p>
+    </div>
+</div>
+<!-- PAGE-END-ITEM -->
+
+</div>
 <div class="time">
 <h3>04:00 PM</h3>
 <!-- PAGE-BEGIN-ITEM -->
@@ -165,11 +354,13 @@
 
 
 
-  <p>If it&rsquo;s possible for any serial killer to pay for the crimes he committed, for the families he destroyed, for the lives he took, John Wayne Gacy has done so. Executed by the State of Illinois in 1994 for murdering 33 teenage boys and young men between 1972 and 1978, Gacy is long gone.</p>
+  <p>Executed by the State of Illinois in 1994 for murdering 33 teenage boys and young men between 1972 and 1978, serial killer John Wayne Gacy is long gone.</p>
 
 <p>But rumors about the possibility of more Gacy victims live on. </p>
 
-<p>That&rsquo;s why a retired police detective, a filmmaker, and a veteran journalist are now fighting to reopen the Gacy investigation by searching a property where the notorious serial killer may have buried additional bodies. Their argument is not that anyone in law enforcement needs more murders to solve. Instead, they say, it may be possible to identify the remains of people who disappeared...</p>
+<p>That&rsquo;s why a retired police detective, a filmmaker, and a veteran journalist are now fighting to reopen the Gacy investigation by searching a property where the notorious serial killer may have buried additional bodies. Their argument is not that anyone in law enforcement needs more murders to solve. Instead, they say, it may be possible to identify the remains of people who disappeared between 1972 and 1978. Those cases remain cold, and Gacy may have been responsible for more killings than anyone wants to admit.</p>
+
+<p>At the...</p>
   <p>
     <a href="http://www.theverge.com/2013/5/10/4315390/the-controversial-high-tech-search-for-john-wayne-gacy-lost-victims">Continue reading&hellip;</a>
   </p>
@@ -886,6 +1077,1081 @@ For kernel removal, enter this command:<blockquote class="tr_bq">
 <p><em>Android Central</em> reports that...</p>
   <p>
     <a href="http://www.theverge.com/2013/5/10/4318024/facebook-home-now-available-for-galaxy-s4-and-htc-one">Continue reading&hellip;</a>
+  </p>
+    </div>
+</div>
+<!-- PAGE-END-ITEM -->
+
+<!-- PAGE-BEGIN-ITEM -->
+<div class="item" id="parentc9746dfb" >
+    <div class="itemheader feed-e3f4334f feed-thevergeallposts" id="headerc9746dfb" onclick="toggleall('none');toggle('itemhttp://www.theverge.com/2013/5/10/4318064/bradley-manning-court-stenographer-crowdfunding')">
+        <h4 class="itemtitle unread"><a href="http://www.theverge.com/2013/5/10/4318064/bradley-manning-court-stenographer-crowdfunding">>> </a>Bradley Manning trial secrecy sparks crowdfunding drive for court stenographer</h4>
+        <p class="itembyline">
+        by Jeff Blagdon
+        in <a href="http://www.theverge.com/">The Verge -  All Posts</a>
+        
+    </div>
+    <div class="itemdescription" id="itemhttp://www.theverge.com/2013/5/10/4318064/bradley-manning-court-stenographer-crowdfunding">
+        <p><img alt="Bradleymanning_765_large" src="http://cdn2.sbnation.com/entry_photo_images/8176223/bradleymanning_765_large.jpg" />
+
+
+
+
+
+  <p>The nonprofit Freedom of the Press Foundation is raising money to pay for a court stenographer to transcribe the events of Bradley Manning&rsquo;s court martial. Over the next three to four months, the group hopes to raise the $40 - $50,000 it needs in order to pay someone to transcribe each day&rsquo;s proceedings. In a <a href="https://pressfreedomfoundation.org/blog/2013/05/freedom-press-foundation-crowd-funding-court-reporter-transcribe-bradley-manning" target="_blank">press release</a>, the organization decried the military court&rsquo;s overbearing secrecy including its refusal to release an official transcript or copies of written rulings in one of the most widely-reported cases in history. As a result, journalists have had to rely on first-hand accounts from independent reporters like <a href="http://www.alexaobrien.com/secondsight/archives.html" target="_blank">Alexa O'Brien</a> and <a href="http://dissenter.firedoglake.com/author/kgosztola/" target="_blank">Kevin Gosztola</a>.</p>
+<p>The current situation journalists face in trying to cover the trial is already...</p>
+  <p>
+    <a href="http://www.theverge.com/2013/5/10/4318064/bradley-manning-court-stenographer-crowdfunding">Continue reading&hellip;</a>
+  </p>
+    </div>
+</div>
+<!-- PAGE-END-ITEM -->
+
+<!-- PAGE-BEGIN-ITEM -->
+<div class="item" id="parente2627ff7" >
+    <div class="itemheader feed-d82f3738 feed-xkcdcom" id="headere2627ff7" onclick="toggleall('none');toggle('itemhttp://xkcd.com/1210/')">
+        <h4 class="itemtitle unread"><a href="http://xkcd.com/1210/">>> </a>I'm So Random</h4>
+        <p class="itembyline">
+        
+        in <a href="http://xkcd.com/">xkcd.com</a>
+        
+    </div>
+    <div class="itemdescription" id="itemhttp://xkcd.com/1210/">
+        <p><img alt="In retrospect, it's weird that as a kid I thought completely random outbursts made me seem interesting, given that from an information theory point of view, lexical white noise is just about the opposite of interesting by definition." src="http://imgs.xkcd.com/comics/im_so_random.png" title="In retrospect, it's weird that as a kid I thought completely random outbursts made me seem interesting, given that from an information theory point of view, lexical white noise is just about the opposite of interesting by definition." />
+    </div>
+</div>
+<!-- PAGE-END-ITEM -->
+
+</div>
+<div class="time">
+<h3>12:00 AM</h3>
+<!-- PAGE-BEGIN-ITEM -->
+<div class="item" id="parent777135b0" >
+    <div class="itemheader feed-70b91055 feed-googleoperatingsystem" id="header777135b0" onclick="toggleall('none');toggle('itemtag:blogger.com,1999:blog-18157064.post-4443957862520323273')">
+        <h4 class="itemtitle unread"><a href="http://googlesystem.blogspot.com/2013/05/paid-youtube-channels.html">>> </a>Paid YouTube Channels</h4>
+        <p class="itembyline">
+        by <a href="mailto:noreply@blogger.com">Alex Chitu</a>
+        in <a href="http://googlesystem.blogspot.com/">Google Operating System</a>
+        
+    </div>
+    <div class="itemdescription" id="itemtag:blogger.com,1999:blog-18157064.post-4443957862520323273">
+        <p><a href="http://youtube-global.blogspot.com/2013/05/yt-pc-2013.html">YouTube launched</a> a new kind of channels for premium content: <a href="http://www.youtube.com/channels/paid_channels">paid channels</a>. The list includes 53 channels and the price is $1-7/month, depending on the channel. <br /><br />There's an offer that lets you subscribe to <a href="http://www.youtube.com/user/Smarttvdotcom">7 channels</a> for $10/month. The channels are from the <a href="http://en.wikipedia.org/wiki/Entertainment_Studios_Networks">Entertainment Studios Networks</a>: Cars.TV, Comedy.TV, Pets.TV, Recipe.TV, MyDestination.TV, ES.TV, Justice Central. <br /><br />There are many channels for kids, channels with fitness instructions, sports channels, movie channels, documentary channels and more. There's even a channel for woodworkers. Most channels are available in the US and many are available in Canada and the UK.<br /><br /><div style="text-align: center;"><img border="0" src="http://3.bp.blogspot.com/-X8UQBH5JiOM/UYv8laXf0II/AAAAAAABJQQ/hj5eo7i543A/s640/youtube-paid-channels.jpg" /></div><br /><div style="text-align: center;"><img border="0" src="http://2.bp.blogspot.com/-Y76PGA2HZBo/UYv8lbS_fQI/AAAAAAABJQM/rOEKs5tcIHk/s640/youtube-paid-channels-2.jpg" /></div><br />"Starting today, we're launching a pilot program for a small group of partners that will offer paid channels on YouTube with subscription fees starting at $0.99 per month. Every channel has a 14-day free trial, and many offer discounted yearly rates. For example, Sesame Street will be offering full episodes on their paid channel when it launches," <a href="http://youtube-global.blogspot.com/2013/05/yt-pc-2013.html">informs YouTube</a>.<br /><br />You can buy movies and TV shows, watch <a href="http://support.google.com/youtube/bin/static.py?hl=en&amp;guide=1684680&amp;page=guide.cs">pay-per-view events</a> and now subscribe to paid channels. There's a lot of content that will make Google TV and Android tablets more useful, but it will be available on almost any smart device.<div class="feedflare">
+<a href="http://feeds.feedburner.com/~ff/GoogleOperatingSystem?a=8oEva3ROQLo:u7ZEld2iOIE:4cEx4HpKnUU"><img border="0" src="http://feeds.feedburner.com/~ff/GoogleOperatingSystem?i=8oEva3ROQLo:u7ZEld2iOIE:4cEx4HpKnUU" /></a> <a href="http://feeds.feedburner.com/~ff/GoogleOperatingSystem?a=8oEva3ROQLo:u7ZEld2iOIE:yIl2AUoC8zA"><img border="0" src="http://feeds.feedburner.com/~ff/GoogleOperatingSystem?d=yIl2AUoC8zA" /></a> <a href="http://feeds.feedburner.com/~ff/GoogleOperatingSystem?a=8oEva3ROQLo:u7ZEld2iOIE:qj6IDK7rITs"><img border="0" src="http://feeds.feedburner.com/~ff/GoogleOperatingSystem?d=qj6IDK7rITs" /></a>
+</div><img height="1" src="http://feeds.feedburner.com/~r/GoogleOperatingSystem/~4/8oEva3ROQLo" width="1" />
+    </div>
+</div>
+<!-- PAGE-END-ITEM -->
+
+<!-- PAGE-BEGIN-ITEM -->
+<div class="item" id="parent611d825e" >
+    <div class="itemheader feed-fb0268fc feed-omgubuntu" id="header611d825e" onclick="toggleall('none');toggle('itemhttp://www.omgubuntu.co.uk/?p=78056')">
+        <h4 class="itemtitle unread"><a href="http://feedproxy.google.com/~r/d0od/~3/N3ZT3O5CX6c/the-samsung-u1000-ubuntu-phone-isnt-real">>> </a>The Samsung U1000 Ubuntu Phone Isn&#8217;t Real</h4>
+        <p class="itembyline">
+        by Joey-Elijah Sneddon
+        in <a href="http://www.omgubuntu.co.uk">OMG! Ubuntu!</a>
+        
+    </div>
+    <div class="itemdescription" id="itemhttp://www.omgubuntu.co.uk/?p=78056">
+        <p><strong><em>&#8220;Samsung are making the first Ubuntu Phone!&#8221;</em> screams the subject field of the latest e-mail to arrive in the OMG! tips inbox.</strong></p>
+<p><em>&#8220;I can&#8217;t believe you haven&#8217;t mentioned the U1000!!&#8221; </em>the sender&#160;protests &#8211; albeit with more capitalisation than I&#8217;m willing to convey, but adding to an ant-sized avalanche of mail along similar lines.</p>
+<p>What&#8217;s stoking their enthusiasm? This:</p>
+<div class="wp-caption aligncenter" id="attachment_78057" style="width: 702px;"><a href="http://www.omgubuntu.co.uk/wp-content/uploads/2013/05/samsung-u1000-ubuntu-phone.jpg"><img alt="samsung-u1000-ubuntu-phone" class="size-full wp-image-78057" height="563" src="http://www.omgubuntu.co.uk/wp-content/uploads/2013/05/samsung-u1000-ubuntu-phone.jpg" width="702" /></a><p class="wp-caption-text">Copyright: Suman Chatterjee</p></div>
+<p>It&#8217;s called the <strong>Samsung U1000</strong> and, if half of the internet is to be believed it&#8217;s the first officially announced mobile handset to run Ubuntu Touch.</p>
+<p>Only, that&#8217;s not the case.</p>
+<p>The U1000 is a concept phone designed by one Suman Chatterjee. Suman is nothing if not prolific. Recent designs by him include a&#160;Facebook Tablet, a Nexus 5 design, and&#160;interesting concept for a dual-OS phone running Android on one screen and Windows Phone 8 on the reverse.</p>
+<p>Suman&#8217;s design is nothing to do with Samsung. It&#8217;s not a real phone. The story has simply snowballed from an original posting by the Concept Phones website, in which Suman goes into detail about what hardware his concept &#8220;runs&#8221;, to what we have today: people throwing money at their screen hoping it will stick.</p>
+<p>Of course, this isn&#8217;t to say that Samsung aren&#8217;t working on an Ubuntu Phone. Despite making a mint from flogging Android handsets a &#8220;well known industry rumour&#8221; suggests that the company are looking to start placing eggs in another basket.</p>
+<p><em>So while this Samsung Ubuntu Phone might be a load of old cobblers, the idea of one possibly isn&#8217;t.</em></p>
+<p><a href="http://www.omgubuntu.co.uk/2013/05/the-samsung-u1000-ubuntu-phone-isnt-real">The Samsung U1000 Ubuntu Phone Isn&#8217;t Real</a> <a href="http://www.omgubuntu.co.uk">OMG! Ubuntu! - Everything Ubuntu. Daily.</a></p><div class="feedflare">
+<a href="http://feeds.feedburner.com/~ff/d0od?a=N3ZT3O5CX6c:QukBJAOqIek:wBxX2hOkimM"><img border="0" src="http://feeds.feedburner.com/~ff/d0od?i=N3ZT3O5CX6c:QukBJAOqIek:wBxX2hOkimM" /></a> <a href="http://feeds.feedburner.com/~ff/d0od?a=N3ZT3O5CX6c:QukBJAOqIek:I9og5sOYxJI"><img border="0" src="http://feeds.feedburner.com/~ff/d0od?d=I9og5sOYxJI" /></a> <a href="http://feeds.feedburner.com/~ff/d0od?a=N3ZT3O5CX6c:QukBJAOqIek:qj6IDK7rITs"><img border="0" src="http://feeds.feedburner.com/~ff/d0od?d=qj6IDK7rITs" /></a> <a href="http://feeds.feedburner.com/~ff/d0od?a=N3ZT3O5CX6c:QukBJAOqIek:V_sGLiPBpWU"><img border="0" src="http://feeds.feedburner.com/~ff/d0od?i=N3ZT3O5CX6c:QukBJAOqIek:V_sGLiPBpWU" /></a> <a href="http://feeds.feedburner.com/~ff/d0od?a=N3ZT3O5CX6c:QukBJAOqIek:gIN9vFwOqvQ"><img border="0" src="http://feeds.feedburner.com/~ff/d0od?i=N3ZT3O5CX6c:QukBJAOqIek:gIN9vFwOqvQ" /></a> <a href="http://feeds.feedburner.com/~ff/d0od?a=N3ZT3O5CX6c:QukBJAOqIek:yIl2AUoC8zA"><img border="0" src="http://feeds.feedburner.com/~ff/d0od?d=yIl2AUoC8zA" /></a>
+</div><img height="1" src="http://feeds.feedburner.com/~r/d0od/~4/N3ZT3O5CX6c" width="1" />
+    </div>
+</div>
+<!-- PAGE-END-ITEM -->
+
+<!-- PAGE-BEGIN-ITEM -->
+<div class="item" id="parent85808592" >
+    <div class="itemheader feed-317e3efd feed-inconsolation" id="header85808592" onclick="toggleall('none');toggle('itemhttp://inconsolation.wordpress.com/?p=1335')">
+        <h4 class="itemtitle unread"><a href="http://inconsolation.wordpress.com/2013/05/10/acpitool-information-please/">>> </a>acpitool: Information, please</h4>
+        <p class="itembyline">
+        by K.Mandla
+        in <a href="http://inconsolation.wordpress.com">Inconsolation</a>
+        
+    </div>
+    <div class="itemdescription" id="itemhttp://inconsolation.wordpress.com/?p=1335">
+        <p>A while back I showed you <a href="http://inconsolation.wordpress.com/2013/01/12/powertop-not-just-a-pretty-name/" title="powertop: Not just a pretty&#160;name">powertop</a> and <a href="http://inconsolation.wordpress.com/2013/02/17/yacpi-maybe-more-useful-to-you-than-me/" title="yacpi: Maybe more useful to you than&#160;me">yacpi</a>, in way of something to keep you busy, powerwise, at the console.</p>
+<p>Here&#8217;s another one, although I suspect you might find it less appealing than the others: <a href="http://sourceforge.net/projects/acpitool/" target="_blank">acpitool</a>.</p>
+<p><a href="http://inconsolation.files.wordpress.com/2013/04/2013-04-14-solo-2150-acpitool.png"><img alt="2013-04-14-solo-2150-acpitool" class="alignnone size-thumbnail wp-image-1337" height="112" src="http://inconsolation.files.wordpress.com/2013/04/2013-04-14-solo-2150-acpitool.png?w=150&#038;h=112" width="150" /></a></p>
+<p>Reason being, that&#8217;s all I can seem to make it do. Even on a machine with much newer specs, it shows only a few more flags and bells.</p>
+<p><a href="http://inconsolation.files.wordpress.com/2013/04/2013-04-14-l3e7548-acpitool.jpg"><img alt="2013-04-14-l3e7548-acpitool" class="alignnone size-thumbnail wp-image-1336" height="121" src="http://inconsolation.files.wordpress.com/2013/04/2013-04-14-l3e7548-acpitool.jpg?w=150&#038;h=121" width="150" /></a></p>
+<p>I suppose there&#8217;s nothing wrong with that; (insert divine entity here) knows I&#8217;ve shown off programs that had far less to boast in terms of visual appeal.</p>
+<p>Perhaps just from my standpoint though, it&#8217;s tough to see what would draw anyone to this, over the other two tools.</p>
+<p>You try it though and if you get more out of it than I did, please tell me how. <img alt=":|" class="wp-smiley" src="http://s0.wp.com/wp-includes/images/smilies/icon_neutral.gif" /> </p>
+<br /> Tagged: <a href="http://inconsolation.wordpress.com/tag/management/">management</a>, <a href="http://inconsolation.wordpress.com/tag/power/">power</a>, <a href="http://inconsolation.wordpress.com/tag/tool/">tool</a>, <a href="http://inconsolation.wordpress.com/tag/utility/">utility</a> <img alt="" border="0" height="1" src="http://stats.wordpress.com/b.gif?host=inconsolation.wordpress.com&#038;blog=43062292&#038;post=1335&#038;subd=inconsolation&#038;ref=&#038;feed=1" width="1" />
+    </div>
+</div>
+<!-- PAGE-END-ITEM -->
+
+<!-- PAGE-BEGIN-ITEM -->
+<div class="item" id="parent73d8e88d" >
+    <div class="itemheader feed-a16ff5e0 feed-gnome" id="header73d8e88d" onclick="toggleall('none');toggle('itemhttp://www.gnome.org/?p=4028')">
+        <h4 class="itemtitle unread"><a href="http://www.gnome.org/news/2013/05/gnome-asia-summit-2013-registration-now-open/">>> </a>GNOME.Asia Summit 2013 - Registration now open</h4>
+        <p class="itembyline">
+        by tobiasmue
+        in <a href="http://www.gnome.org">GNOME</a>
+        
+    </div>
+    <div class="itemdescription" id="itemhttp://www.gnome.org/?p=4028">
+        <p>The registration for the <a href="http://2013.gnome.asia/" target="_blank">GNOME.Asia Summit 2013</a> is now open! If you plan to attend, please <a href="http://2013.gnome.asia/register-to-attend/" target="_blank">register online</a>.</p>
+<p><img alt="" src="http://2013.gnome.asia/static/img/logo.jpg" /></p>
+<p>We will have <a href="http://www.gnome.org/news/2013/04/the-gnome-asia-summit-2013-t-shirt-contest/" target="_blank" title="The GNOME.Asia Summit 2013 T-shirt Contest">nice t-shirts</a> and given the amount of people already registered, a lot of fun. We welcome you to join our premier conference in Asia and hope that you will enjoy <a href="http://2013.gnome.asia/schedule/" target="_blank">the schedule</a>.</p>
+    </div>
+</div>
+<!-- PAGE-END-ITEM -->
+
+<!-- PAGE-BEGIN-ITEM -->
+<div class="item" id="parent8cb57983" >
+    <div class="itemheader feed-e3f4334f feed-thevergeallposts" id="header8cb57983" onclick="toggleall('none');toggle('itemhttp://www.theverge.com/2013/5/9/4316868/president-obama-open-data-executive-order-github')">
+        <h4 class="itemtitle unread"><a href="http://www.theverge.com/2013/5/9/4316868/president-obama-open-data-executive-order-github">>> </a>President Obama signs executive order requiring agencies to publish 'open data'</h4>
+        <p class="itembyline">
+        by Carl Franzen
+        in <a href="http://www.theverge.com/">The Verge -  All Posts</a>
+        
+    </div>
+    <div class="itemdescription" id="itemhttp://www.theverge.com/2013/5/9/4316868/president-obama-open-data-executive-order-github">
+        <p><img alt="Obama-ipad-briefing_large" src="http://cdn3.sbnation.com/entry_photo_images/8174255/Obama-ipad-briefing_large.jpg" />
+
+
+
+
+
+  <p>President Obama came into office 2009 with a promise to make his administration the <a href="http://www.whitehouse.gov/engage" target="_blank">most "open" in history</a> in terms of revealing information to the public about the inner-workings of government, a claim that has been <a href="http://www.politico.com/news/stories/0312/73606.html" target="_blank">challenged vociferously</a>.  But to further advance his open government ambitions, the President today issued an <a href="http://www.whitehouse.gov/the-press-office/2013/05/09/obama-administration-releases-historic-open-data-rules-enhance-governmen" target="_blank"> </a><a href="http://www.whitehouse.gov/the-press-office/2013/05/09/executive-order-making-open-and-machine-readable-new-default-government-" target="_blank">executive order</a> requiring all major federal agencies under the executive branch to make their data "easy to find, accessible, and usable," with an important caveat: " wherever possible and legally permissible." The White House also released a new set of open source software tools on <a href="https://github.com/project-open-data" target="_blank">Github</a> that federal agencies can use to get more of their data out onto the web in software developer and user-friendly formats,...</p>
+  <p>
+    <a href="http://www.theverge.com/2013/5/9/4316868/president-obama-open-data-executive-order-github">Continue reading&hellip;</a>
+  </p>
+    </div>
+</div>
+<!-- PAGE-END-ITEM -->
+
+<!-- PAGE-BEGIN-ITEM -->
+<div class="item" id="parent3b0f31aa" >
+    <div class="itemheader feed-e3f4334f feed-thevergeallposts" id="header3b0f31aa" onclick="toggleall('none');toggle('itemhttp://www.theverge.com/2013/5/9/4316870/apples-iradio-talks-stall-as-google-rushes-to-license-new-music')">
+        <h4 class="itemtitle unread"><a href="http://www.theverge.com/2013/5/9/4316870/apples-iradio-talks-stall-as-google-rushes-to-license-new-music">>> </a>Apple's iRadio talks stall as Google rushes to license new music service</h4>
+        <p class="itembyline">
+        by Greg Sandoval
+        in <a href="http://www.theverge.com/">The Verge -  All Posts</a>
+        
+    </div>
+    <div class="itemdescription" id="itemhttp://www.theverge.com/2013/5/9/4316870/apples-iradio-talks-stall-as-google-rushes-to-license-new-music">
+        <p><img alt="Motorola-old-radio-2-stock-1024_large" src="http://cdn0.sbnation.com/entry_photo_images/8174219/motorola-old-radio-2-stock-1024_large.jpg" />
+
+
+
+
+
+  <p>
+Apple's effort to license a proposed online radio service, which the press has dubbed iRadio, is being stymied by at least one of the major music companies, multiple industry sources have told <em>The Verge</em>.
+</p>
+<p>
+<a href="http://www.ft.com/intl/cms/s/0/b139ee3e-b8af-11e2-869f-00144feabdc0.html#axzz2SpqDFg6Q" target="new"><em>The Financial Times </em></a>reported today that Apple's negotiations with Sony continue to drag on and that the electronics maker could hold up the launch of what sources say will be a radio service similar to Pandora, the internet's top webcaster, but offer more on-demand listening features, such as fast-forwarding and rewinding. 
+</p>
+  <p>
+    <a href="http://www.theverge.com/2013/5/9/4316870/apples-iradio-talks-stall-as-google-rushes-to-license-new-music">Continue reading&hellip;</a>
+  </p>
+    </div>
+</div>
+<!-- PAGE-END-ITEM -->
+
+<!-- PAGE-BEGIN-ITEM -->
+<div class="item" id="parent85c37d33" >
+    <div class="itemheader feed-e3f4334f feed-thevergeallposts" id="header85c37d33" onclick="toggleall('none');toggle('itemhttp://www.theverge.com/2013/5/9/4316742/how-syrian-electronic-army-hacked-the-onion-twitter')">
+        <h4 class="itemtitle unread"><a href="http://www.theverge.com/2013/5/9/4316742/how-syrian-electronic-army-hacked-the-onion-twitter">>> </a>Social engineering to blame in Syrian Electronic Army hijack of the Onion</h4>
+        <p class="itembyline">
+        by Nathan Olivarez-Giles
+        in <a href="http://www.theverge.com/">The Verge -  All Posts</a>
+        
+    </div>
+    <div class="itemdescription" id="itemhttp://www.theverge.com/2013/5/9/4316742/how-syrian-electronic-army-hacked-the-onion-twitter">
+        <p><img alt="Screen_shot_2013-05-09_at_3" src="http://cdn2.sbnation.com/entry_photo_images/8174093/Screen_Shot_2013-05-09_at_3.02.23_PM_large.png" />
+
+
+
+
+
+  <p>When the Syrian Electronic Army hijacked <em>The Onion's</em> Twitter account earlier this week, it was tough to tell if it was merely the satirical news site making fun the handful of <a href="http://www.theverge.com/2013/4/29/4283854/twitter-warns-news-organizations-about-ongoing-hacking-threats">major news organizations who've been hacked</a> recently, or if it was a genuine victim. Strangely, once <a href="http://www.theverge.com/2013/5/6/4305990/the-onion-twitter-hack-twists-satire-into-reality-and-back-again"><em>The Onion</em> began mocking itself</a> for getting hacked, it was much more clear that, indeed, some hackers had taken over the publication's Twitter profile. Now, <i>The Onion's</i> tech team is <a href="http://theonion.github.io/blog/2013/05/08/how-the-syrian-electronic-army-hacked-the-onion/">explaining what happened</a>.</p>
+<p></p>
+  <p>
+    <a href="http://www.theverge.com/2013/5/9/4316742/how-syrian-electronic-army-hacked-the-onion-twitter">Continue reading&hellip;</a>
+  </p>
+    </div>
+</div>
+<!-- PAGE-END-ITEM -->
+
+<!-- PAGE-BEGIN-ITEM -->
+<div class="item" id="parent43a58fca" >
+    <div class="itemheader feed-e3f4334f feed-thevergeallposts" id="header43a58fca" onclick="toggleall('none');toggle('itemhttp://www.theverge.com/2013/5/9/4316872/kickstarter-supports-celebrity-projects')">
+        <h4 class="itemtitle unread"><a href="http://www.theverge.com/2013/5/9/4316872/kickstarter-supports-celebrity-projects">>> </a>Should famous people use Kickstarter? Kickstarter says 'yes'</h4>
+        <p class="itembyline">
+        by Adi Robertson
+        in <a href="http://www.theverge.com/">The Verge -  All Posts</a>
+        
+    </div>
+    <div class="itemdescription" id="itemhttp://www.theverge.com/2013/5/9/4316872/kickstarter-supports-celebrity-projects">
+        <p><img alt="0520c59e64aeec0860a5285d5a4f65e0_large_large" src="http://cdn2.sbnation.com/entry_photo_images/8174087/0520c59e64aeec0860a5285d5a4f65e0_large_large.jpg" />
+
+
+
+
+
+  <p>After high-profile projects <a href="http://www.theverge.com/2013/4/27/4274874/zach-braffs-new-film-hits-kickstarter-goal">by Zach Braff</a>, Amanda Palmer, the <a href="http://www.theverge.com/2013/3/13/4099406/veronica-mars-creators-launch-kickstarter-campaign-to-fund-movie-kristen-bell"><i>Veronica Mars</i> creators</a>, and other celebrities, there's been ongoing controversy over whether such projects are true to the spirit of Kickstarter. Is it ethical to turn to crowdfunding when you could easily get money through more traditional channels? Now, Kickstarter has responded with resounding support.</p>
+<p><a href="http://www.kickstarter.com/blog/who-is-kickstarter-for" target="_blank">In a blog post</a>, the company's leaders and co-founders gave their blessing to celebrity projects, backing their viewpoint with some statistics. "The <i>Veronica Mars</i> and Zach Braff projects have brought tens of thousands of new people to Kickstarter. 63 percent of those people had never backed a project before. Thousands of them have since gone on to back other projects, with...</p>
+  <p>
+    <a href="http://www.theverge.com/2013/5/9/4316872/kickstarter-supports-celebrity-projects">Continue reading&hellip;</a>
+  </p>
+    </div>
+</div>
+<!-- PAGE-END-ITEM -->
+
+<!-- PAGE-BEGIN-ITEM -->
+<div class="item" id="parent3066a908" >
+    <div class="itemheader feed-e3f4334f feed-thevergeallposts" id="header3066a908" onclick="toggleall('none');toggle('itemhttp://www.theverge.com/2013/5/9/4316720/3d-printed-gun-files-pulled-offline-after-state-department-letter')">
+        <h4 class="itemtitle unread"><a href="http://www.theverge.com/2013/5/9/4316720/3d-printed-gun-files-pulled-offline-after-state-department-letter">>> </a>3D-printed gun files pulled offline at State Department's request</h4>
+        <p class="itembyline">
+        by Adi Robertson
+        in <a href="http://www.theverge.com/">The Verge -  All Posts</a>
+        
+    </div>
+    <div class="itemdescription" id="itemhttp://www.theverge.com/2013/5/9/4316720/3d-printed-gun-files-pulled-offline-after-state-department-letter">
+        <p><img alt="2q8sf_large" src="http://cdn1.sbnation.com/entry_photo_images/8173885/2Q8Sf_large.png" />
+
+
+
+
+
+  <p>The Liberator pistol, first revealed barely a week ago, has caught the eye of federal authorities. Cody Wilson, head of gun-printing group Defense Distributed, says he received a letter from the US State Department, asking him to remove files for the Liberator and other gun parts from the site and officially apply for a ruling on whether he can distribute them.</p>
+<p>According to the letter, <a href="http://betabeat.com/2013/05/defense-distributed-state-department-cody-wilson-3d-guns/" target="_blank">posted by <i>Betabeat</i></a>, the State Department's Office of Defense Trade Controls Compliance is worried that by posting the blueprints, Wilson may have violated the International Traffic in Arms Regulations (ITAR), specifically a ban on "exporting any defense article or technical data" that requires a license without first getting authorization. Generally,...</p>
+  <p>
+    <a href="http://www.theverge.com/2013/5/9/4316720/3d-printed-gun-files-pulled-offline-after-state-department-letter">Continue reading&hellip;</a>
+  </p>
+    </div>
+</div>
+<!-- PAGE-END-ITEM -->
+
+<!-- PAGE-BEGIN-ITEM -->
+<div class="item" id="parent1f2db7eb" >
+    <div class="itemheader feed-e3f4334f feed-thevergeallposts" id="header1f2db7eb" onclick="toggleall('none');toggle('itemhttp://www.theverge.com/2013/5/9/4316688/john-mccain-introduces-a-la-carte-cable-legislation')">
+        <h4 class="itemtitle unread"><a href="http://www.theverge.com/2013/5/9/4316688/john-mccain-introduces-a-la-carte-cable-legislation">>> </a>John McCain proposes 'a la carte' cable bill, encourages death of sports blackout rule</h4>
+        <p class="itembyline">
+        by Chris Welch
+        in <a href="http://www.theverge.com/">The Verge -  All Posts</a>
+        
+    </div>
+    <div class="itemdescription" id="itemhttp://www.theverge.com/2013/5/9/4316688/john-mccain-introduces-a-la-carte-cable-legislation">
+        <p><img alt="Verizon-fios-tv-remote2_1020_large" src="http://cdn0.sbnation.com/entry_photo_images/8173891/verizon-fios-tv-remote2_1020_large.jpg" />
+
+
+
+
+
+  <p>Senator John McCain today introduced the Television Consumer Freedom Act of 2013, legislation that would encourage cable operators and entertainment conglomerates to unbundle channels and offer programming "a la carte." Rather than mandating his desired end result, McCain notes that his bill is completely voluntary, offering incentives that would ideally result in consumers being able to purchase their preferred channels individually. Cable providers (<a href="http://www.theverge.com/2012/11/20/3670940/michael-powell-fcc-chariman-cable-companies-mercy-contet">and content companies</a>) have long resisted such ideas.</p>
+
+  <p>
+    <a href="http://www.theverge.com/2013/5/9/4316688/john-mccain-introduces-a-la-carte-cable-legislation">Continue reading&hellip;</a>
+  </p>
+    </div>
+</div>
+<!-- PAGE-END-ITEM -->
+
+<!-- PAGE-BEGIN-ITEM -->
+<div class="item" id="parentd079d407" >
+    <div class="itemheader feed-e3f4334f feed-thevergeallposts" id="headerd079d407" onclick="toggleall('none');toggle('itemhttp://www.theverge.com/2013/5/9/4316548/edgar-wright-of-hot-fuzz-directed-one-shot-of-star-trek-into-darkness')">
+        <h4 class="itemtitle unread"><a href="http://www.theverge.com/2013/5/9/4316548/edgar-wright-of-hot-fuzz-directed-one-shot-of-star-trek-into-darkness">>> </a>'Shaun of the Dead's' Edgar Wright makes a directorial cameo in 'Star Trek Into Darkness'</h4>
+        <p class="itembyline">
+        by Adi Robertson
+        in <a href="http://www.theverge.com/">The Verge -  All Posts</a>
+        
+    </div>
+    <div class="itemdescription" id="itemhttp://www.theverge.com/2013/5/9/4316548/edgar-wright-of-hot-fuzz-directed-one-shot-of-star-trek-into-darkness">
+        <p><img alt="Bjz9ho6caaazebi_large" src="http://cdn3.sbnation.com/entry_photo_images/8173679/BJz9Ho6CAAAZeBI_large.jpg" />
+
+
+
+
+
+  <p><i>Star Trek Into Darkness</i>, set for release next week, combines many of the things we nerds love. And buried somewhere in the film is a cameo that adds yet another layer of potential coolness. Edgar Wright, who directed and helped write <i>Shaun of the Dead</i>, <i>Hot Fuzz</i>, and <a href="http://www.theverge.com/2013/5/8/4312188/the-worlds-end-trailer-edgar-wright-simon-pegg-nick-frost">upcoming film <i>The World's End</i></a> among other things, tweeted earlier today that he also directed a shot of <i>Star Trek Into Darkness</i>. He also says there are 2120 total shots in the film but doesn't specify further, so barring more information, you can watch with the delicious possibility that any given fragment could be Wright's. As to whether the new <i>Star Trek</i> as a whole is any good, we'll have everything you need to know on <i>The Verge</i>... sometime next week.</p>
+
+  <p>
+    <a href="http://www.theverge.com/2013/5/9/4316548/edgar-wright-of-hot-fuzz-directed-one-shot-of-star-trek-into-darkness">Continue reading&hellip;</a>
+  </p>
+    </div>
+</div>
+<!-- PAGE-END-ITEM -->
+
+<!-- PAGE-BEGIN-ITEM -->
+<div class="item" id="parent469eaba0" >
+    <div class="itemheader feed-e3f4334f feed-thevergeallposts" id="header469eaba0" onclick="toggleall('none');toggle('itemhttp://www.theverge.com/2013/5/9/4316320/latest-cellphone-unlocking-bill-proposes-significant-digital')">
+        <h4 class="itemtitle unread"><a href="http://www.theverge.com/2013/5/9/4316320/latest-cellphone-unlocking-bill-proposes-significant-digital">>> </a>Latest cellphone unlocking bill proposes significant digital copyright reform</h4>
+        <p class="itembyline">
+        by Joshua Kopstein
+        in <a href="http://www.theverge.com/">The Verge -  All Posts</a>
+        
+    </div>
+    <div class="itemdescription" id="itemhttp://www.theverge.com/2013/5/9/4316320/latest-cellphone-unlocking-bill-proposes-significant-digital">
+        <p><img alt="Iphone-pin-unlock-mosaic_large" src="http://cdn2.sbnation.com/entry_photo_images/8173635/iphone-pin-unlock-mosaic_large.jpg" />
+
+
+
+
+
+  <p>Lawmakers are continuing the push to legalize cellphone unlocking in the United States with a new bipartisan bill just introduced in the House of Representatives. The <a href="http://lofgren.house.gov/images/stories/pdf/unlocking%20technology%20act%20-%20lofgren%20-%20section-by-section%20summary%20-%20042913.pdf" target="_blank">Unlocking Technology Act of 2013</a> proposes amending a section of the Digital Millennium Copyright Act which currently prohibits circumvention of digital device protections, even when the circumvention doesn't violate copyright.</p>
+<p>The bill comes courtesy of noted digital rights defender Zoe Lofgren (D-CA), and has already found three co-sponsors: Anna Eshoo (D-CA), Thomas Massie (R-KY), and Jared Polis (D-CO). It joins <a href="http://www.theverge.com/2013/3/28/4153006/what-you-need-to-know-about-the-governments-fight-to-unlock-your-cellphone" target="_blank">a host of similar unlocking bills</a> that were introduced in the Senate after the White House responded positively to an online petition, saying that letting...</p>
+  <p>
+    <a href="http://www.theverge.com/2013/5/9/4316320/latest-cellphone-unlocking-bill-proposes-significant-digital">Continue reading&hellip;</a>
+  </p>
+    </div>
+</div>
+<!-- PAGE-END-ITEM -->
+
+<!-- PAGE-BEGIN-ITEM -->
+<div class="item" id="parent18945558" >
+    <div class="itemheader feed-e3f4334f feed-thevergeallposts" id="header18945558" onclick="toggleall('none');toggle('itemhttp://www.theverge.com/2013/5/9/4316626/criminal-flash-mob-accused-stealing-45-million-hours-atm-attack')">
+        <h4 class="itemtitle unread"><a href="http://www.theverge.com/2013/5/9/4316626/criminal-flash-mob-accused-stealing-45-million-hours-atm-attack">>> </a>'Criminal flash mob' accused of stealing $45 million in hours with coordinated ATM attacks</h4>
+        <p class="itembyline">
+        by Dan Seifert
+        in <a href="http://www.theverge.com/">The Verge -  All Posts</a>
+        
+    </div>
+    <div class="itemdescription" id="itemhttp://www.theverge.com/2013/5/9/4316626/criminal-flash-mob-accused-stealing-45-million-hours-atm-attack">
+        <p><img alt="2012-03-23_13-05-24-1024_large" src="http://cdn3.sbnation.com/entry_photo_images/8173781/2012-03-23_13-05-24-1024_large.jpg" />
+
+
+
+
+
+  <p>Eight people have been arrested in New York in connection to an ATM hacking scheme that resulted in the theft of $45 million over the course of a few hours. According to the US Immigrations and Customs Enforcement division of the Department of Homeland Security, the suspects hacked into the computer systems of banking institutions to steal the money in two coordinated attacks.</p>
+<p>Though the arrests were made in Yonkers, NY, officials say the suspects are part of an international crime ring that utilizes hacking techniques to steal money electronically. The attacks, committed in December 2012 and February of this year, involved ATMs withdrawals in 20 different countries. One of the attacks performed more than 36,000 transactions over the...</p>
+  <p>
+    <a href="http://www.theverge.com/2013/5/9/4316626/criminal-flash-mob-accused-stealing-45-million-hours-atm-attack">Continue reading&hellip;</a>
+  </p>
+    </div>
+</div>
+<!-- PAGE-END-ITEM -->
+
+<!-- PAGE-BEGIN-ITEM -->
+<div class="item" id="parent6a23bea1" >
+    <div class="itemheader feed-e3f4334f feed-thevergeallposts" id="header6a23bea1" onclick="toggleall('none');toggle('itemhttp://www.theverge.com/2013/5/9/4316444/21st-century-fox-logo-revealed-by-rupert-murdoch')">
+        <h4 class="itemtitle unread"><a href="http://www.theverge.com/2013/5/9/4316444/21st-century-fox-logo-revealed-by-rupert-murdoch">>> </a>21st Century Fox logo unveiled ahead of News Corp split</h4>
+        <p class="itembyline">
+        by Chris Welch
+        in <a href="http://www.theverge.com/">The Verge -  All Posts</a>
+        
+    </div>
+    <div class="itemdescription" id="itemhttp://www.theverge.com/2013/5/9/4316444/21st-century-fox-logo-revealed-by-rupert-murdoch">
+        <p><img alt="21stcentury_large" src="http://cdn3.sbnation.com/entry_photo_images/8173715/21stcentury_large.jpg" />
+
+
+
+
+
+  <p>When News Corporation completes the <a href="http://www.theverge.com/2012/12/3/3721570/news-corp-split-fox-group-news-corporation">separation of its news and entertainment divisions</a> in a few months' time, the latter will be known as 21st Century Fox. That much <a href="http://www.nytimes.com/2013/04/17/business/media/21st-century-fox-is-name-for-news-corp-media-unit.html" target="_blank">we knew back in April</a>, but now we're getting a look at the soon-to-be-independent company's logo. Essentially, it's a modern, flat, ultra-simple take on the Twentieth Century Fox logo seen for decades ahead of <i>Star Wars, Alien,</i> and other hits (the production studio will hold onto its current name and iconic logo). There's no brass accompaniment here; instead, the short animation includes an ambient audio track and some "futuristic" beeps and boops.</p>
+<p>Murdoch revealed the new visual identity in a memo to employees today, claiming the logo "serves as a powerful symbol of the...</p>
+  <p>
+    <a href="http://www.theverge.com/2013/5/9/4316444/21st-century-fox-logo-revealed-by-rupert-murdoch">Continue reading&hellip;</a>
+  </p>
+    </div>
+</div>
+<!-- PAGE-END-ITEM -->
+
+</div>
+</div>
+<div class="day">
+<h2>Thursday, 09 May</h2>
+<div class="time">
+<h3>09:00 PM</h3>
+<!-- PAGE-BEGIN-ITEM -->
+<div class="item" id="parent6c861b5e" >
+    <div class="itemheader feed-dc89f86a feed-uploadsbycollectivecadenza" id="header6c861b5e" onclick="toggleall('none');toggle('itemhttp://gdata.youtube.com/feeds/base/videos/X0NGm1PBSi4')">
+        <h4 class="itemtitle unread"><a href="http://www.youtube.com/watch?v=X0NGm1PBSi4&amp;feature=youtube_gdata">>> </a>Wooing Women in Public | CDZA Opus No. 22</h4>
+        <p class="itembyline">
+        by collectivecadenza
+        in <a href="http://www.youtube.com/channel/UCzdbnf-pIJh-Qp6fdSb5ezw/videos">Uploads by collectivecadenza</a>
+        
+    </div>
+    <div class="itemdescription" id="itemhttp://gdata.youtube.com/feeds/base/videos/X0NGm1PBSi4">
+        <div style="color: #000000; font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-size: 12px; width: 555px;">
+<table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td rowspan="2" valign="top" width="140"><div style="border: 1px solid #999999; margin: 0px 10px 5px 0px;"><a href="http://www.youtube.com/watch?v=X0NGm1PBSi4&amp;feature=youtube_gdata"><img alt="" src="http://i.ytimg.com/vi/X0NGm1PBSi4/0.jpg" /></a></div></td>
+<td valign="top" width="256"><div style="font-size: 12px; font-weight: bold;"><a href="http://www.youtube.com/watch?v=X0NGm1PBSi4&amp;feature=youtube_gdata" style="font-size: 15px; font-weight: bold;">Wooing Women in Public | CDZA Opus No. 22</a>
+<br /></div>
+<div style="font-size: 12px; margin: 3px 0px;"><span>Days become a bit more romantic once CDZA brings love to the streets of the city.
+
+Featuring Mike Kelton as our romantic crooner.</span></div></td>
+<td style="font-size: 11px; line-height: 1.4em; padding-left: 20px; padding-top: 1px;" valign="top" width="146"><div><span style="color: #666666; font-size: 11px;">From:</span>
+<a href="http://www.youtube.com/channel/UCzdbnf-pIJh-Qp6fdSb5ezw">collectivecadenza</a></div>
+<div><span style="color: #666666; font-size: 11px;">Views:</span>
+34081</div>
+<div style="white-space: nowrap; text-align: left;"><img align="top" alt="" src="http://gdata.youtube.com/static/images/icn_star_full_11x11.gif" style="border: 0px none; margin: 0px; padding: 0px; vertical-align: middle; font-size: 11px;" /> <img align="top" alt="" src="http://gdata.youtube.com/static/images/icn_star_full_11x11.gif" style="border: 0px none; margin: 0px; padding: 0px; vertical-align: middle; font-size: 11px;" /> <img align="top" alt="" src="http://gdata.youtube.com/static/images/icn_star_full_11x11.gif" style="border: 0px none; margin: 0px; padding: 0px; vertical-align: middle; font-size: 11px;" /> <img align="top" alt="" src="http://gdata.youtube.com/static/images/icn_star_full_11x11.gif" style="border: 0px none; margin: 0px; padding: 0px; vertical-align: middle; font-size: 11px;" /> <img align="top" alt="" src="http://gdata.youtube.com/static/images/icn_star_half_11x11.gif" style="border: 0px none; margin: 0px; padding: 0px; vertical-align: middle; font-size: 11px;" /></div>
+<div style="font-size: 11px;">2920
+<span style="color: #666666; font-size: 11px;">ratings</span></div></td></tr>
+<tr><td><span style="color: #666666; font-size: 11px;">Time:</span>
+<span style="color: #000000; font-size: 11px; font-weight: bold;">06:56</span></td>
+<td style="font-size: 11px; padding-left: 20px;"><span style="color: #666666; font-size: 11px;">More in</span>
+<a href="http://www.youtube.com/videos?c=10">Music</a></td></tr></tbody></table></div>
+    </div>
+</div>
+<!-- PAGE-END-ITEM -->
+
+<!-- PAGE-BEGIN-ITEM -->
+<div class="item" id="parent8b3fd15e" >
+    <div class="itemheader feed-e3f4334f feed-thevergeallposts" id="header8b3fd15e" onclick="toggleall('none');toggle('itemhttp://www.theverge.com/2013/5/9/4316358/facebook-home-first-feature-updates-chat-head-friend-list-app-dock')">
+        <h4 class="itemtitle unread"><a href="http://www.theverge.com/2013/5/9/4316358/facebook-home-first-feature-updates-chat-head-friend-list-app-dock">>> </a>Facebook Home to get buddy list and app dock in coming updates</h4>
+        <p class="itembyline">
+        by Jacob Kastrenakes
+        in <a href="http://www.theverge.com/">The Verge -  All Posts</a>
+        
+    </div>
+    <div class="itemdescription" id="itemhttp://www.theverge.com/2013/5/9/4316358/facebook-home-first-feature-updates-chat-head-friend-list-app-dock">
+        <p><img alt="Fbhome_1020_large" src="http://cdn3.sbnation.com/entry_photo_images/8173589/fbhome_1020_large.jpg" />
+
+
+
+
+
+  <p>Facebook today detailed some of the first updates that it would be delivering to its <a href="http://www.theverge.com/2013/4/9/4206168/facebook-home-review-android">new suite of Android software</a>, Home. <a href="http://techcrunch.com/2013/05/09/home-preview/" target="_blank">According to <i>TechCrunch</i></a>, the company is planning on adding a dock to Home's app launcher, similar to what already exists on iOS and stock Android, that would allow users to have a persistent set of favorite apps at the bottom of the selection screen. Facebook is also working on adding a quick way to begin <a href="http://www.theverge.com/2013/4/16/4205000/talking-heads-how-a-late-night-hack-turned-into-facebooks-next-big-thing">new conversations in Chat Heads</a>. When it's updated, tapping on one of the floating bubbles will open a list of recent and frequently contacted friends, instead of requiring that users enter Messenger to begin a new conversation. The company hasn't announced when these changes will come, but it intends to include them...</p>
+  <p>
+    <a href="http://www.theverge.com/2013/5/9/4316358/facebook-home-first-feature-updates-chat-head-friend-list-app-dock">Continue reading&hellip;</a>
+  </p>
+    </div>
+</div>
+<!-- PAGE-END-ITEM -->
+
+<!-- PAGE-BEGIN-ITEM -->
+<div class="item" id="parent5f9d6e93" >
+    <div class="itemheader feed-e3f4334f feed-thevergeallposts" id="header5f9d6e93" onclick="toggleall('none');toggle('itemhttp://www.theverge.com/2013/5/9/4316372/youtube-launches-paid-channels')">
+        <h4 class="itemtitle unread"><a href="http://www.theverge.com/2013/5/9/4316372/youtube-launches-paid-channels">>> </a>YouTube launches paid channels starting at $0.99 per month</h4>
+        <p class="itembyline">
+        by Adi Robertson
+        in <a href="http://www.theverge.com/">The Verge -  All Posts</a>
+        
+    </div>
+    <div class="itemdescription" id="itemhttp://www.theverge.com/2013/5/9/4316372/youtube-launches-paid-channels">
+        <p><img alt="Screen_20shot_202013-05-09_20at_2012" src="http://cdn0.sbnation.com/entry_photo_images/8173517/Screen_20Shot_202013-05-09_20at_2012.07.16_20PM_large.png" />
+
+
+
+
+
+  <p>As <a href="http://www.theverge.com/2013/5/6/4304276/google-launching-paid-youtube-channels-rumor">long-rumored</a>, YouTube is launching paid channels in a pilot program starting today. A small number of shows, including <i>Sesame Street</i> and <i>UFC</i>, will begin offering channels that can only be accessed after paying an apparently variable subscription fee, which starts at $0.99 per month. The <i>Sesame Street </i>channel, for instance, lets users stream full episodes for $1.99 apiece in standard definition or $2.99 in HD, and they can buy a full season for $17.99 or $27.99.</p>
+<p>Some channels will offer yearly discounts, and all will come with a 14-day free trial. For now, the program is apparently quite small, but YouTube will be rolling it out in the coming weeks for current qualifying partners. Paid channels are an expansion of YouTube's partner...</p>
+  <p>
+    <a href="http://www.theverge.com/2013/5/9/4316372/youtube-launches-paid-channels">Continue reading&hellip;</a>
+  </p>
+    </div>
+</div>
+<!-- PAGE-END-ITEM -->
+
+<!-- PAGE-BEGIN-ITEM -->
+<div class="item" id="parent7c2ab5da" >
+    <div class="itemheader feed-e3f4334f feed-thevergeallposts" id="header7c2ab5da" onclick="toggleall('none');toggle('itemhttp://www.theverge.com/2013/5/9/4315580/block-tv-spoilers-chrome-extension-twivo-wins-hackathon-competition')">
+        <h4 class="itemtitle unread"><a href="http://www.theverge.com/2013/5/9/4315580/block-tv-spoilers-chrome-extension-twivo-wins-hackathon-competition">>> </a>Block TV spoilers before they hit your Twitter feed with upcoming Chrome extension</h4>
+        <p class="itembyline">
+        by Jacob Kastrenakes
+        in <a href="http://www.theverge.com/">The Verge -  All Posts</a>
+        
+    </div>
+    <div class="itemdescription" id="itemhttp://www.theverge.com/2013/5/9/4315580/block-tv-spoilers-chrome-extension-twivo-wins-hackathon-competition">
+        <p><img alt="Lamere_large" src="http://cdn3.sbnation.com/entry_photo_images/8172541/lamere_large.jpg" />
+
+
+
+
+
+  <p>Whether you're a fan of Mad Men, Game of Thrones, or American Idol, you probably know the danger of opening Twitter before you've caught up on the latest episode. <a href="http://evolver.fm/2013/04/28/hacking-television-every-winner-from-tvnext-hack-revealed/" target="_blank"><i>Evolver.fm</i> reports that</a> a new Chrome extension, and the winning entry of the TVnext Hack competition, is aiming to quell dedicated viewers' concerns by blocking spoilers before they hit their Twitter feeds.<i> </i>Developer Jennie Lamere's tool removes possibly unwanted TV news from Twitter until you've finished watching a show &mdash; and, like a DVR, her extension lets you play the tweets back later. But Lamere isn't trying to break the bank by selling a product: the contest comes with a modest prize, and the 17-year-old student was simply looking to <a href="http://youtu.be/dk0nOOEYQm4?t=3m32s" target="_blank">augment her college fund</a>.</p>
+<p>Not only...</p>
+  <p>
+    <a href="http://www.theverge.com/2013/5/9/4315580/block-tv-spoilers-chrome-extension-twivo-wins-hackathon-competition">Continue reading&hellip;</a>
+  </p>
+    </div>
+</div>
+<!-- PAGE-END-ITEM -->
+
+</div>
+<div class="time">
+<h3>08:00 PM</h3>
+<!-- PAGE-BEGIN-ITEM -->
+<div class="item" id="parentf45773fc" >
+    <div class="itemheader feed-93914623 feed-elementaryupdate" id="headerf45773fc" onclick="toggleall('none');toggle('itemtag:blogger.com,1999:blog-1924656539248743048.post-3728182325842173127')">
+        <h4 class="itemtitle unread"><a href="http://www.elementaryupdate.com/2013/05/holo-color-scheme-for-scratch.html">>> </a>Holo Color Scheme for Scratch</h4>
+        <p class="itembyline">
+        by <a href="mailto:noreply@blogger.com">Daniel K</a>
+        in <a href="http://www.elementaryupdate.com/">Elementary Update</a>
+        
+    </div>
+    <div class="itemdescription" id="itemtag:blogger.com,1999:blog-1924656539248743048.post-3728182325842173127">
+        <p><a class="g-profile" href="http://plus.google.com/102409247910431838155" target="_blank">+Anthony Kiniyalocts</a>&nbsp;has made a color Scheme for elementary's text editor, <b>Scratch</b>, which follows the Android Holo Theme. There are 2 versions available:<br /><br />
+<h4>Holo Light Theme</h4>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://3.bp.blogspot.com/-Nk7C_Q38Sx8/UYoNgXPBl7I/AAAAAAAABF8/FKVKY3UFrqc/s1600/Screenshot+from+2013-05-07+15-38-46.png" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="257" src="http://3.bp.blogspot.com/-Nk7C_Q38Sx8/UYoNgXPBl7I/AAAAAAAABF8/FKVKY3UFrqc/s320/Screenshot+from+2013-05-07+15-38-46.png" width="320" /></a></div>
+<div class="separator" style="clear: both; text-align: center;">
+(Source: <a href="http://goo.gl/UrWD2">http://goo.gl/UrWD2</a>)</div>
+<br />
+<br />
+
+<h4>Holo Dark Theme</h4>
+<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://2.bp.blogspot.com/-DdwY-p0jhYc/UYoNq5jWUfI/AAAAAAAABGE/2gv9whP_aBI/s1600/Screenshot+from+2013-05-08+02-50-00.png" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="257" src="http://2.bp.blogspot.com/-DdwY-p0jhYc/UYoNq5jWUfI/AAAAAAAABGE/2gv9whP_aBI/s320/Screenshot+from+2013-05-08+02-50-00.png" width="320" /></a></div>
+<div class="separator" style="clear: both; text-align: center;">
+(Source: <a href="http://goo.gl/Gs1VA">http://goo.gl/Gs1VA</a>)</div>
+<br />
+<h4>Install</h4>
+<div class="separator" style="clear: both; text-align: left;">
+Download the light theme&nbsp;<a href="https://dl.dropboxusercontent.com/s/ms816gdon5yundk/Holo_Lite.tar.gz?token_hash=AAFy3m3MKmEEWi58dLa-thjgUJV_7OLlF6-H5VYN8oDP4Q&amp;dl=1">here</a>&nbsp;&amp; the dark theme&nbsp;<a href="https://dl.dropboxusercontent.com/s/7zwn9f8xy8z3um4/Holo_Dark.tar.gz?token_hash=AAEAqEeaZ0TZ9NJKSdOKKEF5mmUiOwYP9NC44QXZOfe1Tw&amp;dl=1">here</a>.</div>
+<div class="separator" style="clear: both; text-align: left;">
+<br /></div>
+<div class="separator" style="clear: both; text-align: left;">
+Both are easy to install. There's also a text file included, which explains the process in detail. Here is a short guide:</div>
+<ol>
+<li>Download one of the themes</li>
+<li>Extract it in your home directory</li>
+<li>Open up the Terminal, and navigate to the path, where the needed files are. You do that by using the cd command. Depending on the theme you've chosen, navigate to Holo_Dark or Holo_Light.</li>
+<li>From here, copy and paste the following commands:</li>
+</ol>
+<div>
+<code>
+chmod 755 ./install.sh<br />
+sudo ./install.sh
+</code></div>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://2.bp.blogspot.com/-9s0wQ4rYYLg/UYoS3FqJePI/AAAAAAAABGo/qP85gMb_Mo0/s1600/TEH+TERMINAL.+Yay..png" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="251" src="http://2.bp.blogspot.com/-9s0wQ4rYYLg/UYoS3FqJePI/AAAAAAAABGo/qP85gMb_Mo0/s400/TEH+TERMINAL.+Yay..png" width="400" /></a></div>
+<div>
+You're ready to go.</div><br />
+<h4>Apply the theme</h4>
+<div>
+To finally apply the theme, open Scratch, click on the Gear-Symbol, select Preferences &gt; Color Scheme and select the color scheme.</div>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://4.bp.blogspot.com/-BF1LCYRxfD8/UYoPtGBJbRI/AAAAAAAABGQ/hNtDjy-nAn8/s1600/Selectscheme.png" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="400" src="http://4.bp.blogspot.com/-BF1LCYRxfD8/UYoPtGBJbRI/AAAAAAAABGQ/hNtDjy-nAn8/s400/Selectscheme.png" width="367" /></a></div>
+<div class="separator" style="clear: both; text-align: left;">
+And that's it.</div>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://1.bp.blogspot.com/-0mo6T8AAx6g/UYoQG_K2GkI/AAAAAAAABGY/igl1Sc4OwWc/s1600/FRONTSCRSHA.png" style="margin-left: 1em; margin-right: 1em;"><img border="0" class="summary" src="http://1.bp.blogspot.com/-0mo6T8AAx6g/UYoQG_K2GkI/AAAAAAAABGY/igl1Sc4OwWc/s1600/FRONTSCRSHA.png" style="display: none;" /></a></div>
+    </div>
+</div>
+<!-- PAGE-END-ITEM -->
+
+<!-- PAGE-BEGIN-ITEM -->
+<div class="item" id="parentce1305f2" >
+    <div class="itemheader feed-e3f4334f feed-thevergeallposts" id="headerce1305f2" onclick="toggleall('none');toggle('itemhttp://www.theverge.com/2013/5/9/4316222/simcity-lead-designer-stone-librande-talks-about-building-game')">
+        <h4 class="itemtitle unread"><a href="http://www.theverge.com/2013/5/9/4316222/simcity-lead-designer-stone-librande-talks-about-building-game">>> </a>Why 'SimCity' has no parking lots, and other insights from the lead designer</h4>
+        <p class="itembyline">
+        by Adi Robertson
+        in <a href="http://www.theverge.com/">The Verge -  All Posts</a>
+        
+    </div>
+    <div class="itemdescription" id="itemhttp://www.theverge.com/2013/5/9/4316222/simcity-lead-designer-stone-librande-talks-about-building-game">
+        <p><img alt="Big_buildings_large" src="http://cdn0.sbnation.com/entry_photo_images/8173459/Big_Buildings_large.png" />
+
+
+
+
+
+  <p>"Our game was going to be really boring if it was proportional in terms of parking lots," <i>SimCity </i>lead designer Stone Librande says of his decision to simply pretend the game's parking is underground. It's one of many decisions Librande and his team had to make when building their world simulation &mdash; adding some details created fascinating emergent phenomena like in-game traffic jams, but other things, like food supply chains, just wouldn't fit. <a href="http://www.theatlantic.com/technology/archive/2013/05/the-philosophy-of-simcity-an-interview-with-the-games-lead-designer/275724/" target="_blank">At <i>The Atlantic</i>, Geoff Manaugh and Nicola Twilley interview Librande</a> about how he prepared for the game and what people ended up taking out of it, whether they chose to build a fantasy city or engage in a <i>Starcraft-</i>esque resource management war.</p>
+  <p>
+    <a href="http://www.theverge.com/2013/5/9/4316222/simcity-lead-designer-stone-librande-talks-about-building-game">Continue reading&hellip;</a>
+  </p>
+    </div>
+</div>
+<!-- PAGE-END-ITEM -->
+
+<!-- PAGE-BEGIN-ITEM -->
+<div class="item" id="parent8f241402" >
+    <div class="itemheader feed-e3f4334f feed-thevergeallposts" id="header8f241402" onclick="toggleall('none');toggle('itemhttp://www.theverge.com/2013/5/9/4316188/google-instrument-map-diving-io-2013')">
+        <h4 class="itemtitle unread"><a href="http://www.theverge.com/2013/5/9/4316188/google-instrument-map-diving-io-2013">>> </a>No parachute required: Google develops skydiving simulator 'Map Diving'</h4>
+        <p class="itembyline">
+        by Carl Franzen
+        in <a href="http://www.theverge.com/">The Verge -  All Posts</a>
+        
+    </div>
+    <div class="itemdescription" id="itemhttp://www.theverge.com/2013/5/9/4316188/google-instrument-map-diving-io-2013">
+        <p><img alt="Instrument-map-diving-google_large" src="http://cdn1.sbnation.com/entry_photo_images/8173427/instrument-map-diving-google_large.jpg" />
+
+
+
+
+
+  <p>Last year at Google's I/O developer conference in San Francisco, founder Sergey Brin gave what's been called the "<a href="https://plus.google.com/+Scobleizer/posts/HkDKcDUUdUT" target="_blank">mother of all demos</a>," a keynote speech that involved a <a href="http://www.theverge.com/2012/6/27/3121164/project-glass-demo-io" target="_blank">team of skydivers wearing Google Glass landing on the roof </a>of the conference center as he spoke. For this year's I/O taking place next week, Google wants to one-up that by putting I/O attendees in virtual parachutes and letting them <a href="http://weareinstrument.com/blog/all/sneak-peek-map-diving-at-io" target="_blank">skydive anywhere on Earth</a>.</p>
+<p></p>
+  <p>
+    <a href="http://www.theverge.com/2013/5/9/4316188/google-instrument-map-diving-io-2013">Continue reading&hellip;</a>
+  </p>
+    </div>
+</div>
+<!-- PAGE-END-ITEM -->
+
+<!-- PAGE-BEGIN-ITEM -->
+<div class="item" id="parent275fa6f8" >
+    <div class="itemheader feed-e3f4334f feed-thevergeallposts" id="header275fa6f8" onclick="toggleall('none');toggle('itemhttp://www.theverge.com/2013/5/9/4316008/unlike-the-ps3-sony-isnt-expecting-to-lose-money-on-the-ps4')">
+        <h4 class="itemtitle unread"><a href="http://www.theverge.com/2013/5/9/4316008/unlike-the-ps3-sony-isnt-expecting-to-lose-money-on-the-ps4">>> </a>Unlike the PS3, Sony isn't expecting to lose money on the PlayStation 4</h4>
+        <p class="itembyline">
+        by Nathan Ingraham
+        in <a href="http://www.theverge.com/">The Verge -  All Posts</a>
+        
+    </div>
+    <div class="itemdescription" id="itemhttp://www.theverge.com/2013/5/9/4316008/unlike-the-ps3-sony-isnt-expecting-to-lose-money-on-the-ps4">
+        <p><img alt="Lb_0282_large" src="http://cdn0.sbnation.com/entry_photo_images/8173005/LB_0282_large.jpg" />
+
+
+
+
+
+  <p>Back when it launched, Sony's PlayStation 3 was something of a technological marvel for a home console &mdash; and it had the price to match. Despite a starting price of $499, Sony still lost money on the console, but it doesn't plan to have the same issue this time around with the PlayStation 4. As <a href="http://www.eurogamer.net/articles/2013-05-09-sony-unlike-ps3-we-are-not-planning-a-major-loss-to-be-incurred-with-the-launch-of-ps4" target="_blank">reported by<i> Eurogamer</i></a>, Sony addressed the issue on its earnings call this morning after announcing that it made its <a href="http://www.theverge.com/2013/5/9/4314430/sony-2012-fy-earnings">first net profit in five years</a>. "Unlike PS3, we are not planning a major loss to be incurred with the launch of PS4," said Sony CFO Masaru Kato on the company's earnings call.</p>
+<p>As we already know, the custom hardware in the PS3 was to blame: "At the time we developed PS3, we made a lot of in-house investments to develop the chip,...</p>
+  <p>
+    <a href="http://www.theverge.com/2013/5/9/4316008/unlike-the-ps3-sony-isnt-expecting-to-lose-money-on-the-ps4">Continue reading&hellip;</a>
+  </p>
+    </div>
+</div>
+<!-- PAGE-END-ITEM -->
+
+<!-- PAGE-BEGIN-ITEM -->
+<div class="item" id="parent31383a89" >
+    <div class="itemheader feed-e3f4334f feed-thevergeallposts" id="header31383a89" onclick="toggleall('none');toggle('itemhttp://www.theverge.com/2013/5/9/4316158/facebook-reportedly-in-talks-buy-waze-for-up-to-1-billion')">
+        <h4 class="itemtitle unread"><a href="http://www.theverge.com/2013/5/9/4316158/facebook-reportedly-in-talks-buy-waze-for-up-to-1-billion">>> </a>Facebook reportedly in talks to buy Waze navigation app for up to $1 billion</h4>
+        <p class="itembyline">
+        by Chris Welch
+        in <a href="http://www.theverge.com/">The Verge -  All Posts</a>
+        
+    </div>
+    <div class="itemdescription" id="itemhttp://www.theverge.com/2013/5/9/4316158/facebook-reportedly-in-talks-buy-waze-for-up-to-1-billion">
+        <p><img alt="Mark-zuckerberg-theverge-stock-11_1020_large" src="http://cdn0.sbnation.com/entry_photo_images/8173293/mark-zuckerberg-theverge-stock-11_1020_large.jpg" />
+
+
+
+
+
+  <p>According to separate reports from<a href="http://online.wsj.com/article/SB10001424127887324744104578473102257587578.html?mod=rss_whats_news_us&amp;utm_source=feedburner&amp;utm_medium=feed&amp;utm_campaign=Feed%3A+wsj%2Fxml%2Frss%2F3_7011+%28WSJ.com%3A+What%27s+News+US%29"> <i>The Wall Street Journal</i></a> and <i><a href="http://www.calcalist.co.il/internet/articles/0,7340,L-3602113,00.html" target="_blank">Calcalist</a>,</i> Facebook is currently in "serious" talks to acquire popular navigation app Waze. Estimates for how much Facebook is willing to pay range between $800 million and $1 billion, suggesting that Mark Zuckerberg and Co. see big value in the software. Waze is a turn-by-turn navigation app that incorporates real-time traffic data from its million of users, alerting drivers of accidents, closed roads, and other delays. The company describes its app as "a pioneer of crowdsourced maps, traffic, and road info." Waze also happens to place a heavy focus on social networking and location sharing, which could be part of what prompted Facebook to pull out its checkbook.</p>
+<p>The notion...</p>
+  <p>
+    <a href="http://www.theverge.com/2013/5/9/4316158/facebook-reportedly-in-talks-buy-waze-for-up-to-1-billion">Continue reading&hellip;</a>
+  </p>
+    </div>
+</div>
+<!-- PAGE-END-ITEM -->
+
+<!-- PAGE-BEGIN-ITEM -->
+<div class="item" id="parent782ae360" >
+    <div class="itemheader feed-e3f4334f feed-thevergeallposts" id="header782ae360" onclick="toggleall('none');toggle('itemhttp://www.theverge.com/2013/5/9/4309800/water-moon-earth-same-origin')">
+        <h4 class="itemtitle unread"><a href="http://www.theverge.com/2013/5/9/4309800/water-moon-earth-same-origin">>> </a>Water on the Moon and Earth share a common origin, new study suggests</h4>
+        <p class="itembyline">
+        by Katie Drummond
+        in <a href="http://www.theverge.com/">The Verge -  All Posts</a>
+        
+    </div>
+    <div class="itemdescription" id="itemhttp://www.theverge.com/2013/5/9/4309800/water-moon-earth-same-origin">
+        <p><img alt="Moon_large" src="http://cdn1.sbnation.com/entry_photo_images/8165377/moon_large.jpg" />
+
+
+
+
+
+  <p>Deposits of water inside the moon are from the same source as the water found on Earth, according to surprising new research that raises questions about how, exactly, lunar formation occurred 4.5 billion years ago.</p>
+<p>In a NASA-funded study published in <i>Science</i>, a team of experts evaluated extremely small quantities of water inside volcanic glass samples brought back from the Moon. Their goal was to zero in on hydrogen and its heavier isotope, deuterium: water molecules have different ratios of deuterium to hydrogen, depending on where they originated in the solar system. "Think of this as looking for a fingerprint for water's origin," study author Alberto Saal, Ph.D., an associate professor of Geological Sciences at Brown University, told...</p>
+  <p>
+    <a href="http://www.theverge.com/2013/5/9/4309800/water-moon-earth-same-origin">Continue reading&hellip;</a>
+  </p>
+    </div>
+</div>
+<!-- PAGE-END-ITEM -->
+
+</div>
+<div class="time">
+<h3>07:00 PM</h3>
+<!-- PAGE-BEGIN-ITEM -->
+<div class="item" id="parent7f7f974b" >
+    <div class="itemheader feed-0d287779 feed-chromiumblog" id="header7f7f974b" onclick="toggleall('none');toggle('itemtag:blogger.com,1999:blog-2471378914199150966.post-2498638523812570054')">
+        <h4 class="itemtitle unread"><a href="http://blog.chromium.org/2013/05/building-efficient-apps-and-extensions.html">>> </a>Building efficient apps and extensions with push messaging</h4>
+        <p class="itembyline">
+        by <a href="mailto:noreply@blogger.com">Google Chrome Blog</a>
+        in <a href="http://blog.chromium.org/">Chromium Blog</a>
+        
+    </div>
+    <div class="itemdescription" id="itemtag:blogger.com,1999:blog-2471378914199150966.post-2498638523812570054">
+        <p>Event pages keep apps and extensions efficient by allowing them to respond to a variety of events such as timers or navigation to a particular site, without having to remain running persistently. But what if you need to respond to something that occurs outside of Chrome, such as a news alert, a message sent to a user or a stock hitting a price threshold? Until now, you had to do this by repeatedly polling a server. This process consumed bandwidth and reduced the battery life of your users&#8217; machines. For a more efficient solution, starting today you can use  <a href="http://developer.chrome.com/apps/cloudMessaging.html">Google Cloud Messaging for Chrome</a> (GCM) - across all channels of Chrome.<br /><br />GCM will be familiar to developers who have used <a href="http://developer.android.com/google/gcm/index.html">Google Cloud Messaging for Android</a>. To send a message, all you need to do is:<br /><ol><li>Request a token (channel ID) via <span style="font-family: Courier New, Courier, monospace;">chrome.pushMessaging.getChannelId()</span>.&nbsp;</li><li>Pass the returned token to your server.&nbsp;</li><li>Whenever you need to send a message to your app or extension, post the message along with the token to the GCM server-side API.&nbsp;</li></ol>Your message is then delivered in near real time to Chrome. This makes your event page wake up (if it&#8217;s not already running), and the message is delivered to your <span style="font-family: Courier New, Courier, monospace;">chrome.pushMessaging.onMessage</span> listener.<br /><br /><b id="docs-internal-guid-1d91b49d-8758-1047-d55f-a473c419eef5" style="font-weight: normal;"><img height="265px;" src="https://lh6.googleusercontent.com/AdSrye2SEeY-eMwXEs1sntnJ7vQNqeDsrgIrO_8PlErO0fPU2GhnEkmjNGE1CKqKKmN0ZzDsNv2QQrVsCpYP1Fhq416lCIUxfrgW_8sKz3wnTsIKZFtpBcaQkg" width="498px;" /></b><br /><br />To use GCM, your users must be signed into Chrome, as the service relies on an efficient push channel that&#8217;s only established for signed-in users.  Messages are automatically delivered to all the devices where the user has signed in and installed your app/extension.<br /><br />To add GCM to your app/extension, take a look at the <a href="http://developer.chrome.com/apps/cloudMessaging.html">overview</a> of the service or start with some of the <a href="https://github.com/GoogleChrome/chrome-app-samples#push-messaging">sample apps</a>&#8212;and start pushing! <br /><br /><span class="post-author">Posted by Mark Scott, Product Manager </span>
+    </div>
+</div>
+<!-- PAGE-END-ITEM -->
+
+<!-- PAGE-BEGIN-ITEM -->
+<div class="item" id="parent6168e40c" >
+    <div class="itemheader feed-485e324d feed-littlebigdetails" id="header6168e40c" onclick="toggleall('none');toggle('itemhttp://littlebigdetails.com/post/50012230561')">
+        <h4 class="itemtitle unread"><a href="http://feedproxy.google.com/~r/littlebigdetails/~3/pyKb7vD2PIY/50012230561">>> </a>Gmail -&#160;When receiving an email from PayPal, there is a small...</h4>
+        <p class="itembyline">
+        
+        in <a href="http://littlebigdetails.com/">Little Big Details</a>
+        
+    </div>
+    <div class="itemdescription" id="itemhttp://littlebigdetails.com/post/50012230561">
+        <p><img src="http://25.media.tumblr.com/3a753e837fb60ff608ddbdb90c35846e/tumblr_mis3s8qwPj1qea4hso1_250.png" /><br /><br /><p><a href="http://gmail.com" target="_blank">Gmail</a> -&#160;<span>When receiving an email from PayPal, there is a small key in Gmail to show that it is from an authorized sender.</span></p><div class="feedflare">
+<a href="http://feeds.feedburner.com/~ff/littlebigdetails?a=pyKb7vD2PIY:X35qzeHKts8:yIl2AUoC8zA"><img border="0" src="http://feeds.feedburner.com/~ff/littlebigdetails?d=yIl2AUoC8zA" /></a> <a href="http://feeds.feedburner.com/~ff/littlebigdetails?a=pyKb7vD2PIY:X35qzeHKts8:ex77xTEw1Sg"><img border="0" src="http://feeds.feedburner.com/~ff/littlebigdetails?i=pyKb7vD2PIY:X35qzeHKts8:ex77xTEw1Sg" /></a>
+</div><img height="1" src="http://feeds.feedburner.com/~r/littlebigdetails/~4/pyKb7vD2PIY" width="1" />
+    </div>
+</div>
+<!-- PAGE-END-ITEM -->
+
+<!-- PAGE-BEGIN-ITEM -->
+<div class="item" id="parent5d975acf" >
+    <div class="itemheader feed-e3f4334f feed-thevergeallposts" id="header5d975acf" onclick="toggleall('none');toggle('itemhttp://www.theverge.com/2013/5/9/4316124/amazon-building-smartphone-with-a-3d-screen-says-wsj')">
+        <h4 class="itemtitle unread"><a href="http://www.theverge.com/2013/5/9/4316124/amazon-building-smartphone-with-a-3d-screen-says-wsj">>> </a>Amazon building smartphone with a 3D screen, says WSJ</h4>
+        <p class="itembyline">
+        by Adi Robertson
+        in <a href="http://www.theverge.com/">The Verge -  All Posts</a>
+        
+    </div>
+    <div class="itemdescription" id="itemhttp://www.theverge.com/2013/5/9/4316124/amazon-building-smartphone-with-a-3d-screen-says-wsj">
+        <p><img alt="Amazon-appstore-android2_1020_large" src="http://cdn0.sbnation.com/entry_photo_images/8173053/amazon-appstore-android2_1020_large.jpg" />
+
+
+
+
+
+  <p>It's been long rumored that Amazon is working on a phone, but <a href="http://online.wsj.com/article_email/SB10001424127887324744104578473081373377170-lMyQjAxMTAzMDAwOTEwNDkyWj.html" target="_blank">according to a new <i>Wall Street Journal</i> report</a>, that phone may have a 3D display. Anonymous sources say that Amazon is actually working on two phones, including a high-end model with a glasses-free 3D display, a concept that was tried some years ago with the Evo 3D smartphone. It could also, they said, have eye tracking for control &mdash; something Samsung has been working on in a <a href="http://www.theverge.com/2013/3/14/4105798/galaxy-s4-software-features-air-view-smart-stay-announced">more limited capacity</a>. Some sources have said users would be able to navigate through content with their eyes, and eye tracking could also improve the 3D effect, allowing the phone to tell where users are looking and refocus in response, rather than having a single "correct" viewing angle.</p>
+<p>According to...</p>
+  <p>
+    <a href="http://www.theverge.com/2013/5/9/4316124/amazon-building-smartphone-with-a-3d-screen-says-wsj">Continue reading&hellip;</a>
+  </p>
+    </div>
+</div>
+<!-- PAGE-END-ITEM -->
+
+<!-- PAGE-BEGIN-ITEM -->
+<div class="item" id="parent20784ce6" >
+    <div class="itemheader feed-e3f4334f feed-thevergeallposts" id="header20784ce6" onclick="toggleall('none');toggle('itemhttp://www.theverge.com/2013/5/9/4315976/netflix-takes-bluth-banana-stand-on-tour-arrested-development')">
+        <h4 class="itemtitle unread"><a href="http://www.theverge.com/2013/5/9/4315976/netflix-takes-bluth-banana-stand-on-tour-arrested-development">>> </a>Netflix takes Bluth's banana stand on tour ahead of 'Arrested Development' return</h4>
+        <p class="itembyline">
+        by Chris Welch
+        in <a href="http://www.theverge.com/">The Verge -  All Posts</a>
+        
+    </div>
+    <div class="itemdescription" id="itemhttp://www.theverge.com/2013/5/9/4315976/netflix-takes-bluth-banana-stand-on-tour-arrested-development">
+        <p><img alt="Bluthstand_large" src="http://cdn0.sbnation.com/entry_photo_images/8172999/bluthstand_large.jpg" />
+
+
+
+
+
+  <p>Throughout <i>Arrested Development's </i>three seasons on Fox, Bluth's Original Frozen Banana Stand served as a constant set-piece and quite possibly the family's sole legitimate means of income. As Netflix prepares to revive the beloved series for its subscribers, it's giving fans the chance to visit the wooden yellow fixture in real life. Destroyed and resurrected numerous times throughout the show's network run, the banana stand is setting out on a tour that will hit London, Los Angeles, and New York City. The promotional festivities began yesterday in the UK, with additional stops there planned for today, May 15th, and the 21st. From there, things will move to the US; Arrested Development's Twitter account will be revealing specific...</p>
+  <p>
+    <a href="http://www.theverge.com/2013/5/9/4315976/netflix-takes-bluth-banana-stand-on-tour-arrested-development">Continue reading&hellip;</a>
+  </p>
+    </div>
+</div>
+<!-- PAGE-END-ITEM -->
+
+</div>
+<div class="time">
+<h3>06:00 PM</h3>
+<!-- PAGE-BEGIN-ITEM -->
+<div class="item" id="parent09bcdd21" >
+    <div class="itemheader feed-f28da79b feed-archlinuxuserblogs" id="header09bcdd21" onclick="toggleall('none');toggle('itemhttp://archlinux.me/kaptenen/2013/05/09/det-forsta-jag-gor-nar-jag-installerat-firefox-pa-en-linuxdator/')">
+        <h4 class="itemtitle unread"><a href="http://archlinux.me/kaptenen/2013/05/09/det-forsta-jag-gor-nar-jag-installerat-firefox-pa-en-linuxdator/">>> </a>kaptenens utrymme p&#229; internet : Det f&#246;rsta jag g&#246;r n&#228;r jag installerat Firefox p&#229; en linuxdator</h4>
+        <p class="itembyline">
+        by kaptenen
+        in <a href="http://archlinux.me">Arch Linux User Blogs</a>
+        
+    </div>
+    <div class="itemdescription" id="itemhttp://archlinux.me/kaptenen/2013/05/09/det-forsta-jag-gor-nar-jag-installerat-firefox-pa-en-linuxdator/">
+        <p>Kommer du fr&#229;n Windows &#228;r du antagligen v&#228;l bekant med att trycka p&#229; bak&#229;tknappen om du vill g&#229;&#8230; bak&#229;t. Likv&#228;l &#228;r du van vid att trycka p&#229; scrollen f&#246;r att snabbt f&#246;rflyta dig n&#228;r du bes&#246;ker n&#229;gon hemsida. Dessv&#228;rre &#228;r inget av detta standard n&#228;r du installerar Firefox p&#229; en datorn med Linux (mig veterligen &#229;tminstone), konstigt nog. Som tur &#228;r s&#229; &#228;r det enkelt att fixa.</p>
+<p>&#214;ppna en ny flik -&gt; skriv about:config (lova att du &#228;r f&#246;rsiktig!!) Sedan skriver du in f&#246;ljande:<br />
+<code>general.autoScroll</code> vilket du senare &#228;ndrar till <strong>true</strong>. Detta g&#246;r att du kan trycka p&#229; scrollen (eller middle click) f&#246;r att scrolla snabbare.<br />
+<code>browser.backspace_action</code> &#228;ndrar du till <strong>0</strong>. Vilket g&#246;r det m&#246;jligt att g&#229; bak&#229;t med bak&#229;tknappen.</p>
+    </div>
+</div>
+<!-- PAGE-END-ITEM -->
+
+<!-- PAGE-BEGIN-ITEM -->
+<div class="item" id="parentf3a68128" >
+    <div class="itemheader feed-e3f4334f feed-thevergeallposts" id="headerf3a68128" onclick="toggleall('none');toggle('itemhttp://www.theverge.com/2013/5/9/4315864/google-launches-save-to-drive-web-button-faster-uploads-to-cloud')">
+        <h4 class="itemtitle unread"><a href="http://www.theverge.com/2013/5/9/4315864/google-launches-save-to-drive-web-button-faster-uploads-to-cloud">>> </a>Google launches 'Save to Drive' web button for quicker cloud uploads</h4>
+        <p class="itembyline">
+        by Chris Welch
+        in <a href="http://www.theverge.com/">The Verge -  All Posts</a>
+        
+    </div>
+    <div class="itemdescription" id="itemhttp://www.theverge.com/2013/5/9/4315864/google-launches-save-to-drive-web-button-faster-uploads-to-cloud">
+        <p><img alt="20120905-dsc_6548verge_large" src="http://cdn1.sbnation.com/entry_photo_images/8172623/20120905-DSC_6548VERGE_large.jpg" />
+
+
+
+
+
+  <p>Google wants the process of saving files to Google Drive to be as easy and convenient as possible; today it's rolling out a new feature that lets developers <a href="http://googledevelopers.blogspot.com/2013/05/an-easier-way-to-save-files-to-google.html" target="_blank">embed a "Save to Drive" button on any website</a>. The company says this handy user feature requires only two added lines of HTML code, after which visitors can save relevant files to their Drive account with a single click. It's a small addition, but notably sets Google's cloud offering apart from Dropbox, which doesn't currently offer an equivalent for this functionality. "Save to Drive" is also seeing integration across a number of select websites, and developers can start adding the feature to their own web projects immediately.</p>
+  <p>
+    <a href="http://www.theverge.com/2013/5/9/4315864/google-launches-save-to-drive-web-button-faster-uploads-to-cloud">Continue reading&hellip;</a>
+  </p>
+    </div>
+</div>
+<!-- PAGE-END-ITEM -->
+
+<!-- PAGE-BEGIN-ITEM -->
+<div class="item" id="parent7afd3eda" >
+    <div class="itemheader feed-e3f4334f feed-thevergeallposts" id="header7afd3eda" onclick="toggleall('none');toggle('itemhttp://www.theverge.com/2013/5/9/4315230/using-google-glass-at-a-justin-timberlake-concert')">
+        <h4 class="itemtitle unread"><a href="http://www.theverge.com/2013/5/9/4315230/using-google-glass-at-a-justin-timberlake-concert">>> </a>Using Google Glass: at a Justin Timberlake concert</h4>
+        <p class="itembyline">
+        by Sam Sheffer
+        in <a href="http://www.theverge.com/">The Verge -  All Posts</a>
+        
+    </div>
+    <div class="itemdescription" id="itemhttp://www.theverge.com/2013/5/9/4315230/using-google-glass-at-a-justin-timberlake-concert">
+        <p><img alt="Glass_image1_640_large" src="http://cdn1.sbnation.com/entry_photo_images/8171919/glass_image1_640_large.jpg" />
+
+
+
+
+
+  <p><a href="http://www.theverge.com/2012/4/4/2925372/google-project-glass-augmented-reality" id="verge-glass"></a></p>
+<div class="hidden">
+</div>
+<p><i>Google's Glass Explorer Edition is finally shipping, and Verge staffers worldwide have been waiting to try out the new headset. So we're sending our editors out to live life with Glass, to explore the brave new world we're lurching into whether we like it or not.</i></p>
+<p>"Those are some unique glasses." "Are you wearing Glass?" "He's got Google Glass on!" My appearance can be ostentatious <a href="http://i.imgur.com/oWdV8p0.jpg" target="_blank">at times</a>, but wearing Google Glass in public drew a truly unparalleled amount of attention &mdash; never have I seen so many strangers (and people I know) give me this look of, "uh, what's on your face?"</p>
+<p>I wore Google Glass to Justin Timberlake's show at Roseland Ballroom this past Sunday for two reasons: to get a good understanding of what it&rsquo;s like...</p>
+  <p>
+    <a href="http://www.theverge.com/2013/5/9/4315230/using-google-glass-at-a-justin-timberlake-concert">Continue reading&hellip;</a>
+  </p>
+    </div>
+</div>
+<!-- PAGE-END-ITEM -->
+
+<!-- PAGE-BEGIN-ITEM -->
+<div class="item" id="parent71c33bd9" >
+    <div class="itemheader feed-e3f4334f feed-thevergeallposts" id="header71c33bd9" onclick="toggleall('none');toggle('itemhttp://www.theverge.com/2013/5/9/4315228/hacking-back-cops-and-corporations-want-offensive-cybersecurity')">
+        <h4 class="itemtitle unread"><a href="http://www.theverge.com/2013/5/9/4315228/hacking-back-cops-and-corporations-want-offensive-cybersecurity">>> </a>Hacking back: cops and corporations want cybersecurity to go on the offensive</h4>
+        <p class="itembyline">
+        by Joshua Kopstein
+        in <a href="http://www.theverge.com/">The Verge -  All Posts</a>
+        
+    </div>
+    <div class="itemdescription" id="itemhttp://www.theverge.com/2013/5/9/4315228/hacking-back-cops-and-corporations-want-offensive-cybersecurity">
+        <p><img alt="Dsc_3747_large" src="http://cdn2.sbnation.com/entry_photo_images/8172127/DSC_3747_large.jpg" />
+
+
+
+
+
+  <p>Law enforcement agencies and private companies don't always get along, but one occasion where they frequently come together is to complain that their networks are being penetrated by a seemingly continuous stream of cyber attacks. Whether it's the relative nuisance of DDoS attacks from hacktivist groups like Anonymous, or more serious threats of data theft and espionage from criminal gangs and foreign governments, the general rule has been that private entities maintain a defensive posture while the government hunts down the culprits.</p>
+<p>But since <a href="http://www.theverge.com/2013/4/25/4266782/senate-commerce-committee-says-cispa-stalled" target="new">CISPA's second death</a>, it seems both groups have been itching to take a more aggressive stance. With "cybersecurity" hype still echoing through the halls of Congress, public- and private-sector...</p>
+  <p>
+    <a href="http://www.theverge.com/2013/5/9/4315228/hacking-back-cops-and-corporations-want-offensive-cybersecurity">Continue reading&hellip;</a>
+  </p>
+    </div>
+</div>
+<!-- PAGE-END-ITEM -->
+
+<!-- PAGE-BEGIN-ITEM -->
+<div class="item" id="parentf8efce70" >
+    <div class="itemheader feed-e3f4334f feed-thevergeallposts" id="headerf8efce70" onclick="toggleall('none');toggle('itemhttp://www.theverge.com/2013/5/9/4315720/white-house-looks-to-3d-printing-with-200-million-plan-for-military')">
+        <h4 class="itemtitle unread"><a href="http://www.theverge.com/2013/5/9/4315720/white-house-looks-to-3d-printing-with-200-million-plan-for-military">>> </a>White House looks to 3D printing with $200 million plan for military, energy manufacturing</h4>
+        <p class="itembyline">
+        by Carl Franzen
+        in <a href="http://www.theverge.com/">The Verge -  All Posts</a>
+        
+    </div>
+    <div class="itemdescription" id="itemhttp://www.theverge.com/2013/5/9/4315720/white-house-looks-to-3d-printing-with-200-million-plan-for-military">
+        <p><img alt="White-house-american-manufacturing_large" src="http://cdn0.sbnation.com/entry_photo_images/8172711/white-house-american-manufacturing_large.jpg" />
+
+
+
+
+
+  <p>The White House is looking to 3D printing as a model to revitalize the American manufacturing industry. Oh, and to help design new weapons and equipement for the military. That's the basis of a new <a href="http://www.whitehouse.gov/the-press-office/2013/05/09/obama-administration-launches-competition-three-new-manufacturing-innova" target="_blank">$200 million public-private initiative announced</a> by the White House this morning, which will create three new advanced manufacturing centers around the country. The White House is opening a competitive bidding process to universities and companies to host these centers, but all three will be modeled after a <a href="http://namii.org/about/" target="_blank">3D printing institute launched in Ohio</a> late last year, also funded by the government.</p>
+<p></p>
+  <p>
+    <a href="http://www.theverge.com/2013/5/9/4315720/white-house-looks-to-3d-printing-with-200-million-plan-for-military">Continue reading&hellip;</a>
+  </p>
+    </div>
+</div>
+<!-- PAGE-END-ITEM -->
+
+<!-- PAGE-BEGIN-ITEM -->
+<div class="item" id="parentc96bacc0" >
+    <div class="itemheader feed-e3f4334f feed-thevergeallposts" id="headerc96bacc0" onclick="toggleall('none');toggle('itemhttp://www.theverge.com/2013/5/9/4315680/barclays-adds-voice-recognition-for-banking-call-centers')">
+        <h4 class="itemtitle unread"><a href="http://www.theverge.com/2013/5/9/4315680/barclays-adds-voice-recognition-for-banking-call-centers">>> </a>Barclays substitutes voice recognition for security questions in banking call centers</h4>
+        <p class="itembyline">
+        by Adi Robertson
+        in <a href="http://www.theverge.com/">The Verge -  All Posts</a>
+        
+    </div>
+    <div class="itemdescription" id="itemhttp://www.theverge.com/2013/5/9/4315680/barclays-adds-voice-recognition-for-banking-call-centers">
+        <p><img alt="2012-03-23_13-05-24-1024_large" src="http://cdn0.sbnation.com/entry_photo_images/8172613/2012-03-23_13-05-24-1024_large.jpg" />
+
+
+
+
+
+  <p>For the past several months, British bank Barclays has been phasing out the security question in favor of a simpler system: voice recognition. The company announced today that when customers call its investment wing, Nuance's biometrics system will be listening in. Over about 30 seconds of talking with a service representative, the system will see if it can match them to an existing voiceprint. If it does, the representative will simply keep talking to the customer; if not, they'll move on to security questions or other verification.</p>
+<p>Barclays says it's enrolled 84 percent of "frequent callers" over the past five months, and that satisfaction has been rated highly, suggesting that the system could be fairly accurate. Obviously, Barclays...</p>
+  <p>
+    <a href="http://www.theverge.com/2013/5/9/4315680/barclays-adds-voice-recognition-for-banking-call-centers">Continue reading&hellip;</a>
+  </p>
+    </div>
+</div>
+<!-- PAGE-END-ITEM -->
+
+<!-- PAGE-BEGIN-ITEM -->
+<div class="item" id="parent0916a275" >
+    <div class="itemheader feed-e3f4334f feed-thevergeallposts" id="header0916a275" onclick="toggleall('none');toggle('itemhttp://www.theverge.com/2013/5/9/4315758/riaa-now-includes-streaming-music-in-digital-awards')">
+        <h4 class="itemtitle unread"><a href="http://www.theverge.com/2013/5/9/4315758/riaa-now-includes-streaming-music-in-digital-awards">>> </a>Sign of the times: RIAA now includes streaming music in digital gold, platinum awards</h4>
+        <p class="itembyline">
+        by Chris Welch
+        in <a href="http://www.theverge.com/">The Verge -  All Posts</a>
+        
+    </div>
+    <div class="itemdescription" id="itemhttp://www.theverge.com/2013/5/9/4315758/riaa-now-includes-streaming-music-in-digital-awards">
+        <p><img alt="Spotify-radio_large" src="http://cdn0.sbnation.com/entry_photo_images/8172523/spotify-radio_large.jpg" />
+
+
+
+
+
+  <p>In yet another sign of a shifting music business landscape, the Recording Industry Association of America today announced that it's now including streamed songs in its Gold &amp; Platinum Program. Both audio and video song streams will now go towards the 500,000 (gold), 1,000,000 (platinum) and multi-platinum thresholds that must be met for an artist to earn a Digital Single Award certification. With the change, the RIAA says that 56 songs have immediately earned awards, including some old hits like Aerosmith's "I Don't Want To Miss a Thing" (platinum) and Whitney Houston's "I Will Always Love You" (two-times platinum)&mdash; it's the first digital certification for both artists.</p>
+<p>Audio apps being factored into the RIAA's tally include Spotify,...</p>
+  <p>
+    <a href="http://www.theverge.com/2013/5/9/4315758/riaa-now-includes-streaming-music-in-digital-awards">Continue reading&hellip;</a>
+  </p>
+    </div>
+</div>
+<!-- PAGE-END-ITEM -->
+
+<!-- PAGE-BEGIN-ITEM -->
+<div class="item" id="parent3bc37689" >
+    <div class="itemheader feed-e3f4334f feed-thevergeallposts" id="header3bc37689" onclick="toggleall('none');toggle('itemhttp://www.theverge.com/2013/5/9/4315678/huawei-w1-windows-phone-8-handset-coming-to-us-walmart')">
+        <h4 class="itemtitle unread"><a href="http://www.theverge.com/2013/5/9/4315678/huawei-w1-windows-phone-8-handset-coming-to-us-walmart">>> </a>Huawei brings W1 Windows Phone 8 handset to US, lands Walmart as retail partner</h4>
+        <p class="itembyline">
+        by Chris Welch
+        in <a href="http://www.theverge.com/">The Verge -  All Posts</a>
+        
+    </div>
+    <div class="itemdescription" id="itemhttp://www.theverge.com/2013/5/9/4315678/huawei-w1-windows-phone-8-handset-coming-to-us-walmart">
+        <p><img alt="Huaweiw1_large" src="http://cdn3.sbnation.com/entry_photo_images/8172557/huaweiw1_large.jpg" />
+
+
+
+
+
+  <p>Huawei is launching another phone in the United States, and it's managed to recruit a powerful ally to share it with consumers: Walmart. On the same day that founder and CEO<a href="http://www.theverge.com/2013/5/9/4314912/huawei-ceo-breaks-silence-denies-us-allegations-of-china-espionage"> Ren Zhengfei pushed back against US national security allegations</a> involving his company, Huawei has announced that its W1 Windows Phone 8 handset will be available this month from America's largest retailer. The W1 isn't exactly a new addition to the Windows Phone portfolio, but this marks the first time US buyers will be able to secure the device. As a refresher, the hardware contains a dual-core 1.2GHz processor, 5-megapixel rear camera, and a 4-inch Gorilla Glass IPS display. You'll find just 1.7GB of storage available out of the box, but thankfully that can be...</p>
+  <p>
+    <a href="http://www.theverge.com/2013/5/9/4315678/huawei-w1-windows-phone-8-handset-coming-to-us-walmart">Continue reading&hellip;</a>
+  </p>
+    </div>
+</div>
+<!-- PAGE-END-ITEM -->
+
+<!-- PAGE-BEGIN-ITEM -->
+<div class="item" id="parent697a066b" >
+    <div class="itemheader feed-e3f4334f feed-thevergeallposts" id="header697a066b" onclick="toggleall('none');toggle('itemhttp://www.theverge.com/2013/5/9/4315656/the-vergecast-top-shelf-google-glass-may-9')">
+        <h4 class="itemtitle unread"><a href="http://www.theverge.com/2013/5/9/4315656/the-vergecast-top-shelf-google-glass-may-9">>> </a>Today: watch The Vergecast at 4PM ET and Top Shelf: Google Glass at 5:30PM ET!</h4>
+        <p class="itembyline">
+        by Ross Miller
+        in <a href="http://www.theverge.com/">The Verge -  All Posts</a>
+        
+    </div>
+    <div class="itemdescription" id="itemhttp://www.theverge.com/2013/5/9/4315656/the-vergecast-top-shelf-google-glass-may-9">
+        <p><img alt="Bestoflead_large" src="http://cdn3.sbnation.com/entry_photo_images/8172491/bestoflead_large.jpg" />
+
+
+
+
+
+  <p>Stand up, sit down, miss the chair, wonder how you did, look back, see your buddies, curse the sky, try to stand up, banana peel, slip and fall again, seriously wonder how you missed that, try to block out everyone laughing by humming a song, realize it's a very lame song from the 90s and you're humming very loud, realize everyone is now laughing harder, turn beet red, wonder why you've been spelling it "beat red" all this time without questioning it, realize you're still on the floor, give up on trying to stand, crab walk to nearest exit, stand up, brush yourself off, go home, lay in bed, open laptop, watch Vergecast, take a deep breath, watch Top Shelf.</p>
+
+  <p>
+    <a href="http://www.theverge.com/2013/5/9/4315656/the-vergecast-top-shelf-google-glass-may-9">Continue reading&hellip;</a>
+  </p>
+    </div>
+</div>
+<!-- PAGE-END-ITEM -->
+
+</div>
+<div class="time">
+<h3>05:00 PM</h3>
+<!-- PAGE-BEGIN-ITEM -->
+<div class="item" id="parentfbad4736" >
+    <div class="itemheader feed-d17cd332 feed-fuckyeahfluiddynamics" id="headerfbad4736" onclick="toggleall('none');toggle('itemhttp://fuckyeahfluiddynamics.tumblr.com/post/50014842000')">
+        <h4 class="itemtitle unread"><a href="http://fuckyeahfluiddynamics.tumblr.com/post/50014842000">>> </a>In applications like drug delivery, it&#8217;s often desirable...</h4>
+        <p class="itembyline">
+        
+        in <a href="http://fuckyeahfluiddynamics.tumblr.com/">Fuck Yeah Fluid Dynamics</a>
+        
+    </div>
+    <div class="itemdescription" id="itemhttp://fuckyeahfluiddynamics.tumblr.com/post/50014842000">
+        <p><br /><br /><p>In applications like drug delivery, it&#8217;s often desirable to encapsulate one or more liquid droplets in an additional <a href="http://fuckyeahfluiddynamics.tumblr.com/tagged/miscibility">immiscible</a> fluid. These drops-within-drops, called double <a href="http://fuckyeahfluiddynamics.tumblr.com/tagged/emulsion">emulsions</a>, are typically a multi-step process, created from the innermost drop outward. In this new <a href="http://fuckyeahfluiddynamics.tumblr.com/tagged/microfluidics">microfluidic</a> technique, though, researchers are able to create multi-component emulsions in a single step. A double-bored <a href="http://en.wikipedia.org/wiki/Capillary_action#Phenomena_and_physics_of_capillary_action">capillary tube</a> creates the two inner droplets (both water, dyed different colors) while oil flows down the outside of the injection tube to encapsulate the droplets. The multi-component double emulsions then flow as one to the right in the outer carrier fluid. The spacing of the capillary tubes is critical to prevent the inner droplets from coalescing with one another. (Video credit: <a href="http://weitzlab.seas.harvard.edu/publications/adams-2012-soft-matter.pdf">L. L. A. Adams et al.</a>)</p>
+    </div>
+</div>
+<!-- PAGE-END-ITEM -->
+
+<!-- PAGE-BEGIN-ITEM -->
+<div class="item" id="parent07f89fa3" >
+    <div class="itemheader feed-b6b43fef feed-onethingwell" id="header07f89fa3" onclick="toggleall('none');toggle('itemhttp://onethingwell.org/post/50016931262')">
+        <h4 class="itemtitle unread"><a href="http://onethingwell.org/post/50016931262">>> </a>Oak Outliner</h4>
+        <p class="itembyline">
+        
+        in <a href="http://onethingwell.org/">One Thing Well</a>
+        
+    </div>
+    <div class="itemdescription" id="itemhttp://onethingwell.org/post/50016931262">
+        <p><a href="http://oakoutliner.com">Oak Outliner</a>: <p>A web-based, keyboard-friendly outliner based on <a href="http://onethingwell.org/post/33769714420/foldingtext">FoldingText</a>.</p>
+
+<h4>&#160;See also</h4>
+
+<ul><li><a href="http://onethingwell.org/post/48278439347/fargo">Fargo</a></li>
+</ul>
+    </div>
+</div>
+<!-- PAGE-END-ITEM -->
+
+<!-- PAGE-BEGIN-ITEM -->
+<div class="item" id="parentf6c93721" >
+    <div class="itemheader feed-e3f4334f feed-thevergeallposts" id="headerf6c93721" onclick="toggleall('none');toggle('itemhttp://www.theverge.com/2013/5/9/4309048/body-massage-gi-joe-and-the-invention-of-the-viral-video')">
+        <h4 class="itemtitle unread"><a href="http://www.theverge.com/2013/5/9/4309048/body-massage-gi-joe-and-the-invention-of-the-viral-video">>> </a>Body Message: GI Joe and the invention of the viral video</h4>
+        <p class="itembyline">
+        by Lessley
+        in <a href="http://www.theverge.com/">The Verge -  All Posts</a>
+        
+    </div>
+    <div class="itemdescription" id="itemhttp://www.theverge.com/2013/5/9/4309048/body-massage-gi-joe-and-the-invention-of-the-viral-video">
+        <p><img alt="Gijoe_large" src="http://cdn1.sbnation.com/entry_photo_images/8168271/gijoe_large.jpg" />
+
+
+
+
+
+  <p>2003 was an important year for American culture: Baghdad fell, the Human Genome Project was completed, Britney and Madonna French-kissed at the MTV Music Video Awards. And no less significantly, at least as far as internet culture is concerned, it was also the year of the &ldquo;GI Joe PSAs&rdquo;: 25 weird, short videos made from re-edited versions of &lsquo;80s GI Joe cartoons. Before YouTube, Facebook, and Twitter were alive to launch a meme in a minute, the GI Joe PSAs went &ldquo;viral&rdquo; in a time when that idea didn&rsquo;t even exist.</p>
+
+<p>Created by a young, Chicago-based aspiring filmmaker named Eric Fensler, the series was constructed out of the public service announcements that were originally tacked on to the end of each show (which ran from...</p>
+  <p>
+    <a href="http://www.theverge.com/2013/5/9/4309048/body-massage-gi-joe-and-the-invention-of-the-viral-video">Continue reading&hellip;</a>
+  </p>
+    </div>
+</div>
+<!-- PAGE-END-ITEM -->
+
+<!-- PAGE-BEGIN-ITEM -->
+<div class="item" id="parent5dc3c5bb" >
+    <div class="itemheader feed-e3f4334f feed-thevergeallposts" id="header5dc3c5bb" onclick="toggleall('none');toggle('itemhttp://www.theverge.com/2013/5/9/4315526/sidesync-helps-samsung-galaxy-phones-pcs-play-nice')">
+        <h4 class="itemtitle unread"><a href="http://www.theverge.com/2013/5/9/4315526/sidesync-helps-samsung-galaxy-phones-pcs-play-nice">>> </a>SideSync tool helps Samsung's Galaxy phones and PCs play nice together</h4>
+        <p class="itembyline">
+        by Chris Welch
+        in <a href="http://www.theverge.com/">The Verge -  All Posts</a>
+        
+    </div>
+    <div class="itemdescription" id="itemhttp://www.theverge.com/2013/5/9/4315526/sidesync-helps-samsung-galaxy-phones-pcs-play-nice">
+        <p><img alt="Screen_shot_2013-05-09_at_10" src="http://cdn1.sbnation.com/entry_photo_images/8172211/Screen_Shot_2013-05-09_at_10.56.18_AM_large.png" />
+
+
+
+
+
+  <p>Last month, Samsung announced SideSync, a tool that enables deeper cross-integration between the company's Galaxy smartphones and PCs. The initial unveiling was light on details, but a new YouTube video gives us a better idea of what's in store for users. If you can get past the extremely stilted (automated?) narration, you'll learn that Samsung's goal with the app is to essentially make your phone serve as an extension of your PC. Once docked and with the SideSync utility installed, you'll be able to enable automatic backups of files and photos that reside on your handset. But the functionality extends far beyond that; users can control their smartphone with a keyboard and mouse, for instance. SideSync also allows you to copy / paste...</p>
+  <p>
+    <a href="http://www.theverge.com/2013/5/9/4315526/sidesync-helps-samsung-galaxy-phones-pcs-play-nice">Continue reading&hellip;</a>
   </p>
     </div>
 </div>

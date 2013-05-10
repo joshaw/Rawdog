@@ -25,11 +25,11 @@ splitstate false
 
 # The maximum number of articles to show on the generated page.
 # Set this to 0 for no limit.
-maxarticles 30
+maxarticles 0
 
 # The maximum age of articles to show on the generated page.
 # Set this to 0 for no limit.
-maxage 3d
+maxage 1d
 
 # The age after which articles will be discarded if they do not appear
 # in a feed. Set this to a larger value if you want your rawdog output
@@ -280,8 +280,8 @@ feed 2m http://shnatsel.blogspot.co.uk/feeds/posts/default
 feed 2m http://www.sublimetext.com/blog/feed
 feed 2m http://feeds.feedburner.com/sudobits
 feed 2m http://www.notmart.org/phpwet/rss.php
-feed 2m http://shimmerproject.org/feed/
-feed 2m http://tutafuta.com/feed/
+feed 1d http://shimmerproject.org/feed/
+feed 1d http://tutafuta.com/feed/
 feed 2m http://tuxfiction.wordpress.com/feed/
 feed 2m http://feeds.launchpad.net/ubuntu/announcements.atom
 feed 2m http://fulltextrssfeed.com/feeds.ubuntumanual.org/ubuntumanual
@@ -290,8 +290,8 @@ feed 2m http://www.ubuntuvibes.com/feeds/posts/default
 feed 2m http://fulltextrssfeed.com/feeds.feedburner.com/UpUbuntu
 feed 2m http://urukrama.wordpress.com/feed/
 feed 2m http://www.webupd8.org/feeds/posts/default
-feed 2m http://jaw42.blogspot.com/feeds/posts/default
-feed 2m http://feeds.feedburner.com/brainlesstales
+feed 1d http://jaw42.blogspot.com/feeds/posts/default
+feed 12h http://feeds.feedburner.com/brainlesstales
 feed 2m http://blog.feedly.com/feed/
 feed 2m http://feeds.feedburner.com/cgpgrey/PJyo
 feed 2m http://www.changedetection.com/accountfeed.xml?feedid=308218917990486
@@ -301,7 +301,7 @@ feed 2m http://inconsolation.wordpress.com/feed/
 feed 2m http://feeds.feedburner.com/LifeToHerYears
 feed 2m http://feeds.feedburner.com/thetoolbox/cc
 feed 2m http://what-if.xkcd.com/feed.atom
-feed 2m http://xkcd.com/atom.xml
+feed 1d http://xkcd.com/atom.xml
 feed 2m http://fulltextrssfeed.com/www.alistapart.com/site/rss
 #feed2mh http://acko.net/atom.xml
 feed 2m http://blog.ifttt.com/rss
