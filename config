@@ -307,7 +307,8 @@ feed 2m http://fulltextrssfeed.com/www.alistapart.com/site/rss
 feed 2m http://blog.ifttt.com/rss
 feed 2m http://igurublog.wordpress.com/feed/
 feed 2m http://feeds.feedburner.com/littlebigdetails
-feed 2m http://fulltextrssfeed.com/www.theverge.com/rss/index.xml
+#feed 2m http://fulltextrssfeed.com/www.theverge.com/rss/index.xml
+feed 2m http://www.theverge.com/rss/index.xml
 feed 2m http://feeds.feedburner.com/ChromeStory
 feed 2m http://blog.chromium.org/feeds/posts/default
 feed 2m http://feeds.feedburner.com/OfficialGmailBlog

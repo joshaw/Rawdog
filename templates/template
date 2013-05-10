@@ -8,8 +8,7 @@
             /*localStorage.clear();*/
             function readReadColor(){
                 for (var i = 0; i < localStorage.length; i++){
-                    var current = document.getElementById(localStorage.getItem(localStorage.key(i))
-).previousElementSibling.getElementsByTagName("h4")[0];
+                    var current = document.getElementById(localStorage.getItem(localStorage.key(i))).previousElementSibling.getElementsByTagName("h4")[0];
                     current.classList.remove('unread')
                     current.className += " read";
                 }

@@ -139,6 +139,7 @@ h3 {
 
 #floatingNav:hover {
     background-color: #fafafa;
+    cursor: pointer;
 }
 
 #floatingNav, #navNext, #navPrev, #markStatus {
