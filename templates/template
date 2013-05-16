@@ -52,6 +52,13 @@
                     current.classList.remove('unread')
                     current.className += " read";
                     setStorage();
+/*                    var imgs = ele.getElementsByTagName('img');
+                    for(var i = 0; i < imgs.length; i++) {
+                        var thisImg = imgs[i];
+                        alert(thisImg);
+                        get data-src
+                        document.img.src=data-src 
+                    }*/
                 }
             }  
             function toggleall(changeTo){
