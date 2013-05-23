@@ -29,7 +29,7 @@ maxarticles 0
 
 # The maximum age of articles to show on the generated page.
 # Set this to 0 for no limit.
-maxage 1d
+maxage 3d
 
 # The age after which articles will be discarded if they do not appear
 # in a feed. Set this to a larger value if you want your rawdog output

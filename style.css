@@ -161,3 +161,18 @@ h3 {
     -ms-transition: background-color 100ms linear;
     transition: background-color 100ms linear;
 }
+
+#beggining {
+    display:none;
+    position:absolute;
+    text-align:center;
+    top:70%;
+    width:300px;
+    height:55px;
+    z-index:15;
+    top:100%;
+    left:50%;
+    margin:-150px 0 0 -150px;
+    color:#fafafa;
+    background:#555;
+}

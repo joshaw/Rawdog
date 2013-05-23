@@ -82,14 +82,23 @@
                 
                 toggleall('none');
                 if(direction == "next"){
-                    toggle(next.id);
-                    window.location = "#" + next.parentNode.id;
-/*                    currentlyOpen.parentElement.previousElementSibling.firstElementChild.style.background = "green";*/
+                    if(next!=undefined){
+                        toggle(next.id);
+                        window.location = "#" + next.parentNode.id;
+                    }else{
+                        var begin=document.getElementById("beggining")
+                        begin.style.display="block"
+                        setTimeout(function(){begin.style.display="none"},1000);
+                    }
                 }else{
-                    toggle(previous.id);
-                    window.location = "#" + previous.parentNode.id;
+                    if(previous!=undefined){
+                        toggle(previous.id);
+                        window.location = "#" + previous.parentNode.id;
+                    }else{
+                        /*popup("end");*/
+                        alert("end");
+                    }
                 }
-
             }
 
             function markStatus(stat){
@@ -108,6 +117,9 @@
             <div id="header">
                 <h1>rawdog __version__: __num_items__ items from __num_feeds__ feeds</h1>
                 <p><a onclick="toggleall('block')">Open all</a> <a onclick="toggleall('none')">Close all</a> </p>
+            </div>
+            <div id=beggining>
+                <p>You've reached the beggining</p>
             </div>
             <div class="pages">
                 __paged_output_pages__

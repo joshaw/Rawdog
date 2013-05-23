@@ -58,3 +58,4 @@ feed 2m http://gdata.youtube.com/feeds/base/users/MinutePhysics/uploads?alt=rss&
 feed 2m http://gdata.youtube.com/feeds/base/users/destinws2/uploads?alt=rss&amp;v=2&amp;orderby=published&amp;client=ytapi-youtube-profile
 feed 2m http://gdata.youtube.com/feeds/base/users/vlogbrothers/uploads?alt=rss&amp;v=2&amp;orderby=published&amp;client=ytapi-youtube-profile
 feed 2m http://gdata.youtube.com/feeds/base/users/vsauce/uploads?alt=rss&amp;v=2&amp;orderby=published&amp;client=ytapi-youtube-profile
+feed 2m https://blog.dropbox.com/feed/
