@@ -38,8 +38,9 @@ feed 2m http://feeds.feedburner.com/LifeToHerYears
 feed 2m http://feeds.feedburner.com/thetoolbox/cc
 feed 2m http://what-if.xkcd.com/feed.atom
 feed 1d http://xkcd.com/atom.xml
+feed 1d http://blog.xkcd.com
 feed 2m http://fulltextrssfeed.com/www.alistapart.com/site/rss
-#feed2mh http://acko.net/atom.xml
+feed2mh http://acko.net/atom.xml
 feed 2m http://blog.ifttt.com/rss
 feed 2m http://igurublog.wordpress.com/feed/
 feed 2m http://feeds.feedburner.com/littlebigdetails

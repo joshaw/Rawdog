@@ -34,7 +34,7 @@ maxage 3d
 # The age after which articles will be discarded if they do not appear
 # in a feed. Set this to a larger value if you want your rawdog output
 # to cover more than a day's worth of articles.
-expireage 1d
+expireage 3d
 
 # The minimum number of articles from each feed to keep around in the history.
 # Set this to 0 to only keep articles that were returned the last time the feed
@@ -43,7 +43,7 @@ expireage 1d
 # HTTP requests, since it can't tell from the response to such a request
 # whether any articles have been removed from the feed; this makes rawdog
 # slightly less bandwidth-efficient.)
-keepmin 20
+keepmin 30
 
 # Whether to only display articles that are currently included in a feed
 # (useful for "planet" pages where you only want to display the current
