@@ -1,15 +1,8 @@
-<!-- PAGE-BEGIN-ITEM -->
-<div class="item" id="parent__hash__" >
-    <div class="itemheader feed-__feed_hash__ feed-__feed_id__" id="header__hash__" onclick="toggleall('none');toggle('item__guid__')">
-        <h4 class="itemtitle unread"><a href="__url__">>> </a>__title_no_link__</h4>
-        <p class="itembyline">
-        __if_author__by __author____endif__
-        in __feed_title__
-        __if_date__at __date____endif__
-    </div>
-    __if_description__<div class="itemdescription" id="item__guid__">
-        __description__
-    </div>__endif__
+<div class="item" id="__hash__" onclick="uncomment(this)">
+	<span class="date">__date__</span><span class="title">__title_no_link__</span><span class="feed"><a href="__url__">__feed_title_no_link__</a></span>
+	<div class="entry"><!--RAWDOG
+		<h2>__title__</h2>
+		__description__
+	RAWDOG--></div>
 </div>
-<!-- PAGE-END-ITEM -->
 

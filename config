@@ -25,16 +25,16 @@ splitstate false
 
 # The maximum number of articles to show on the generated page.
 # Set this to 0 for no limit.
-maxarticles 0
+maxarticles 100
 
 # The maximum age of articles to show on the generated page.
 # Set this to 0 for no limit.
-maxage 3d
+maxage 0
 
 # The age after which articles will be discarded if they do not appear
 # in a feed. Set this to a larger value if you want your rawdog output
 # to cover more than a day's worth of articles.
-expireage 3d
+expireage 0
 
 # The minimum number of articles from each feed to keep around in the history.
 # Set this to 0 to only keep articles that were returned the last time the feed
@@ -49,11 +49,11 @@ keepmin 30
 # (useful for "planet" pages where you only want to display the current
 # articles from several feeds). If this is false, rawdog will keep a
 # history of older articles.
-currentonly false
+currentonly true
 
 # Whether to divide the articles up by day, writing a "dayformat" heading
 # before each set.
-daysections true
+daysections false
 
 # The format to write day headings in. See "man strftime" for more
 # information; for example:
@@ -63,7 +63,7 @@ dayformat %A, %d %B
 
 # Whether to divide the articles up by time, writing a "timeformat" heading
 # before each set.
-timesections true
+timesections false
 
 # The format to write time headings in. For example:
 # %H:%M               18:07 (ISO 8601 format)
@@ -73,7 +73,7 @@ timeformat %I:%M %p
 # The format to display feed update and article times in. For example:
 # %H:%M, %A, %d %B    18:07, Wednesday, 21 January
 # %Y-%m-%d %H:%M      2004-01-21 18:07 (ISO 8601 format)
-datetimeformat %H:%M, %A, %d %B
+datetimeformat %a %d %b %Y
 
 # The template file to use, or "default" to use the built-in template
 # (which is probably sufficient for most users). Use "rawdog -t" to show
@@ -129,7 +129,6 @@ itemtemplate templates/item
 # (You will probably want to make this an absolute path, else rawdog will write
 # to a file in your ~/.rawdog directory.)
 outputfile output.html
-#outputfile /home/you/public_html/rawdog.html
 
 # Whether to use a <meta http-equiv="Refresh" ...> tag in the generated
 # HTML to indicate that the page should be refreshed automatically. If
@@ -138,7 +137,7 @@ outputfile output.html
 # (This works by controlling whether the default template includes
 # __refresh__; if you use a custom template, __refresh__ is always
 # available.)
-userefresh true
+userefresh false
 
 # Whether to show the list of active feeds in the generated HTML.
 # (This works by controlling whether the default template includes
@@ -220,7 +219,6 @@ newfeedperiod 3h
 # will ask you to make the necessary change by hand.
 changeconfig true
 
-imgstrip none
 # The feeds you want to watch, in the format "feed period url [args]".
 # The period is the minimum time between updates; if less than period
 # minutes have passed, "rawdog update" will skip that feed. Specifying
@@ -263,63 +261,76 @@ imgstrip none
 #feed 3h http://proxyfeed.example.com/proxied.rss http_proxy=http://localhost:1234/
 #feed 3h http://dupsfeed.example.com/duplicated.rss allowduplicates=true
 
-feed 2m http://feeds.feedburner.com/theendeavour
-feed 2m http://elementaryluna.blogspot.com/feeds/posts/default
-feed 2m http://archlinux.me/?type=atom10
-feed 2m https://www.archlinux.org/feeds/news/
-feed 2m http://crunchbang.org/news/feed/
-feed 2m http://feeds.feedburner.com/elementaryupdate
-feed 2m http://emergelinux.tumblr.com/rss
-feed 2m http://www.gnome.org/feed/
-feed 2m http://www.iheartubuntu.com/feeds/posts/default
-feed 2m http://fulltextrssfeed.com/elementaryos.org/journal/rss.xml
-feed 2m http://feeds.feedburner.com/linuxhub
-feed 2m http://feeds.feedburner.com/d0od
-feed 2m http://onethingwell.org/rss
-feed 2m https://planet.archlinux.org/atom.xml
-feed 2m http://shnatsel.blogspot.co.uk/feeds/posts/default
-feed 2m http://www.sublimetext.com/blog/feed
-feed 2m http://feeds.feedburner.com/sudobits
-feed 2m http://www.notmart.org/phpwet/rss.php
-feed 1d http://shimmerproject.org/feed/
-feed 1d http://tutafuta.com/feed/
-feed 2m http://tuxfiction.wordpress.com/feed/
-feed 2m http://feeds.launchpad.net/ubuntu/announcements.atom
-feed 2m http://fulltextrssfeed.com/feeds.ubuntumanual.org/ubuntumanual
-feed 2m http://ubuntuguide.net/feed
-feed 2m http://www.ubuntuvibes.com/feeds/posts/default
-feed 2m http://fulltextrssfeed.com/feeds.feedburner.com/UpUbuntu
-feed 2m http://urukrama.wordpress.com/feed/
-feed 2m http://www.webupd8.org/feeds/posts/default
-feed 1d http://jaw42.blogspot.com/feeds/posts/default
-feed 12h http://feeds.feedburner.com/brainlesstales
-feed 2m http://blog.feedly.com/feed/
-feed 2m http://feeds.feedburner.com/cgpgrey/PJyo
-feed 2m http://www.changedetection.com/accountfeed.xml?feedid=308218917990486
-feed 2m http://feeds.feedburner.com/DailyInfographic
-feed 2m http://fuckyeahfluiddynamics.tumblr.com/rss
-feed 2m http://inconsolation.wordpress.com/feed/
-feed 2m http://feeds.feedburner.com/LifeToHerYears
-feed 2m http://feeds.feedburner.com/thetoolbox/cc
-feed 2m http://what-if.xkcd.com/feed.atom
-feed 1d http://xkcd.com/atom.xml
-feed 2m http://fulltextrssfeed.com/www.alistapart.com/site/rss
-#feed2mh http://acko.net/atom.xml
-feed 2m http://blog.ifttt.com/rss
-feed 2m http://igurublog.wordpress.com/feed/
-feed 2m http://feeds.feedburner.com/littlebigdetails
-#feed 2m http://fulltextrssfeed.com/www.theverge.com/rss/index.xml
-feed 2m http://www.theverge.com/rss/index.xml
-feed 2m http://feeds.feedburner.com/ChromeStory
-feed 2m http://blog.chromium.org/feeds/posts/default
-feed 2m http://feeds.feedburner.com/OfficialGmailBlog
-feed 2m http://feeds.feedburner.com/GoogleAppsUpdates
-feed 2m http://feeds.feedburner.com/GoogleOperatingSystem
-feed 2m http://feeds.feedburner.com/blogspot/dtKx
-feed 2m http://gdata.youtube.com/feeds/base/users/CGPGrey/uploads?alt=rss&amp;v=2&amp;orderby=published&amp;client=ytapi-youtube-profile
-feed 2m http://gdata.youtube.com/feeds/base/users/collectivecadenza/uploads?alt=rss&amp;v=2&amp;orderby=published&amp;client=ytapi-youtube-profile
-feed 2m http://gdata.youtube.com/feeds/base/users/engineerguyvideo/uploads?alt=rss&amp;v=2&amp;orderby=published&amp;client=ytapi-youtube-profile
-feed 2m http://gdata.youtube.com/feeds/base/users/MinutePhysics/uploads?alt=rss&amp;v=2&amp;orderby=published&amp;client=ytapi-youtube-profile
-feed 2m http://gdata.youtube.com/feeds/base/users/destinws2/uploads?alt=rss&amp;v=2&amp;orderby=published&amp;client=ytapi-youtube-profile
-feed 2m http://gdata.youtube.com/feeds/base/users/vlogbrothers/uploads?alt=rss&amp;v=2&amp;orderby=published&amp;client=ytapi-youtube-profile
-feed 2m http://gdata.youtube.com/feeds/base/users/vsauce/uploads?alt=rss&amp;v=2&amp;orderby=published&amp;client=ytapi-youtube-profile
+feed 12h http://feeds.feedburner.com/cgpgrey/PJyo
+feed 12h http://feeds.feedburner.com/LifeToHerYears
+feed 12h http://feeds.feedburner.com/littlebigdetails
+feed 12h http://rss.timeanddate.com/news-time.rss
+feed 12h http://sarahcandersen.com/rss
+feed 12h http://www.smbc-comics.com/rss.php
+feed 12h https://feeds.feedburner.com/codinghorror
+feed 12h https://github.com/blog/all.atom
+feed 12h https://neovim.io/news.xml
+feed 12h https://openlp.org/rss.xml
+feed 12h https://what-if.xkcd.com/feed.atom
+feed 12h https://xkcd.com/atom.xml
+feed 12h https://blog.fastmail.com/feed/
+feed 12h https://www.reddit.com/r/oilshell/.rss
+
+# colinfurze
+feed 12h https://www.youtube.com/feeds/videos.xml?channel_id=UCp68_FLety0O-n9QU6phsgw
+# suckerpinch
+feed 12h https://www.youtube.com/feeds/videos.xml?channel_id=UC3azLjQuz9s5qk76KEXaTvA
+# The Slow Mo Guys 2
+feed 12h https://www.youtube.com/feeds/videos.xml?channel_id=UCgC4Nn0rqqdeqACnzaIMo_Q
+# standupmaths
+feed 12h https://www.youtube.com/feeds/videos.xml?channel_id=UCSju5G2aFaWMqn-_0YBtq5A
+# Steve Mould - Science Videos
+feed 12h https://www.youtube.com/feeds/videos.xml?channel_id=UCEIwxahdLz7bap-VDs9h35A
+# Numberphile
+feed 12h https://www.youtube.com/feeds/videos.xml?channel_id=UCoxcjq-8xIDTYp3uz647V5A
+# Tom Scott
+feed 12h https://www.youtube.com/feeds/videos.xml?channel_id=UCBa659QWEk1AI4Tg--mrJ2A
+# Vsauce
+feed 12h https://www.youtube.com/feeds/videos.xml?channel_id=UC6nSFpj9HTCZ5t-N3Rm3-HA
+# TomSka
+feed 12h https://www.youtube.com/feeds/videos.xml?channel_id=UCOYWgypDktXdb-HfZnSMK6A
+# David Mitchell's Soapbox
+feed 12h https://www.youtube.com/feeds/videos.xml?channel_id=UCtxNu_ADBcbujQh-s9OBFvQ
+# Computerphile
+feed 12h https://www.youtube.com/feeds/videos.xml?channel_id=UC9-y-6csu5WGm29I7JiwpnA
+# 2veritasium
+feed 12h https://www.youtube.com/feeds/videos.xml?channel_id=UC2LZO6swZ9SLUEOks3WnsfA
+# MinuteEarth
+feed 12h https://www.youtube.com/feeds/videos.xml?channel_id=UCeiYXex_fwgYDonaTcSIk6w
+# Mark Rober
+feed 12h https://www.youtube.com/feeds/videos.xml?channel_id=UCY1kMZp36IQSyNx_9h4mpCg
+# The Slow Mo Guys
+feed 12h https://www.youtube.com/feeds/videos.xml?channel_id=UCUK0HBIBWgM2c4vsPhkYY4w
+# engineerguy
+feed 12h https://www.youtube.com/feeds/videos.xml?channel_id=UC2bkHVIDjXS7sgrgjFtzOXQ
+# Vihart
+feed 12h https://www.youtube.com/feeds/videos.xml?channel_id=UCOGeU-1Fig3rrDjhm9Zs_wg
+# collectivecadenza
+feed 12h https://www.youtube.com/feeds/videos.xml?channel_id=UCzdbnf-pIJh-Qp6fdSb5ezw
+# Veritasium
+feed 12h https://www.youtube.com/feeds/videos.xml?channel_id=UCHnyfMqiRRG1u-2MsSQLbXA
+# vlogbrothers
+feed 12h https://www.youtube.com/feeds/videos.xml?channel_id=UCGaVdbSav8xWuFWTadK6loA
+# CGP Grey
+feed 12h https://www.youtube.com/feeds/videos.xml?channel_id=UC2C_jShtL725hvbm1arSV9w
+# minutephysics
+feed 12h https://www.youtube.com/feeds/videos.xml?channel_id=UCUHW94eEFW7hkUMVaZz4eDg
+# SmarterEveryDay
+feed 12h https://www.youtube.com/feeds/videos.xml?channel_id=UC6107grRI4m0o2-emgoDnAA
+# SmarterEveryDay2
+feed 12h https://www.youtube.com/feeds/videos.xml?channel_id=UC8VkNBOwvsTlFjoSnNSMmxw
+# Karl Beadle
+feed 12h https://www.youtube.com/feeds/videos.xml?channel_id=UCdY96xWRKKqe1sokOg2gC1g
+# Xidnaf
+feed 12h https://www.youtube.com/feeds/videos.xml?channel_id=UCByBOwwOU5tKddYpsrHiUUw
+# Applied Science
+feed 12h https://www.youtube.com/feeds/videos.xml?channel_id=UCivA7_KLKWo43tFcCkFvydw
+# Lessons from the Screenplay
+feed 12h https://www.youtube.com/feeds/videos.xml?channel_id=UCErSSa3CaP_GJxmFpdjG9Jw
+# 3Blue1Brown
+feed 12h https://www.youtube.com/feeds/videos.xml?channel_id=UCYO_jab_esuFRV4b17AJtAw
