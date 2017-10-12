@@ -2,17 +2,24 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>rawdog</title>
 
 <style>
 	body {
-		margin: 1em;
+		margin: 1%;
 		overflow-y: scroll;
 	}
 	a { text-decoration: none; }
 	a:link { color: #08b; }
 	a:visited, a:hover { color: #a03; }
 	h2 { margin: 0 0 1em 0; }
+
+	#gen {
+		display: inline-block;
+		font-size: 60%;
+		color: gray;
+	}
 
 	#page {
 		width: 60em;
@@ -21,29 +28,41 @@
 		margin-right: auto;
 	}
 
-	.date, .feed {
+	.item {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: baseline;
+	}
+
+	.date {
+		order: 1;
+		width: 8em;
 		font-size: 60%;
 		color: gray;
 	}
 
-	.date {
-		display: inline-block;
-		width: 8em;
+	.feed {
+		order: 2;
+		font-size: 60%;
 	}
 
-	.title, #ytvids {
+	.title {
+		order: 3;
 		cursor: pointer;
-		padding-right: 0.5em;
+		padding-bottom: 20px;
+		flex-basis: 100%;
 	}
+
+	.vid { width: 100%; }
+	img { max-width: 100%; }
+
 	.entry {
+		order: 4;
 		display: none;
 		background: #fafafa;
-		padding: 1em;
-		box-shadow: 3px 3px 4px #ddd;
+		width: 100%;
 		margin-bottom: 2em;
 	}
-
-	img { max-width: 30em; }
 
 	#version {
 		border-top: solid black 1px;
@@ -77,6 +96,27 @@
 		80% { opacity: 1; }
 		100% { opacity: 0; }
 	}
+
+	@media only screen and (min-width: 500px) {
+		.date { order: 1; }
+		.feed { order: 3; }
+
+		.title {
+			order: 2;
+			flex-basis: auto;
+			padding: 0 0.3em 0.3em 0.3em;
+		}
+
+		.entry {
+			order: 4;
+			padding: 1em;
+			box-shadow: 3px 3px 4px #ddd;
+		}
+
+		.vid { max-width: 35em; }
+		img { max-width: 35em; }
+	}
+
 </style>
 
 <script>
@@ -137,7 +177,6 @@ function openN(dir) {
 		closeAll();
 		if (list[cur]) {
 			open(list[cur]);
-			window.scrollTo(0, list[cur].offsetTop);
 		}
 	}
 }
@@ -154,7 +193,7 @@ function uncomment(node) {
 function open(node) {
 	console.log('open');
 	closeAll();
-	var link = node.children[2].children[0].href
+	var link = node.dataset.link
 	if (~link.indexOf('youtube.com/watch')) {
 		convert_youtube(node);
 	}
@@ -162,12 +201,13 @@ function open(node) {
 	el.innerHTML = el.innerHTML.replace('<!--RAWDOG','').replace('RAWDOG-->','');
 	el.style.display = 'block';
 	node.isOpen = true;
+	window.scrollTo(0, node.offsetTop);
 }
 
 function close(node) {
 	console.log('close');
 	var el = node.children[3];
-	var link = node.children[2].children[0].href
+	var link = node.dataset.link
 	if (~link.indexOf('youtube.com/watch')) {
 		el.innerHTML = null;
 	}
@@ -190,9 +230,9 @@ function showToast(str) {
 }
 
 function convert_youtube(node) {
-	var link = node.children[2].children[0].href;
+	var link = node.dataset.link
 	link = link.replace('youtube.com/watch?v=', 'youtube-nocookie.com/embed/')
-	var newhtml='<iframe width="560" height="315" src="'+link+'?rel=0" frameborder="0" allowfullscreen></iframe>'
+	var newhtml='<iframe class="vid" width="560" height="315" src="'+link+'?rel=0" frameborder="0" allowfullscreen></iframe>'
 	node.children[3].innerHTML = newhtml;
 }
 
@@ -205,7 +245,7 @@ function watch_all_youtube(action) {
 		for (i=0; i<list.length; i++) {
 			var el = list[i];
 			console.log(el);
-			var link = el.children[2].children[0].href;
+			var link = node.dataset.link
 			if (~link.indexOf('youtube.com/watch')) {
 				var ytid = link.substring(link.length-11);
 				console.log(link+'\t'+ytid);
@@ -230,7 +270,7 @@ function watch_all_youtube(action) {
 </head>
 <body id="rawdog">
 	<div id="page">
-		<h1>__num_items__ items from __num_feeds__ feeds</h1>
+		<h1>__num_items__ items from __num_feeds__ feeds <span id="gen">__generated__</span></h1>
 		<div id="items">
 			__items__
 		</div>

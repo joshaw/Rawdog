@@ -1,8 +1,9 @@
-<div class="item" id="__hash__" onclick="uncomment(this)">
-	<span class="date">__date__</span><span class="title">__title_no_link__</span><span class="feed"><a href="__url__">__feed_title_no_link__</a></span>
+<div class="item" id="__hash__" onclick="uncomment(this)" data-link="__url__">
+	<div class="date">__date__</div>
+	<div class="title">__title_no_link__</div>
+	<div class="feed">__feed_title_no_link__</div>
 	<div class="entry"><!--RAWDOG
 		<h2>__title__</h2>
 		__description__
 	RAWDOG--></div>
 </div>
-
