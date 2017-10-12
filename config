@@ -275,6 +275,7 @@ feed 12h https://what-if.xkcd.com/feed.atom
 feed 12h https://xkcd.com/atom.xml
 feed 12h https://blog.fastmail.com/feed/
 feed 12h https://www.reddit.com/r/oilshell/.rss
+feed 12h https://www.archlinux.org/feeds/news/
 
 # colinfurze
 feed 12h https://www.youtube.com/feeds/videos.xml?channel_id=UCp68_FLety0O-n9QU6phsgw
