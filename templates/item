@@ -1,5 +1,4 @@
 <div class="item" id="__hash__" onclick="uncomment(this)" data-link="__url__">
-	<div class="date">__date__</div>
 	<div class="title">__title_no_link__</div>
 	<div class="feed">__feed_title_no_link__</div>
 	<div class="entry"><!--RAWDOG

@@ -2,3 +2,4 @@ state
 state.lock
 *.pyc
 output.html
+feeds/

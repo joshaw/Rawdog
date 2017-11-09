@@ -13,7 +13,10 @@
 	a { text-decoration: none; }
 	a:link { color: #08b; }
 	a:visited, a:hover { color: #a03; }
-	h2 { margin: 0 0 1em 0; }
+	h2 { 
+		margin: 0.2em 0 0 0;
+		color: #aaa;
+	}
 
 	#gen {
 		display: inline-block;
@@ -36,7 +39,7 @@
 
 	.date {
 		order: 1;
-		width: 8em;
+		width: 10em;
 		font-size: 60%;
 		color: gray;
 	}
@@ -44,6 +47,7 @@
 	.feed {
 		order: 2;
 		font-size: 60%;
+		color: #08b;
 	}
 
 	.title {
@@ -153,13 +157,11 @@ document.onkeypress = function(evt) {
 
 function closeAll() {
 	console.log('closeAll');
-	if (list) {
-		for (i=0; i<list.length; i++) {
-			close(list[i]);
-		}
-	} else {
+	if (! list) {
 		list = document.getElementsByClassName('item');
-		closeAll();
+	}
+	for (i=0; i<list.length; i++) {
+		close(list[i]);
 	}
 }
 
@@ -197,7 +199,7 @@ function open(node) {
 	if (~link.indexOf('youtube.com/watch')) {
 		convert_youtube(node);
 	}
-	var el = node.children[3];
+	var el = node.getElementsByClassName('entry')[0]
 	el.innerHTML = el.innerHTML.replace('<!--RAWDOG','').replace('RAWDOG-->','');
 	el.style.display = 'block';
 	node.isOpen = true;
@@ -206,7 +208,7 @@ function open(node) {
 
 function close(node) {
 	console.log('close');
-	var el = node.children[3];
+	var el = node.getElementsByClassName('entry')[0]
 	var link = node.dataset.link
 	if (~link.indexOf('youtube.com/watch')) {
 		el.innerHTML = null;
@@ -233,7 +235,8 @@ function convert_youtube(node) {
 	var link = node.dataset.link
 	link = link.replace('youtube.com/watch?v=', 'youtube-nocookie.com/embed/')
 	var newhtml='<iframe class="vid" width="560" height="315" src="'+link+'?rel=0" frameborder="0" allowfullscreen></iframe>'
-	node.children[3].innerHTML = newhtml;
+	//node.children[3].innerHTML = newhtml;
+	node.getElementsByClassName('entry')[0].innerHTML = newhtml;
 }
 
 function watch_all_youtube(action) {
