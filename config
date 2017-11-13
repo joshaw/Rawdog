@@ -276,6 +276,8 @@ feed 5h https://xkcd.com/atom.xml
 feed 5h https://blog.fastmail.com/feed/
 feed 5h https://www.reddit.com/r/oilshell/.rss
 feed 5h https://www.archlinux.org/feeds/news/
+feed 5h https://www.destroyallsoftware.com/screencasts/feed
+feed 5h https://www.destroyallsoftware.com/blog/index.xml
 
 # colinfurze
 feed 5h https://www.youtube.com/feeds/videos.xml?channel_id=UCp68_FLety0O-n9QU6phsgw
